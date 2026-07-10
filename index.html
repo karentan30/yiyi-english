@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YiYi 英语 · 固定欧美外教 1 对 1 · 在线青少年英语</title>
+<meta name="description" content="YiYi 英语（吉林一一英语培训）— 固定欧美外教 1 对 1，专业英语能力测评 + 定制化教学规划 + 教学管家全程伴读，激发 3-15 岁孩子学习潜力。免费领取试听课。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1745; --muted:#726d93; --soft:#9a94b8; --line:#eceaf5;
+  --purple:#6d3ff0; --purple-ink:#4d24c9; --blue:#2f8ef0; --blue-ink:#1876cf;
+  --accent:#ff7a45; --gold:#ffb020; --green:#1ea97c; --red:#ff4b55; --pink:#ff5e9c;
+  --bg:#faf9ff; --card:#ffffff; --ink-2:#2c2458;
+  --radius:20px;
+  --shadow-xs:0 2px 8px rgba(40,24,90,.05);
+  --shadow-sm:0 8px 24px rgba(40,24,90,.07);
+  --shadow:0 18px 48px rgba(40,24,90,.1);
+  --shadow-lg:0 34px 80px rgba(40,24,90,.16);
+  --disp:"Fredoka","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --body:"Nunito","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:var(--disp);font-weight:600;letter-spacing:-.2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.ico{width:1em;height:1em;stroke:currentColor;stroke-width:1.85;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:var(--body);
+  font-weight:800;font-size:15.5px;padding:14px 26px;border-radius:14px;border:none;cursor:pointer;
+  transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .2s,filter .15s;white-space:nowrap}
+.btn .ico{font-size:18px}
+.btn.big{padding:17px 32px;font-size:16.5px}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--gold));color:#fff;box-shadow:0 14px 28px -6px rgba(255,122,69,.55)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 36px -6px rgba(255,122,69,.6)}
+.btn-purple{background:linear-gradient(120deg,var(--purple),var(--blue));color:#fff;box-shadow:0 14px 28px -6px rgba(109,63,240,.5)}
+.btn-purple:hover{transform:translateY(-3px);filter:brightness(1.05)}
+.btn-ghost{background:#fff;color:var(--purple-ink);border:1.5px solid #e5dffb}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--purple);box-shadow:var(--shadow-sm)}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(250,249,255,.8);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+nav.shrink{border-color:var(--line);box-shadow:var(--shadow-xs)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0;transition:padding .2s}
+nav.shrink .nav-in{padding:10px 0}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .yy{font-family:var(--disp);font-weight:700;font-size:25px;color:var(--red);letter-spacing:-.5px}
+.brand .yy em{font-style:normal;color:var(--ink)}
+.brand .zh{font-family:var(--disp);font-weight:600;font-size:20px;color:var(--ink);line-height:1.05}
+.brand small{display:block;font-size:10px;color:var(--soft);font-weight:800;letter-spacing:1.6px;font-family:var(--body)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-weight:700;font-size:15px;color:#514b74;position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2.5px;border-radius:2px;background:var(--purple);transition:width .22s}
+.nav-links a:hover{color:var(--purple)}.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;gap:14px;align-items:center}
+.nav-phone{display:flex;align-items:center;gap:7px;font-weight:800;color:var(--purple-ink);font-size:15px;white-space:nowrap}
+.nav-phone .ico{font-size:17px}
+.burger{display:none;font-size:24px;background:none;border:none;color:var(--ink);cursor:pointer}
+@media(max-width:960px){.nav-links,.nav-phone{display:none}.burger{display:block}}
+
+/* ---------- backgrounds ---------- */
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;pointer-events:none}
+.deco{position:absolute;pointer-events:none;z-index:1;color:#c9bcf5}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(8deg)}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:60px 0 40px;overflow:hidden}
+.hero .blob.b1{width:540px;height:540px;background:#cbb9ff;top:-180px;left:-140px}
+.hero .blob.b2{width:480px;height:480px;background:#b3ddff;top:-90px;right:-150px}
+.hero .deco.d1{top:16%;left:5%;width:34px;height:34px;animation:float 7s ease-in-out infinite}
+.hero .deco.d2{bottom:18%;left:9%;width:22px;height:22px;color:#ffb020;animation:float 6s ease-in-out .4s infinite}
+.hero .deco.d3{top:10%;right:6%;width:26px;height:26px;color:#ff8fbf;animation:float 8s ease-in-out .8s infinite}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #efe9fc;padding:8px 15px 8px 12px;border-radius:100px;font-weight:800;font-size:13.5px;color:var(--purple-ink);box-shadow:var(--shadow-xs)}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(30,169,124,.18)}
+.hero h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;margin:22px 0 0;letter-spacing:-1px}
+.hero h1 .grad{background:linear-gradient(105deg,var(--purple) 5%,var(--pink) 60%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:18px;color:#544e78;max-width:500px;margin:22px 0 0;font-weight:600}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero .mini{display:flex;gap:30px;flex-wrap:wrap;margin-top:32px}
+.hero .mini .m b{font-family:var(--disp);font-weight:700;font-size:28px;color:var(--ink);line-height:1;display:flex;align-items:baseline}
+.hero .mini .m b i{font-style:normal;font-size:.6em;margin-left:1px;color:var(--purple)}
+.hero .mini .m span{font-size:12.5px;color:var(--muted);font-weight:700;margin-top:6px;display:block}
+
+/* hero video-call class mock */
+.stage{position:relative;width:100%;max-width:460px;margin:0 auto}
+.stage .accent{position:absolute;inset:-6% -4% -8% -6%;border-radius:38% 62% 58% 42%/48% 44% 56% 52%;
+  background:linear-gradient(150deg,#7a53ff,#3f9bf2 75%);opacity:.16;filter:blur(6px);animation:bob 8s ease-in-out infinite;z-index:0}
+.classcard{position:relative;z-index:2;background:#fff;border-radius:26px;padding:16px;box-shadow:var(--shadow-lg);border:1px solid #f0edfa}
+.cc-top{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 12px}
+.cc-live{display:flex;align-items:center;gap:7px;font-weight:800;font-size:12.5px;color:var(--red)}
+.cc-live .pip{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,75,85,.5)}70%{box-shadow:0 0 0 7px rgba(255,75,85,0)}}
+.cc-dots{display:flex;gap:5px}.cc-dots i{width:9px;height:9px;border-radius:50%;background:#e6e2f2;display:block}
+.cc-stage{display:grid;grid-template-columns:1fr;gap:10px}
+.tile{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/10;display:grid;place-items:center;color:#fff}
+.tile.teacher{background:linear-gradient(150deg,#6d3ff0,#9a7bff)}
+.tile .avatar{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center}
+.tile .avatar .ico{font-size:34px;stroke-width:1.6}
+.tile .name{position:absolute;left:10px;bottom:9px;background:rgba(0,0,0,.32);color:#fff;font-weight:800;font-size:11.5px;padding:4px 10px;border-radius:8px;backdrop-filter:blur(2px)}
+.cc-sub{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile.kid{background:linear-gradient(150deg,#2f8ef0,#5cc6ff);aspect-ratio:1/1}
+.tile.board{background:linear-gradient(150deg,#fff3e6,#ffe6cf);aspect-ratio:1/1;color:var(--accent);display:flex;flex-direction:column;gap:3px;font-family:var(--disp)}
+.tile.board .abc{font-weight:700;font-size:30px;letter-spacing:2px}
+.tile.board small{color:#a35a2a;font-weight:800;font-size:11px;font-family:var(--body)}
+.cc-cap{display:flex;align-items:center;gap:8px;padding:12px 8px 6px;color:var(--muted);font-weight:700;font-size:12.5px}
+.cc-cap .ico{color:var(--green);font-size:16px}
+.chip{position:absolute;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-weight:800;font-size:13px;display:flex;align-items:center;gap:9px;z-index:4;border:1px solid #f2eefb}
+.chip .ci{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;color:#fff}.chip .ci .ico{font-size:16px}
+.chip.c1{top:-4%;left:-10%;animation:bob 6s ease-in-out infinite}
+.chip.c2{bottom:8%;right:-11%;animation:bob 6.6s ease-in-out .5s infinite}
+
+/* ---------- section shell ---------- */
+section.blk{position:relative;padding:80px 0}
+.sec-head{text-align:center;max-width:660px;margin:0 auto 50px}
+.tagpill{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:12.5px;letter-spacing:1px;color:var(--purple);background:#efeafe;padding:7px 15px;border-radius:100px;margin-bottom:16px;text-transform:uppercase}
+.tagpill .ico{font-size:15px}
+.sec-head h2{font-size:clamp(28px,3.8vw,40px);line-height:1.16;letter-spacing:-.6px}
+.sec-head p{color:var(--muted);font-size:16.5px;margin-top:14px;font-weight:600}
+
+.reveal{opacity:0;transform:translateY(24px)}
+html.js .reveal{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal.in{opacity:1;transform:none}
+html:not(.js) .reveal{opacity:1;transform:none}
+
+/* ---------- stats ---------- */
+.stats{background:linear-gradient(120deg,#6d3ff0,#2f8ef0);border-radius:28px;padding:40px 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 220px at 12% -20%,rgba(255,255,255,.2),transparent),radial-gradient(500px 220px at 90% 120%,rgba(255,255,255,.14),transparent)}
+.stats .divi{position:absolute;top:26%;bottom:26%;width:1px;background:rgba(255,255,255,.18)}
+.stats .s{text-align:center;color:#fff;position:relative}
+.stats .v{display:flex;align-items:baseline;justify-content:center;white-space:nowrap;font-family:var(--disp);font-weight:700;line-height:1;text-shadow:0 2px 6px rgba(20,8,60,.22)}
+.stats .v .count{font-size:clamp(38px,4.8vw,56px);color:#fff}
+.stats .v em{font-style:normal;font-size:.48em;font-weight:700;margin-left:2px;opacity:.95}
+.stats .lbl{font-size:13.5px;font-weight:800;opacity:.96;margin-top:11px;display:block;letter-spacing:.3px}
+
+/* ---------- advantages ---------- */
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.adv{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;box-shadow:var(--shadow-xs);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.adv::after{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.adv:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.adv:hover::after{transform:scaleX(1)}
+.adv .ic{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;color:#fff;margin-bottom:18px;box-shadow:0 10px 20px -6px rgba(109,63,240,.5)}
+.adv .ic .ico{font-size:26px}
+.adv h3{font-size:18.5px;margin-bottom:8px}
+.adv p{font-size:14px;color:var(--muted);font-weight:600}
+
+/* ---------- curriculum ---------- */
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.lvl{border-radius:var(--radius);padding:26px 22px;color:#fff;position:relative;overflow:hidden;min-height:238px;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+.lvl:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.lvl .age{font-weight:800;font-size:12.5px;opacity:.94;letter-spacing:.3px}
+.lvl h3{font-size:22px;margin:6px 0 4px;color:#fff}
+.lvl .cefr{display:inline-flex;background:rgba(255,255,255,.24);padding:4px 12px;border-radius:100px;font-weight:800;font-size:12px;margin-bottom:16px;width:fit-content}
+.lvl ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.lvl li{font-size:13px;font-weight:700;opacity:.97;display:flex;gap:8px;align-items:center}
+.lvl li .ico{font-size:14px;opacity:.85}
+.lvl .num{position:absolute;top:-14px;right:8px;font-family:var(--disp);font-weight:700;font-size:92px;opacity:.15;color:#fff}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 18px;text-align:center;box-shadow:var(--shadow-xs);position:relative;transition:transform .2s}
+.step:hover{transform:translateY(-5px)}
+.step .n{width:44px;height:44px;margin:0 auto 14px;border-radius:14px;display:grid;place-items:center;color:#fff;font-family:var(--disp);font-weight:700;font-size:19px}
+.step h4{font-size:16px;margin-bottom:5px}
+.step p{font-size:12.5px;color:var(--muted);font-weight:600}
+.step .arrow{position:absolute;right:-11px;top:46px;color:#cdc1f2;font-size:18px;z-index:2}
+@media(max-width:860px){.step .arrow{display:none}}
+
+/* ---------- teachers ---------- */
+.fac{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center}
+.fac-card{background:linear-gradient(155deg,#fff,#f5f1ff);border:1px solid var(--line);border-radius:26px;padding:38px;box-shadow:var(--shadow)}
+.fac-card h2{font-size:30px;line-height:1.18;margin-top:8px}
+.fac-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.fac-badges span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #ece6fa;border-radius:100px;padding:8px 15px;font-weight:800;font-size:13px;color:var(--purple-ink);box-shadow:var(--shadow-xs)}
+.fac-badges .ico{font-size:15px;color:var(--green)}
+.fac ul{list-style:none;display:flex;flex-direction:column;gap:18px}
+.fac ul li{display:flex;gap:15px;align-items:flex-start}
+.fac ul li .k{flex:0 0 auto;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#fff;box-shadow:0 10px 20px -8px rgba(109,63,240,.55)}
+.fac ul li .k .ico{font-size:22px}
+.fac ul li h4{font-size:17px;margin-bottom:3px}
+.fac ul li p{font-size:14px;color:var(--muted);font-weight:600}
+
+/* ---------- pricing ---------- */
+.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow-xs);transition:transform .2s,box-shadow .2s}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.pcard.hot{border:1.5px solid var(--purple);box-shadow:var(--shadow)}
+.pcard .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(120deg,var(--pink),var(--accent));color:#fff;font-weight:800;font-size:12px;padding:6px 15px;border-radius:100px;white-space:nowrap;box-shadow:0 10px 18px -4px rgba(255,94,156,.55)}
+.pcard .lv{font-weight:800;font-size:12px;letter-spacing:.3px;color:var(--blue-ink);background:#e8f3ff;display:inline-block;padding:4px 11px;border-radius:8px;margin-bottom:14px;width:fit-content}
+.pcard h3{font-size:22px}
+.pcard .hrs{color:var(--muted);font-size:13px;font-weight:700;margin-bottom:14px}
+.pcard .hrs b{color:var(--purple)}
+.pcard .amt{display:flex;align-items:baseline;gap:2px}
+.pcard .amt .c{font-family:var(--disp);font-weight:600;font-size:19px;color:var(--red)}
+.pcard .amt .n{font-family:var(--disp);font-weight:700;font-size:38px;color:var(--red);line-height:1}
+.pcard .was{font-size:12.5px;color:var(--soft);margin:7px 0 14px;min-height:18px}
+.pcard .was s{margin-left:3px}
+.pcard .gift{display:flex;gap:7px;align-items:flex-start;font-size:12.5px;color:#a35418;background:#fff5ec;border:1px solid #ffe2cc;border-radius:11px;padding:9px 11px;font-weight:700;margin-bottom:18px;line-height:1.4}
+.pcard .gift .ico{color:var(--accent);font-size:15px;margin-top:1px}
+.pcard .buy{margin-top:auto;text-align:center;padding:13px;border-radius:12px;font-weight:800;font-size:15px;transition:transform .14s,filter .15s;display:flex;align-items:center;justify-content:center;gap:7px}
+.pcard .buy.solid{background:linear-gradient(120deg,var(--purple),var(--blue));color:#fff;box-shadow:0 10px 22px -6px rgba(109,63,240,.5)}
+.pcard .buy.line{background:#f2effc;color:var(--purple-ink);border:1px solid #e6dffa}
+.pcard .buy:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.pay-note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:26px;font-weight:600}
+.pay-note b{color:#635bff}.pay-note a{color:var(--purple);font-weight:800}
+.badges-pay{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.badges-pay span{color:#fff;font-weight:800;font-size:11px;padding:4px 9px;border-radius:5px;letter-spacing:.3px}
+.badges-pay .st{background:#635bff}.badges-pay .vi{background:#1a1f71}.badges-pay .mc{background:#eb001b}.badges-pay .ax{background:#2e77bb}
+
+/* ---------- testimonials ---------- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-xs);position:relative}
+.q .mark{font-family:var(--disp);font-size:52px;line-height:.6;color:#e7e0fb;height:26px}
+.q .stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-top:6px}
+.q p{font-size:14.5px;color:#3f3968;margin:12px 0 20px;font-weight:600}
+.q .who{display:flex;align-items:center;gap:12px}
+.q .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--disp);font-weight:700;font-size:18px}
+.q .who b{font-size:14.5px;display:block}
+.q .who span{font-size:12.5px;color:var(--muted);font-weight:700}
+
+/* ---------- reserve ---------- */
+.reserve-in{background:linear-gradient(130deg,#6d3ff0,#2f8ef0 94%);border-radius:30px;padding:50px;display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.reserve-in .rblob{position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1);top:-90px;right:-60px}
+.reserve-in .txt{position:relative;z-index:2}
+.reserve-in .txt .tagpill{background:rgba(255,255,255,.2);color:#fff}
+.reserve-in .txt h2{color:#fff;font-size:clamp(26px,3.4vw,36px);line-height:1.18}
+.reserve-in .txt>p{color:rgba(255,255,255,.92);font-size:16px;font-weight:600;margin-top:14px;max-width:420px}
+.perks{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.perks span{color:#fff;font-weight:700;font-size:14.5px;display:flex;gap:11px;align-items:center}
+.perks span i{background:rgba(255,255,255,.2);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:0 0 auto}
+.perks span i .ico{font-size:16px}
+.form-card{position:relative;z-index:2;background:#fff;border-radius:22px;padding:30px;box-shadow:var(--shadow-lg)}
+.form-card h3{font-size:21px;text-align:center}
+.form-card .sub{text-align:center;color:var(--muted);font-size:13px;font-weight:700;margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:800;font-size:13px;color:#4a4470;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 15px;border:1.5px solid #e7e3f4;border-radius:12px;font-family:var(--body);font-size:15px;font-weight:600;color:var(--ink);background:#fbfaff;transition:border .15s,box-shadow .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 4px rgba(109,63,240,.12)}
+.form-card .btn{width:100%;margin-top:8px}
+.form-card .fine{display:flex;gap:6px;align-items:center;justify-content:center;text-align:center;font-size:11.5px;color:var(--soft);margin-top:14px;font-weight:700}
+.form-card .fine .ico{font-size:13px}
+.form-ok{display:none;text-align:center;padding:16px 0}
+.form-ok.show{display:block}
+.form-ok .ic{width:60px;height:60px;border-radius:50%;background:#e9fbf3;color:var(--green);display:grid;place-items:center;margin:0 auto 12px}
+.form-ok .ic .ico{font-size:30px;stroke-width:2.4}
+.form-ok h3{margin-bottom:6px}
+.form-ok p{color:var(--muted);font-weight:700;font-size:14px}
+.qr{width:118px;height:118px;margin:16px auto 0;border-radius:14px;border:1.5px dashed #d7cff2;display:grid;place-items:center;color:#a99fd0;font-size:11.5px;font-weight:800;text-align:center;background:#faf8ff;line-height:1.5}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center}
+.about h2{font-size:32px;line-height:1.2;margin-top:8px}
+.about>div>p{color:var(--muted);font-weight:600;margin-top:14px;max-width:500px}
+.quals{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qual{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow-xs)}
+.qual .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;margin-bottom:12px}
+.qual .ic .ico{font-size:21px}
+.qual h4{font-size:15px;margin-bottom:3px}
+.qual p{font-size:12.5px;color:var(--muted);font-weight:600}
+
+/* ---------- footer ---------- */
+footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:32px}
+.foot-grid h5{color:#fff;font-family:var(--disp);font-weight:600;font-size:16px;margin-bottom:16px}
+.foot-grid a,.foot-grid p{color:#a49dc9;font-size:13.5px;font-weight:600;margin-bottom:10px}
+.foot-grid a{display:block}.foot-grid a:hover{color:#fff}
+.foot-grid .fc{display:flex;align-items:center;gap:9px}.foot-grid .fc .ico{font-size:16px;color:#8f88bd}
+.foot-brand .brand .yy{color:#ff8fa8}.foot-brand .brand .zh{color:#fff}
+.foot-brand>p{margin-top:14px;line-height:1.8}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:36px;padding-top:22px;text-align:center;font-size:12.5px;color:#847dad}
+.foot-bottom .disc{max-width:800px;margin:0 auto 10px;line-height:1.7}
+
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr;gap:26px}.stage{max-width:400px;margin-top:6px}
+  .adv-grid,.levels,.price-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}.quotes{grid-template-columns:1fr}
+  .fac,.reserve-in,.about{grid-template-columns:1fr;gap:28px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:28px}.stats .divi{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .reserve-in{padding:34px}
+}
+@media(max-width:560px){
+  .adv-grid,.levels,.price-grid,.steps,.stats,.foot-grid{grid-template-columns:1fr}
+  .hero h1{font-size:35px}.pcard.hot{order:-1}section.blk{padding:56px 0}
+  .chip.c1{left:-4%}.chip.c2{right:-4%}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-teacher" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></symbol>
+<symbol id="i-support" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><line x1="2.5" y1="12" x2="21.5" y2="12"/><path d="M12 2.5a15 15 0 0 1 4 9.5 15 15 0 0 1-4 9.5 15 15 0 0 1-4-9.5 15 15 0 0 1 4-9.5z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7.5"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 11a7 7 0 0 1-14 0"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.3 5.3 0 0 0-7.5 0L12 6.9l-1.3-1.3a5.3 5.3 0 1 0-7.5 7.5L12 22l8.8-8.9a5.3 5.3 0 0 0 0-7.5z"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="21 3 21 9 15 9"/><polyline points="3 21 3 15 9 15"/><path d="M20 8a8 8 0 0 0-14-3L3 8"/><path d="M4 16a8 8 0 0 0 14 3l3-3"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.3 2.7 3 6 3s6-1.7 6-3v-5"/></symbol>
+<symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6.2"/><path d="M8.2 13.5 7 22l5-2.6L17 22l-1.2-8.5"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2.2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24"><polyline points="20 12 20 21 4 21 4 12"/><rect x="2.5" y="7" width="19" height="5" rx="1"/><line x1="12" y1="21" x2="12" y2="7"/><path d="M12 7H8a2.5 2.5 0 0 1 0-5c3 0 4 5 4 5z"/><path d="M12 7h4a2.5 2.5 0 0 0 0-5c-3 0-4 5-4 5z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><polyline points="3 6 12 13 21 6"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="8" r="4.2"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><polygon points="10 8.5 16 12 10 15.5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><polyline points="12 7 12 12 15.5 14"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></symbol>
+</defs></svg>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="yy">Yi<em>Yi</em></span><span class="zh">英语<small>YIYI ENGLISH · 在线青少年英语</small></span></a>
+    <div class="nav-links">
+      <a href="#advantage">为什么选我们</a><a href="#curriculum">课程体系</a><a href="#process">上课流程</a><a href="#teachers">师资</a><a href="#pricing">课包价格</a><a href="#about">关于我们</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-phone"><svg class="ico"><use href="#i-phone"/></svg>400-XXX-XXXX</span>
+      <a href="#reserve" class="btn btn-primary">免费领试听课</a>
+    </div>
+    <button class="burger" onclick="document.getElementById('reserve').scrollIntoView()">☰</button>
+  </div>
+</nav>
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <svg class="deco d1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-spark"/></svg>
+  <svg class="deco d2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/></svg>
+  <svg class="deco d3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-spark"/></svg>
+
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>3–15 岁 · 固定外教 1 对 1</span>
+      <h1>固定欧美外教 1 对 1<br/><span class="grad">激发孩子的英语潜力</span></h1>
+      <p class="lead">专业英语能力测评 · 定制化教学规划 · 教学管家全程伴读。一个固定的好老师，陪孩子把英语真正学会、敢开口。</p>
+      <div class="cta-row">
+        <a href="#reserve" class="btn btn-primary big"><svg class="ico"><use href="#i-gift"/></svg>免费领取试听课</a>
+        <a href="#pricing" class="btn btn-ghost big">查看课包价格</a>
+      </div>
+      <div class="mini">
+        <div class="m"><b>2000<i>+</i></b><span>学员家庭信赖</span></div>
+        <div class="m"><b>100<i>%</i></b><span>欧美持证外教</span></div>
+        <div class="m"><b>85<i>%</i></b><span>学员续费率</span></div>
+      </div>
+    </div>
+
+    <!-- 在线 1对1 课堂模拟（可替换为真实上课截图/照片） -->
+    <div class="stage">
+      <div class="accent"></div>
+      <div class="classcard">
+        <div class="cc-top">
+          <span class="cc-live"><span class="pip"></span>LIVE · 1 对 1 外教课</span>
+          <span class="cc-dots"><i></i><i></i><i></i></span>
+        </div>
+        <div class="cc-stage">
+          <div class="tile teacher">
+            <div class="avatar"><svg class="ico"><use href="#i-user"/></svg></div>
+            <span class="name">Ms. Emily · 🇺🇸 欧美外教</span>
+          </div>
+          <div class="cc-sub">
+            <div class="tile kid">
+              <div class="avatar"><svg class="ico"><use href="#i-user"/></svg></div>
+              <span class="name">Leo · 8 岁</span>
+            </div>
+            <div class="tile board"><span class="abc">Aa Bb</span><small>Today · Phonics</small></div>
+          </div>
+        </div>
+        <div class="cc-cap"><svg class="ico"><use href="#i-check"/></svg>本节目标：自然拼读 + 敢开口表达</div>
+      </div>
+      <div class="chip c1"><span class="ci" style="background:var(--purple)"><svg class="ico"><use href="#i-globe"/></svg></span>纯欧美外教</div>
+      <div class="chip c2"><span class="ci" style="background:var(--green)"><svg class="ico"><use href="#i-support"/></svg></span>管家全程伴读</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STATS ============ -->
+<section class="blk" style="padding-top:8px;padding-bottom:20px">
+  <div class="wrap">
+    <div class="stats reveal">
+      <span class="divi" style="left:25%"></span><span class="divi" style="left:50%"></span><span class="divi" style="left:75%"></span>
+      <div class="s"><div class="v"><span class="count" data-to="2000">2000</span><em>+</em></div><span class="lbl">累计学员家庭</span></div>
+      <div class="s"><div class="v"><span class="count" data-to="800">800</span><em>+</em></div><span class="lbl">严选欧美外教</span></div>
+      <div class="s"><div class="v"><span class="count" data-to="98">98</span><em>%</em></div><span class="lbl">家长满意度</span></div>
+      <div class="s"><div class="v"><span class="count" data-to="85">85</span><em>%</em></div><span class="lbl">学员续费率</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="blk" id="advantage">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-spark"/></svg>为什么选 YiYi</span>
+      <h2>把好老师"固定"下来，把学习"管"起来</h2>
+      <p>不用每次抢课、不用换来换去。一个懂孩子的固定外教，加一位全程跟进的教学管家。</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv reveal"><div class="ic" style="background:linear-gradient(135deg,#6d3ff0,#9a7bff)"><svg class="ico"><use href="#i-teacher"/></svg></div><h3>固定欧美外教</h3><p>1 对 1 固定老师，熟悉孩子的性格与进度，师生默契越上越好。</p></div>
+      <div class="adv reveal"><div class="ic" style="background:linear-gradient(135deg,#2f8ef0,#5cc6ff)"><svg class="ico"><use href="#i-chart"/></svg></div><h3>专业能力测评</h3><p>入学先做英语能力测评，对标 CEFR / 剑桥，清楚孩子当前水平。</p></div>
+      <div class="adv reveal"><div class="ic" style="background:linear-gradient(135deg,#7a53ff,#4b8ff2)"><svg class="ico"><use href="#i-target"/></svg></div><h3>定制教学规划</h3><p>依据测评结果量身定制学习路径与目标，每一步都为孩子而设。</p></div>
+      <div class="adv reveal"><div class="ic" style="background:linear-gradient(135deg,#1ea97c,#4fd0a0)"><svg class="ico"><use href="#i-support"/></svg></div><h3>教学管家伴读</h3><p>专属管家全程跟课、反馈进度、对接家长，学习不掉线。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURRICULUM ============ -->
+<section class="blk" id="curriculum" style="background:linear-gradient(180deg,#fff,#f7f5ff)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-chart"/></svg>课程体系</span>
+      <h2>分级进阶，对标 CEFR 与剑桥标准</h2>
+      <p>从零基础启蒙到自信表达，四大阶梯循序渐进，适配 3–15 岁不同年龄与水平。</p>
+    </div>
+    <div class="levels">
+      <div class="lvl reveal" style="background:linear-gradient(150deg,#ff9a52,#ffb84d)"><span class="num">1</span><div class="age">3–6 岁 · 幼儿启蒙</div><h3>启蒙萌芽</h3><span class="cefr">Pre-A1</span><ul><li><svg class="ico"><use href="#i-check"/></svg>自然拼读入门</li><li><svg class="ico"><use href="#i-check"/></svg>兴趣与语感培养</li><li><svg class="ico"><use href="#i-check"/></svg>敢开口说词句</li></ul></div>
+      <div class="lvl reveal" style="background:linear-gradient(150deg,#3f9bf2,#5cc6ff)"><span class="num">2</span><div class="age">6–9 岁 · 基础打底</div><h3>基础夯实</h3><span class="cefr">A1–A2</span><ul><li><svg class="ico"><use href="#i-check"/></svg>拼读拼写体系化</li><li><svg class="ico"><use href="#i-check"/></svg>日常主题对话</li><li><svg class="ico"><use href="#i-check"/></svg>分级阅读起步</li></ul></div>
+      <div class="lvl reveal" style="background:linear-gradient(150deg,#6d3ff0,#9a7bff)"><span class="num">3</span><div class="age">9–12 岁 · 能力进阶</div><h3>进阶提升</h3><span class="cefr">A2–B1</span><ul><li><svg class="ico"><use href="#i-check"/></svg>语法与写作训练</li><li><svg class="ico"><use href="#i-check"/></svg>话题表达与思辨</li><li><svg class="ico"><use href="#i-check"/></svg>校内同步提分</li></ul></div>
+      <div class="lvl reveal" style="background:linear-gradient(150deg,#ff5e9c,#ff7a8a)"><span class="num">4</span><div class="age">12–15 岁 · 精英冲刺</div><h3>精英贯通</h3><span class="cefr">B1–B2+</span><ul><li><svg class="ico"><use href="#i-check"/></svg>学术与应试并进</li><li><svg class="ico"><use href="#i-check"/></svg>流利表达与演讲</li><li><svg class="ico"><use href="#i-check"/></svg>剑桥/衔接备考</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="blk" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-target"/></svg>上课流程</span>
+      <h2>五步闭环，学习效果可追踪</h2>
+      <p>从入学到进步，每个环节都有人负责、有数据可看。</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n" style="background:var(--accent)">1</div><h4>免费测评</h4><p>预约试听 + 能力测评</p><svg class="ico arrow"><use href="#i-arrow"/></svg></div>
+      <div class="step reveal"><div class="n" style="background:var(--blue)">2</div><h4>定制规划</h4><p>专属学习路径与目标</p><svg class="ico arrow"><use href="#i-arrow"/></svg></div>
+      <div class="step reveal"><div class="n" style="background:var(--purple)">3</div><h4>固定外教</h4><p>匹配 1 对 1 固定外教</p><svg class="ico arrow"><use href="#i-arrow"/></svg></div>
+      <div class="step reveal"><div class="n" style="background:var(--green)">4</div><h4>管家跟踪</h4><p>教学管家跟课反馈</p><svg class="ico arrow"><use href="#i-arrow"/></svg></div>
+      <div class="step reveal"><div class="n" style="background:var(--pink)">5</div><h4>阶段测评</h4><p>定期复盘见进步</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEACHERS ============ -->
+<section class="blk" id="teachers" style="background:linear-gradient(180deg,#f7f5ff,#fff)">
+  <div class="wrap fac">
+    <div class="fac-card reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-badge"/></svg>严选师资</span>
+      <h2>100% 欧美持证外教<br/>层层筛选，只留最好的</h2>
+      <p style="color:var(--muted);font-weight:600;margin-top:14px">来自美国、英国、加拿大等英语母语国家，持 TESOL / TEFL 国际教学资质，具备青少儿教学经验，发音纯正、有耐心、懂引导。</p>
+      <div class="fac-badges">
+        <span><svg class="ico"><use href="#i-check"/></svg>英语母语国家</span><span><svg class="ico"><use href="#i-check"/></svg>TESOL / TEFL 认证</span><span><svg class="ico"><use href="#i-check"/></svg>青少儿教学经验</span><span><svg class="ico"><use href="#i-check"/></svg>严格背景审核</span>
+      </div>
+    </div>
+    <ul>
+      <li class="reveal"><span class="k" style="background:var(--purple)"><svg class="ico"><use href="#i-search"/></svg></span><div><h4>严格筛选，录取率仅约 1%</h4><p>简历初筛 → 试讲 → 培训 → 认证，多轮把关。</p></div></li>
+      <li class="reveal"><span class="k" style="background:var(--blue)"><svg class="ico"><use href="#i-mic"/></svg></span><div><h4>纯正发音，沉浸式母语环境</h4><p>全英文授课，帮孩子建立地道语感与自信表达。</p></div></li>
+      <li class="reveal"><span class="k" style="background:var(--accent)"><svg class="ico"><use href="#i-heart"/></svg></span><div><h4>懂孩子，会引导</h4><p>鼓励式教学，让孩子从"不敢说"到"抢着说"。</p></div></li>
+      <li class="reveal"><span class="k" style="background:var(--green)"><svg class="ico"><use href="#i-refresh"/></svg></span><div><h4>固定不换，稳定陪伴</h4><p>固定外教长期跟进，成长轨迹连贯可见。</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="blk" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-gift"/></svg>课包价格</span>
+      <h2>课时越多，单价越省 · 在线报名即刻开课</h2>
+      <p>试听后 24 小时内报名，额外赠送 3 节外教课。支持国际信用卡在线安全支付。</p>
+    </div>
+    <div class="price-grid">
+      <div class="pcard reveal">
+        <span class="lv">入门尝鲜</span><h3>30 课包</h3><div class="hrs">共 <b>30</b> 课时</div>
+        <div class="amt"><span class="c">¥</span><span class="n">3999</span></div>
+        <div class="was">单课时约 ¥133</div>
+        <div class="gift"><svg class="ico"><use href="#i-gift"/></svg>试听后 24h 报名再赠 3 节</div>
+        <a class="buy line" href="https://buy.stripe.com/14AdR9e8Xf2O0dLfipcZa00">在线报名</a>
+      </div>
+      <div class="pcard reveal">
+        <span class="lv">热门之选</span><h3>60 课包</h3><div class="hrs">总 <b>77</b> 课时（60 + 赠 17）</div>
+        <div class="amt"><span class="c">¥</span><span class="n">8999</span></div>
+        <div class="was">原价 <s>¥10500</s> · 约 ¥117/课时</div>
+        <div class="gift"><svg class="ico"><use href="#i-gift"/></svg>专享 7 + 首单 5 + 福利 5 课时</div>
+        <a class="buy line" href="https://buy.stripe.com/bJefZhfd12g23pX5HPcZa01">在线报名</a>
+      </div>
+      <div class="pcard hot reveal">
+        <span class="flag">🔥 最受欢迎 · 赠 56 课时</span>
+        <span class="lv">超值推荐</span><h3>80 课包</h3><div class="hrs">总 <b>136</b> 课时（80 + 赠 56）</div>
+        <div class="amt"><span class="c">¥</span><span class="n">13998</span></div>
+        <div class="was">原价 <s>¥14000</s> · 约 ¥103/课时</div>
+        <div class="gift"><svg class="ico"><use href="#i-gift"/></svg>专享 28 + 首单 14 + 福利 14 课时</div>
+        <a class="buy solid" href="https://buy.stripe.com/3cI6oHaWL9Iu9OlgmtcZa02">在线报名<svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="pcard reveal">
+        <span class="lv">效果最稳</span><h3>160 课包</h3><div class="hrs">总 <b>249</b> 课时（160 + 赠 89）</div>
+        <div class="amt"><span class="c">¥</span><span class="n">23996</span></div>
+        <div class="was">原价 <s>¥28000</s> · 约 ¥96/课时</div>
+        <div class="gift"><svg class="ico"><use href="#i-gift"/></svg>专享 49 + 首单 20 + 福利 20 课时</div>
+        <a class="buy line" href="https://buy.stripe.com/14A00j8ODaMy5y58U1cZa03">在线报名</a>
+      </div>
+    </div>
+    <div class="pay-note">
+      支付由 <b>Stripe</b> 银行级加密处理 · 不确定选哪档？先<a href="#reserve">免费试听</a>再决定
+      <div class="badges-pay"><span class="st">STRIPE</span><span class="vi">VISA</span><span class="mc">Mastercard</span><span class="ax">AMEX</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="blk" style="background:linear-gradient(180deg,#fff,#f7f5ff)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-heart"/></svg>家长口碑</span>
+      <h2>2000+ 家庭，见证孩子的改变</h2>
+    </div>
+    <div class="quotes">
+      <div class="q reveal"><div class="mark">"</div><div class="stars">★★★★★</div><p>以前孩子一见英语就躲，现在每天追着问什么时候上课。固定的外教老师特别有耐心，敢开口了！</p><div class="who"><span class="av" style="background:var(--purple)">王</span><div><b>王女士</b><span>三年级家长 · 长春</span></div></div></div>
+      <div class="q reveal"><div class="mark">"</div><div class="stars">★★★★★</div><p>入学先测评再定规划这点很专业，管家老师每周都反馈，学得踏实。一学期下来校内英语明显提分。</p><div class="who"><span class="av" style="background:var(--blue)">李</span><div><b>李先生</b><span>五年级家长 · 吉林</span></div></div></div>
+      <div class="q reveal"><div class="mark">"</div><div class="stars">★★★★★</div><p>欧美外教发音真的地道，孩子口语进步最明显。固定老师不用抢课，时间也灵活，值。</p><div class="who"><span class="av" style="background:var(--accent)">张</span><div><b>张女士</b><span>一年级家长 · 长春</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVE ============ -->
+<section class="blk" id="reserve">
+  <div class="wrap">
+    <div class="reserve-in reveal">
+      <div class="rblob"></div>
+      <div class="txt">
+        <span class="tagpill"><svg class="ico"><use href="#i-gift"/></svg>免费试听</span>
+        <h2>领取一节免费外教试听课<br/>看看孩子有多喜欢</h2>
+        <p>留下联系方式，教学管家将在 24 小时内与您联系，安排免费能力测评与专属试听。</p>
+        <div class="perks">
+          <span><i><svg class="ico"><use href="#i-chart"/></svg></i>免费英语能力测评（对标 CEFR）</span>
+          <span><i><svg class="ico"><use href="#i-teacher"/></svg></i>1 节纯欧美外教 1 对 1 试听课</span>
+          <span><i><svg class="ico"><use href="#i-target"/></svg></i>一份专属学习规划建议</span>
+        </div>
+      </div>
+      <div class="form-card">
+        <form id="leadForm" onsubmit="return submitLead(event)">
+          <h3>预约免费试听</h3>
+          <div class="sub">名额有限，先约先得</div>
+          <div class="field"><label>家长称呼</label><input name="name" required placeholder="怎么称呼您？" /></div>
+          <div class="field"><label>手机号</label><input name="phone" required type="tel" pattern="[0-9]{11}" placeholder="11 位手机号，方便管家联系" /></div>
+          <div class="field"><label>孩子年龄</label>
+            <select name="age" required><option value="" disabled selected>请选择</option><option>3–6 岁（启蒙）</option><option>6–9 岁（基础）</option><option>9–12 岁（进阶）</option><option>12–15 岁（精英）</option></select>
+          </div>
+          <button class="btn btn-primary">立即预约试听<svg class="ico"><use href="#i-arrow"/></svg></button>
+          <div class="fine"><svg class="ico"><use href="#i-lock"/></svg>我们承诺保护您的隐私，仅用于课程联系</div>
+        </form>
+        <div class="form-ok" id="leadOk">
+          <div class="ic"><svg class="ico"><use href="#i-check"/></svg></div>
+          <h3>预约成功！</h3>
+          <p>教学管家将在 24 小时内联系您<br/>也可扫码添加客服微信，优先安排 👇</p>
+          <div class="qr">客服微信<br/>二维码<br/>（待放图）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="blk" id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <span class="tagpill"><svg class="ico"><use href="#i-cap"/></svg>关于我们</span>
+      <h2>正规办学，值得托付</h2>
+      <p>YiYi 英语由 <b style="color:var(--ink)">吉林一一英语培训有限公司</b> 运营，专注 3–15 岁在线青少年英语教育。我们相信：一个固定的好老师 + 一套科学的教学体系，能真正让孩子爱上英语、学会英语。</p>
+      <div class="cta-row" style="margin-top:26px">
+        <a href="#reserve" class="btn btn-purple"><svg class="ico"><use href="#i-gift"/></svg>免费领试听课</a>
+        <a href="#pricing" class="btn btn-ghost">查看课包</a>
+      </div>
+    </div>
+    <div class="quals">
+      <div class="qual reveal"><div class="ic" style="background:linear-gradient(135deg,#6d3ff0,#9a7bff)"><svg class="ico"><use href="#i-cap"/></svg></div><h4>正规办学主体</h4><p>吉林一一英语培训有限公司</p></div>
+      <div class="qual reveal"><div class="ic" style="background:linear-gradient(135deg,#2f8ef0,#5cc6ff)"><svg class="ico"><use href="#i-badge"/></svg></div><h4>持证外教团队</h4><p>TESOL / TEFL 国际认证</p></div>
+      <div class="qual reveal"><div class="ic" style="background:linear-gradient(135deg,#1ea97c,#4fd0a0)"><svg class="ico"><use href="#i-lock"/></svg></div><h4>安全在线支付</h4><p>Stripe 银行级加密处理</p></div>
+      <div class="qual reveal"><div class="ic" style="background:linear-gradient(135deg,#ff7a45,#ffb020)"><svg class="ico"><use href="#i-shield"/></svg></div><h4>透明课时管理</h4><p>课时可查，学习有据可依</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="yy">Yi<em>Yi</em></span><span class="zh">英语</span></a>
+        <p>固定欧美外教 1 对 1<br/>激发 3–15 岁孩子的英语潜力<br/>www.yiyienglish.com</p>
+      </div>
+      <div><h5>课程</h5><a href="#curriculum">课程体系</a><a href="#process">上课流程</a><a href="#teachers">师资力量</a><a href="#pricing">课包价格</a></div>
+      <div><h5>关于</h5><a href="#about">关于我们</a><a href="#reserve">免费试听</a><a href="#">用户协议</a><a href="#">隐私政策</a><a href="#">退款政策</a></div>
+      <div><h5>联系我们</h5><p class="fc"><svg class="ico"><use href="#i-phone"/></svg>400-XXX-XXXX（待填）</p><p class="fc"><svg class="ico"><use href="#i-chat"/></svg>微信客服：待填</p><p class="fc"><svg class="ico"><use href="#i-mail"/></svg>邮箱：待填</p></div>
+    </div>
+    <div class="foot-bottom">
+      <div class="disc">在线支付由 Stripe 提供加密处理，支持 Visa / Mastercard / American Express 等国际信用卡（含双币卡）。课程效果因人而异，具体以实际教学为准。</div>
+      © 2026 吉林一一英语培训有限公司 · YiYi English &nbsp;·&nbsp; ICP 备案号：待填
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('shrink',scrollY>12));
+const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*70);io.unobserve(e.target);}})},{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.to;let s=0;el.textContent='0';const step=Math.max(1,Math.ceil(to/55));const t=setInterval(()=>{s+=step;if(s>=to){s=to;clearInterval(t);}el.textContent=s;},22);cio.unobserve(el);}})},{threshold:.6});
+document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+function submitLead(ev){
+  ev.preventDefault();
+  const f=ev.target;
+  // TODO 接留资：fetch('https://formspree.io/f/你的ID',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
+  console.log('LEAD:',{name:f.name.value,phone:f.phone.value,age:f.age.value});
+  f.style.display='none';
+  document.getElementById('leadOk').classList.add('show');
+  return false;
+}
+</script>
+</body>
+</html>

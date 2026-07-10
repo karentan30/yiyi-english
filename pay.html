@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YiYi 英语 · 课包报名与支付</title>
+<meta name="description" content="吉林一一英语培训 · 固定欧美外教 1 对 1 · K12 在线青少年英语课包报名与支付" />
+<style>
+  :root{
+    --ink:#241b4e; --muted:#6b6690; --line:#eae7f5;
+    --purple:#6d3ff0; --purple-ink:#4d24c9; --blue:#2aa6f0; --blue-ink:#1683cf;
+    --accent:#ff7a2f; --gold:#ffb020; --red:#ff4b55;
+    --bg:#f5f4fc; --card:#ffffff; --ok:#1aa06d; --radius:20px;
+    --shadow:0 14px 44px rgba(52,32,120,.09);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink);
+    background:radial-gradient(1200px 500px at 50% -120px,#efe9ff 0,var(--bg) 60%);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  header{padding:22px 0;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .mark{
+    font-weight:900;font-size:22px;color:var(--red);letter-spacing:-.5px;
+    background:#fff;padding:8px 14px;border-radius:14px;box-shadow:0 6px 16px rgba(52,32,120,.1);
+  }
+  .logo .mark i{font-style:normal;color:var(--ink)}
+  .logo small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1.5px;margin-top:3px}
+  .pill{font-size:12px;color:var(--purple-ink);background:#efeaff;border:1px solid #ddd2ff;padding:7px 13px;border-radius:999px;font-weight:700}
+
+  .hero{text-align:center;padding:26px 0 6px}
+  .hero .kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:1px;color:var(--purple);background:#efeaff;padding:6px 15px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(27px,4.6vw,42px);line-height:1.2;letter-spacing:-.5px}
+  .hero h1 .hl{background:linear-gradient(120deg,var(--purple),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{margin:15px auto 0;max-width:600px;color:var(--muted);font-size:16.5px}
+  .trust{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:22px 0 4px}
+  .trust span{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-weight:600}
+  .trust span b{color:var(--ink)}
+
+  .gift{max-width:640px;margin:20px auto 0;background:linear-gradient(120deg,#fff5ec,#fff);border:1.5px dashed var(--accent);border-radius:14px;padding:12px 18px;font-size:14px;color:#a35418;font-weight:700;text-align:center}
+  .gift b{color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0 8px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 20px;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(52,32,120,.15)}
+  .card.pop{border:2px solid var(--purple);box-shadow:0 20px 55px rgba(109,63,240,.22)}
+  .tag{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+    background:linear-gradient(120deg,var(--accent),var(--gold));color:#fff;font-size:11.5px;font-weight:800;
+    padding:5px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 14px rgba(255,122,47,.4)
+  }
+  .card .lvl{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--blue-ink);background:#e7f4ff;display:inline-block;padding:4px 11px;border-radius:8px;margin-bottom:12px}
+  .card h3{font-size:20px;margin-bottom:2px}
+  .card .hours{color:var(--muted);font-size:13px;font-weight:600}
+  .price{margin:14px 0 2px;display:flex;align-items:baseline;gap:3px}
+  .price .cur{font-size:18px;font-weight:800;color:var(--red)}
+  .price .num{font-size:34px;font-weight:900;letter-spacing:-1px;color:var(--red)}
+  .orig{font-size:12.5px;color:#a7a2bd;margin-bottom:12px;min-height:18px}
+  .orig s{margin-left:2px}
+  ul.feat{list-style:none;margin:6px 0 20px;display:flex;flex-direction:column;gap:8px}
+  ul.feat li{font-size:13px;color:#40396a;display:flex;gap:8px;align-items:flex-start;line-height:1.45}
+  ul.feat li::before{content:"✓";color:var(--ok);font-weight:900;flex:0 0 auto}
+  ul.feat li.gifted::before{content:"🎁";}
+  .btn{
+    margin-top:auto;display:block;text-align:center;padding:13px;border-radius:12px;font-weight:800;
+    font-size:15px;text-decoration:none;cursor:pointer;border:none;transition:filter .15s, transform .1s;
+  }
+  .btn.primary{background:linear-gradient(120deg,var(--purple),var(--blue));color:#fff;box-shadow:0 8px 20px rgba(109,63,240,.35)}
+  .btn.ghost{background:#f1eefb;color:var(--purple-ink);border:1px solid #e2dbf7}
+  .btn:hover{filter:brightness(1.05)}
+  .btn:active{transform:translateY(1px)}
+  .btn[href="#"]{opacity:.5;pointer-events:none;position:relative}
+  .btn[href="#"]::after{content:" · 待配置";font-weight:700}
+
+  .paynote{text-align:center;margin:26px 0 4px;color:var(--muted);font-size:13.5px}
+  .cards-accepted{display:flex;gap:9px;justify-content:center;align-items:center;margin-top:11px;flex-wrap:wrap}
+  .cards-accepted span{font-size:11px;font-weight:800;color:#fff;padding:4px 9px;border-radius:5px;letter-spacing:.5px}
+  .cards-accepted .stripe{background:#635bff}.cards-accepted .visa{background:#1a1f71}
+  .cards-accepted .mc{background:#eb001b}.cards-accepted .amex{background:#2e77bb}
+
+  .strip{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:34px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;box-shadow:var(--shadow)}
+  .strip .item{text-align:center}
+  .strip .item .ic{font-size:24px}
+  .strip .item h4{font-size:14.5px;margin:7px 0 3px}
+  .strip .item p{font-size:12.5px;color:var(--muted)}
+
+  footer{padding:28px 0 44px;text-align:center;color:#a7a2bd;font-size:12.5px;line-height:1.85}
+  footer a{color:#8a85a6;text-decoration:none}
+  footer .biz{color:var(--muted);font-weight:700}
+
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.strip{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}.strip{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">
+      <div class="mark">Yi<i>Yi</i> 英语<small>在线青少年英语 · 固定外教1对1</small></div>
+    </div>
+    <div class="pill">🔒 Stripe 安全支付</div>
+  </header>
+
+  <section class="hero">
+    <div class="kicker">真人欧美外教 · 1 对 1</div>
+    <h1>固定外教 1 对 1，<span class="hl">激发孩子学习潜力</span><br/>选好课包，在线报名支付</h1>
+    <p>专业英语能力测评 · 定制化教学规划 · 教学管家全程伴读。选择下方课包，一键完成支付，教学管家 24 小时内联系安排开课。</p>
+    <div class="trust">
+      <span>👩‍🏫 固定欧美外教 <b>1 对 1</b></span>
+      <span>📊 入学 <b>能力测评</b></span>
+      <span>💳 支持 <b>国际信用卡</b> 支付</span>
+    </div>
+    <div class="gift">🎁 <b>试听后 24 小时内</b>完成报名，额外赠送 <b>3 节</b>外教课</div>
+  </section>
+
+  <!-- ====== 课包档位：改价 / 填 Stripe 支付链接只需改 href="#" ====== -->
+  <section class="grid" id="tiers">
+
+    <!-- 30课包 -->
+    <div class="card">
+      <span class="lvl">入门尝鲜</span>
+      <h3>30 课包</h3>
+      <div class="hours">共 30 课时</div>
+      <div class="price"><span class="cur">¥</span><span class="num">3999</span></div>
+      <div class="orig">单课时约 ¥133</div>
+      <ul class="feat">
+        <li>30 节固定欧美外教 1 对 1</li>
+        <li>入学英语能力测评</li>
+        <li>教学管家全程伴读</li>
+      </ul>
+      <a class="btn ghost" data-tier="30" href="https://buy.stripe.com/14AdR9e8Xf2O0dLfipcZa00">报名 ¥3999</a>
+    </div>
+
+    <!-- 60课包 -->
+    <div class="card">
+      <span class="lvl">热门之选</span>
+      <h3>60 课包</h3>
+      <div class="hours">总 <b>77</b> 课时（60 + 赠 17）</div>
+      <div class="price"><span class="cur">¥</span><span class="num">8999</span></div>
+      <div class="orig">原价 <s>¥10500</s> · 单课时约 ¥117</div>
+      <ul class="feat">
+        <li>60 节固定欧美外教 1 对 1</li>
+        <li class="gifted">专享 7 + 首单 5 + 福利 5 课时</li>
+        <li>定制化教学规划</li>
+      </ul>
+      <a class="btn ghost" data-tier="60" href="https://buy.stripe.com/bJefZhfd12g23pX5HPcZa01">报名 ¥8999</a>
+    </div>
+
+    <!-- 80课包 -->
+    <div class="card pop">
+      <div class="tag">🔥 最受欢迎 · 赠 56 课时</div>
+      <span class="lvl">超值推荐</span>
+      <h3>80 课包</h3>
+      <div class="hours">总 <b>136</b> 课时（80 + 赠 56）</div>
+      <div class="price"><span class="cur">¥</span><span class="num">13998</span></div>
+      <div class="orig">原价 <s>¥14000</s> · 单课时约 ¥103</div>
+      <ul class="feat">
+        <li>80 节固定欧美外教 1 对 1</li>
+        <li class="gifted">专享 28 + 首单 14 + 福利 14 课时</li>
+        <li>季度学习报告 + 家长沟通</li>
+      </ul>
+      <a class="btn primary" data-tier="80" href="https://buy.stripe.com/3cI6oHaWL9Iu9OlgmtcZa02">报名 ¥13998</a>
+    </div>
+
+    <!-- 160课包 -->
+    <div class="card">
+      <span class="lvl">效果最稳</span>
+      <h3>160 课包</h3>
+      <div class="hours">总 <b>249</b> 课时（160 + 赠 89）</div>
+      <div class="price"><span class="cur">¥</span><span class="num">23996</span></div>
+      <div class="orig">原价 <s>¥28000</s> · 单课时约 ¥96</div>
+      <ul class="feat">
+        <li>160 节固定欧美外教 1 对 1</li>
+        <li class="gifted">专享 49 + 首单 20 + 福利 20 课时</li>
+        <li>专属规划师 + 全年陪伴</li>
+      </ul>
+      <a class="btn ghost" data-tier="160" href="https://buy.stripe.com/14A00j8ODaMy5y58U1cZa03">报名 ¥23996</a>
+    </div>
+
+  </section>
+  <!-- ====== /课包档位 ====== -->
+
+  <div class="paynote">
+    支付由 <b style="color:#635bff">Stripe</b> 银行级加密处理 · 支持 Visa / Mastercard / American Express 等国际信用卡（含双币卡）
+    <div class="cards-accepted">
+      <span class="stripe">STRIPE</span><span class="visa">VISA</span>
+      <span class="mc">Mastercard</span><span class="amex">AMEX</span>
+    </div>
+  </div>
+
+  <section class="strip">
+    <div class="item"><div class="ic">👩‍🏫</div><h4>固定欧美外教</h4><p>1 对 1 固定老师，不用抢课</p></div>
+    <div class="item"><div class="ic">📊</div><h4>定制教学规划</h4><p>入学测评 + 个性化学习路径</p></div>
+    <div class="item"><div class="ic">🔐</div><h4>银行级支付加密</h4><p>Stripe 处理，我们不接触卡号</p></div>
+    <div class="item"><div class="ic">📞</div><h4>付款极速开课</h4><p>教学管家 24 小时内联系</p></div>
+  </section>
+
+  <footer>
+    <div class="biz">吉林一一英语培训有限公司</div>
+    <div>客服微信 / 电话：待填 &nbsp;·&nbsp; 邮箱：待填</div>
+    <div>www.yiyienglish.com &nbsp;·&nbsp; <a href="#">用户协议</a> &nbsp;·&nbsp; <a href="#">隐私政策</a> &nbsp;·&nbsp; <a href="#">退款政策</a></div>
+    <div style="margin-top:8px">ICP 备案号：待填 &nbsp;·&nbsp; © 2026 YiYi English</div>
+  </footer>
+
+</div>
+</body>
+</html>
