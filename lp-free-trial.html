@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>第1节免费 · YiYi英语 固定欧美外教1对1</title>
+<meta name="description" content="第1节课免费体验，不满意不用说原因。YiYi英语固定欧美外教1对1，专注青少年英语口语。"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1745;--muted:#726d93;--line:#eceaf5;
+  --blue:#2f8ef0;--purple:#6d3ff0;--accent:#ff7a45;--gold:#ffb020;--red:#E63946;
+  --bg:#faf9ff;--card:#fff;--radius:18px;
+  --shadow:0 8px 32px rgba(40,24,90,.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Nunito","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:430px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.brand{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;color:var(--red)}
+.brand em{font-style:normal;color:var(--ink)}
+.topbar-cta{background:var(--red);color:#fff;border:none;border-radius:10px;padding:8px 16px;font-family:"Nunito",sans-serif;font-weight:800;font-size:14px;cursor:pointer}
+
+/* HERO */
+.hero{background:linear-gradient(145deg,#f0edff 0%,#e8f4ff 100%);padding:36px 20px 32px;text-align:center}
+.badge{display:inline-block;background:#fff;color:var(--purple);font-weight:800;font-size:13px;border-radius:20px;padding:5px 14px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-family:"Fredoka",sans-serif;font-size:28px;font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:10px}
+.hero h1 span{color:var(--red)}
+.hero p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.btn-main{display:block;width:100%;background:var(--red);color:#fff;border:none;border-radius:14px;padding:18px;font-family:"Nunito",sans-serif;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 8px 24px rgba(230,57,70,.4);letter-spacing:.3px}
+.btn-main:active{transform:scale(.98)}
+.sub-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* TEACHERS */
+.section{padding:32px 20px}
+.section h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:20px}
+.teacher-cards{display:flex;flex-direction:column;gap:14px}
+.tc{background:#fff;border-radius:var(--radius);padding:18px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow)}
+.tc-photo{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#c9bcff,#b3ddff);flex:0 0 64px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--purple);font-weight:800;text-align:center;line-height:1.3}
+.tc-info h3{font-family:"Fredoka",sans-serif;font-size:18px;font-weight:600;margin-bottom:2px}
+.tc-info .nat{font-size:13px;color:var(--muted);margin-bottom:6px}
+.tc-info .tag{display:inline-block;background:#f0edff;color:var(--purple);font-size:12px;font-weight:800;border-radius:6px;padding:3px 8px;margin-right:4px;margin-bottom:4px}
+
+/* STEPS */
+.steps-sec{background:#fff;padding:32px 20px}
+.steps-sec h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:24px}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;position:relative}
+.step:not(:last-child)::after{content:"";position:absolute;left:19px;top:44px;bottom:0;width:2px;background:var(--line)}
+.step-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;flex:0 0 40px;position:relative;z-index:1}
+.step-text h4{font-weight:800;font-size:16px;margin-bottom:4px}
+.step-text p{font-size:14px;color:var(--muted);line-height:1.5}
+
+/* TESTIMONIALS */
+.testi-sec{background:linear-gradient(145deg,#f8f6ff,#eef7ff);padding:32px 20px}
+.testi-sec h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:20px}
+.testi{background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.testi-stars{color:var(--gold);font-size:16px;margin-bottom:8px}
+.testi p{font-size:14px;color:var(--ink);line-height:1.6;margin-bottom:10px}
+.testi-author{font-size:13px;font-weight:800;color:var(--muted)}
+
+/* CTA BOTTOM */
+.cta-bottom{background:var(--ink);padding:36px 20px;text-align:center}
+.cta-bottom h2{font-family:"Fredoka",sans-serif;font-size:24px;color:#fff;margin-bottom:8px}
+.cta-bottom p{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:24px}
+.cta-bottom .btn-main{background:var(--red);max-width:100%}
+.cta-qr{margin-top:20px}
+.qr-box{width:120px;height:120px;background:linear-gradient(135deg,#e8e4ff,#d4edff);border-radius:12px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--purple);font-weight:800;text-align:center;padding:8px}
+.qr-note{font-size:12px;color:rgba(255,255,255,.6)}
+
+/* FOOTER */
+footer{background:#1a1635;padding:20px;text-align:center}
+footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7}
+
+/* FLOAT CTA */
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 20px;z-index:100;display:none}
+.float-cta .btn-main{padding:15px}
+@media(max-width:600px){.float-cta{display:block}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="topbar">
+  <div class="brand">YiYi<em>英语</em></div>
+  <button class="topbar-cta" onclick="document.getElementById('cta1').scrollIntoView({behavior:'smooth'})">免费试课</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">🎁 限时：第1节课完全免费</div>
+  <div class="wrap">
+    <h1>第1节免费<br/><span>孩子不喜欢不收钱</span></h1>
+    <p>固定欧美外教1对1 · 每次接着上次讲<br/>不用抢名额，不用担心换老师</p>
+    <button class="btn-main" id="cta1" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">立即预约免费试课 →</button>
+    <p class="sub-note">✓ 免费 · ✓ 不满意不用解释 · ✓ 今天约明天上</p>
+  </div>
+</div>
+
+<!-- TEACHERS -->
+<div class="section">
+  <div class="wrap">
+    <h2>认识你孩子的外教</h2>
+    <div class="teacher-cards">
+      <div class="tc">
+        <div class="tc-photo">[替换：<br/>外教照片]</div>
+        <div class="tc-info">
+          <h3>Sarah M.</h3>
+          <div class="nat">🇺🇸 美国 · 教龄8年</div>
+          <span class="tag">少儿启蒙</span>
+          <span class="tag">趣味对话</span>
+          <span class="tag">4-10岁</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-photo">[替换：<br/>外教照片]</div>
+        <div class="tc-info">
+          <h3>James T.</h3>
+          <div class="nat">🇬🇧 英国 · 教龄12年</div>
+          <span class="tag">中学口语</span>
+          <span class="tag">备考雅思</span>
+          <span class="tag">11-17岁</span>
+        </div>
+      </div>
+      <div class="tc">
+        <div class="tc-photo">[替换：<br/>外教照片]</div>
+        <div class="tc-info">
+          <h3>Emily R.</h3>
+          <div class="nat">🇨🇦 加拿大 · 教龄6年</div>
+          <span class="tag">IB备考</span>
+          <span class="tag">国际学校</span>
+          <span class="tag">学术英语</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="steps-sec">
+  <div class="wrap">
+    <h2>3步开始免费试课</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>选择外教</h4>
+          <p>根据孩子年龄和学习目标，我们推荐最合适的外教</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>预约时间</h4>
+          <p>灵活选择上课时间，今天预约最快明天就能上</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>免费上课</h4>
+          <p>第1节课完全免费，孩子喜欢再继续，不喜欢不用说原因</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-sec">
+  <div class="wrap">
+    <h2>家长这么说</h2>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p>孩子第一次和外教聊完整整说了20分钟，我在旁边都惊了。固定外教记住了他上次说的足球故事，直接接着聊，孩子完全不怕开口了。</p>
+      <div class="testi-author">— 王妈妈，孩子10岁，北京</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p>之前试过几家，老师老是换，孩子每次都要重新适应。YiYi固定外教3个月了，外教连我孩子喜欢什么动物都记得，真的不一样。</p>
+      <div class="testi-author">— 李妈妈，孩子8岁，上海</div>
+    </div>
+    <div class="testi">
+      <div class="testi-stars">★★★★★</div>
+      <p>孩子重点初中，英语成绩还行但一开口就卡。外教Sarah每次课后会告诉我孩子进步在哪、下次重点练什么，很专业。</p>
+      <div class="testi-author">— 张爸爸，孩子13岁，成都</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom" id="cta-bottom">
+  <div class="wrap">
+    <h2>立即预约免费试课</h2>
+    <p>第1节完全免费 · 不满意不用说原因</p>
+    <button class="btn-main">立即预约 →</button>
+    <div class="cta-qr">
+      <div class="qr-box">[替换：<br/>微信预约<br/>二维码]</div>
+      <p class="qr-note">扫码添加客服微信，1分钟完成预约</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 吉林一一英语培训有限公司 · www.yiyienglish.com<br/>
+  实际效果因学员情况而异 · 本页所有案例均为真实用户反馈</p>
+</footer>
+
+<!-- FLOAT CTA -->
+<div class="float-cta">
+  <button class="btn-main" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">🎁 第1节免费 — 立即预约</button>
+</div>
+
+</body>
+</html>

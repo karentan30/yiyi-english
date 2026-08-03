@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>专属固定外教 · YiYi英语 · 每次接着上次讲</title>
+<meta name="description" content="别让孩子每次从零开始。YiYi英语固定欧美外教，记住孩子每一个故事，进度连贯，口语真正提升。"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1e1745;--muted:#726d93;--line:#eceaf5;
+  --green:#1ea97c;--green-dk:#157a59;--gold:#ffb020;--red:#E63946;
+  --bg:#f9fdf9;--card:#fff;--radius:18px;
+  --shadow:0 8px 32px rgba(24,90,60,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Nunito","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:430px;margin:0 auto;padding:0 20px}
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.brand{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;color:var(--red)}
+.brand em{font-style:normal;color:var(--ink)}
+.topbar-cta{background:var(--green);color:#fff;border:none;border-radius:10px;padding:8px 16px;font-family:"Nunito",sans-serif;font-weight:800;font-size:14px;cursor:pointer}
+.btn-main{display:block;width:100%;background:var(--green);color:#fff;border:none;border-radius:14px;padding:18px;font-family:"Nunito",sans-serif;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 8px 24px rgba(30,169,124,.4);letter-spacing:.3px}
+
+/* HERO */
+.hero{background:linear-gradient(145deg,#e8f7f0 0%,#e8fff5 100%);padding:40px 20px 36px;text-align:center}
+.badge{display:inline-block;background:#fff;color:var(--green);font-weight:800;font-size:13px;border-radius:20px;padding:5px 14px;margin-bottom:16px;box-shadow:var(--shadow)}
+.hero h1{font-family:"Fredoka",sans-serif;font-size:26px;font-weight:700;line-height:1.35;color:var(--ink);margin-bottom:10px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p{font-size:15px;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.sub-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* COMPARE TABLE */
+.compare-sec{padding:32px 20px;background:#fff}
+.compare-sec h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{padding:10px 8px;font-weight:800;font-size:13px}
+thead th:first-child{text-align:left;color:var(--muted)}
+thead th:nth-child(2){color:var(--muted);text-align:center}
+thead th:nth-child(3){background:var(--green);color:#fff;border-radius:10px 10px 0 0;text-align:center}
+tbody td{padding:12px 8px;border-top:1px solid var(--line)}
+tbody td:first-child{font-weight:700;color:var(--ink)}
+tbody td:nth-child(2){text-align:center;color:var(--muted)}
+tbody td:nth-child(3){text-align:center;background:#f0fff7;font-weight:800;color:var(--green)}
+.x{color:#ccc;font-size:18px}
+.chk{color:var(--green);font-size:18px}
+
+/* WHAT FIXED TEACHER DOES */
+.what-sec{padding:32px 20px;background:linear-gradient(145deg,#f0fff7,#e8fff5)}
+.what-sec h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:20px}
+.what-card{background:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow)}
+.what-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1ea97c,#2fcf99);display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 44px}
+.what-text h4{font-weight:800;font-size:15px;margin-bottom:4px}
+.what-text p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* PRICING */
+.pricing-sec{padding:32px 20px;background:#fff}
+.pricing-sec h2{font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700;text-align:center;margin-bottom:20px}
+.plan{border:2px solid var(--line);border-radius:var(--radius);padding:20px;margin-bottom:14px;position:relative}
+.plan.popular{border-color:var(--green);box-shadow:0 8px 24px rgba(30,169,124,.15)}
+.pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:12px;font-weight:900;border-radius:20px;padding:4px 14px;white-space:nowrap}
+.plan-name{font-family:"Fredoka",sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
+.plan-price{font-size:28px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.plan-price span{font-size:15px;font-weight:600;color:var(--muted)}
+.plan-feature{font-size:13px;color:var(--muted);margin-bottom:4px}
+.plan-feature::before{content:"✓ ";color:var(--green);font-weight:900}
+.plan-btn{display:block;width:100%;border:2px solid var(--green);color:var(--green);background:#fff;border-radius:12px;padding:12px;font-family:"Nunito",sans-serif;font-weight:800;font-size:15px;cursor:pointer;margin-top:14px;text-align:center}
+.plan.popular .plan-btn{background:var(--green);color:#fff}
+
+/* CTA */
+.cta-bottom{background:var(--ink);padding:36px 20px;text-align:center}
+.cta-bottom h2{font-family:"Fredoka",sans-serif;font-size:24px;color:#fff;margin-bottom:8px}
+.cta-bottom p{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:24px}
+.qr-box{width:120px;height:120px;background:linear-gradient(135deg,#e8fff5,#d4edff);border-radius:12px;margin:16px auto 8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--green);font-weight:800;text-align:center;padding:8px}
+.qr-note{font-size:12px;color:rgba(255,255,255,.6)}
+footer{background:#1a1635;padding:20px;text-align:center}
+footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.7}
+.float-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:12px 20px;z-index:100;display:none}
+@media(max-width:600px){.float-cta{display:block}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">YiYi<em>英语</em></div>
+  <button class="topbar-cta" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">为孩子选外教</button>
+</div>
+
+<div class="hero">
+  <div class="badge">👩‍🏫 专属固定外教 · 不会随机换人</div>
+  <div class="wrap">
+    <h1>别让孩子<br/><em>每次从零开始</em></h1>
+    <p>Ta的专属外教，记住Ta说过的每一个故事<br/>每次接着上次讲，进度真正连贯</p>
+    <button class="btn-main" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">为孩子选一位专属外教 →</button>
+    <p class="sub-note">✓ 第1节免费 · ✓ 固定不换人 · ✓ 随时可暂停</p>
+  </div>
+</div>
+
+<div class="compare-sec">
+  <div class="wrap">
+    <h2>为什么选固定外教</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>对比</th>
+          <th>随机外教</th>
+          <th>✦ YiYi固定外教</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>每次认识孩子</td><td class="x">✗ 重新来</td><td class="chk">✓ 记住孩子</td></tr>
+        <tr><td>上课衔接</td><td class="x">✗ 断点重来</td><td class="chk">✓ 接着上次讲</td></tr>
+        <tr><td>个性化内容</td><td class="x">✗ 通用模板</td><td class="chk">✓ 按兴趣调整</td></tr>
+        <tr><td>进度追踪</td><td class="x">✗ 无人跟进</td><td class="chk">✓ 课后反馈</td></tr>
+        <tr><td>孩子适应感</td><td class="x">✗ 每次紧张</td><td class="chk">✓ 越来越自信</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="what-sec">
+  <div class="wrap">
+    <h2>固定外教能做什么</h2>
+    <div class="what-card">
+      <div class="what-icon">🧠</div>
+      <div class="what-text">
+        <h4>记住孩子的一切</h4>
+        <p>兴趣爱好、发音习惯、上次讨论的话题——固定外教全都记得</p>
+      </div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">📈</div>
+      <div class="what-text">
+        <h4>进度完全连贯</h4>
+        <p>每节课从上次结束的地方开始，不浪费时间重新介绍自己</p>
+      </div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">🎯</div>
+      <div class="what-text">
+        <h4>针对性调整教学</h4>
+        <p>外教知道孩子哪里卡，专项练习，不做无用功</p>
+      </div>
+    </div>
+    <div class="what-card">
+      <div class="what-icon">💬</div>
+      <div class="what-text">
+        <h4>课后反馈给家长</h4>
+        <p>每次课后告诉你孩子今天进步了什么、下次重点练什么</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pricing-sec">
+  <div class="wrap">
+    <h2>选择课程套餐</h2>
+    <div class="plan">
+      <div class="plan-name">入门体验包</div>
+      <div class="plan-price">¥3,999 <span>/ 套餐</span></div>
+      <div class="plan-feature">20节课 · 固定外教</div>
+      <div class="plan-feature">课后学习报告</div>
+      <div class="plan-feature">灵活预约时间</div>
+      <button class="plan-btn" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">选择此套餐</button>
+    </div>
+    <div class="plan popular">
+      <div class="pop-badge">⭐ 最受欢迎</div>
+      <div class="plan-name">系统提升包</div>
+      <div class="plan-price">¥8,999 <span>/ 套餐</span></div>
+      <div class="plan-feature">50节课 · 固定外教</div>
+      <div class="plan-feature">专属学习计划（价值¥599）</div>
+      <div class="plan-feature">每月家长沟通会</div>
+      <div class="plan-feature">随时可暂停，不过期</div>
+      <button class="plan-btn" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">选择此套餐</button>
+    </div>
+    <div class="plan">
+      <div class="plan-name">旗舰定制包</div>
+      <div class="plan-price">¥23,996 <span>/ 套餐</span></div>
+      <div class="plan-feature">150节课 · 专属外教优先选</div>
+      <div class="plan-feature">IB/AP/留学备考专项</div>
+      <div class="plan-feature">学管师全程跟进</div>
+      <button class="plan-btn" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">联系顾问定制</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-bottom" id="cta-bottom">
+  <div class="wrap">
+    <h2>为孩子选一位专属外教</h2>
+    <p>第1节免费体验 · 不满意不收钱</p>
+    <button class="btn-main">立即预约免费试课 →</button>
+    <div class="qr-box">[替换：微信预约二维码]</div>
+    <p class="qr-note">扫码添加客服微信，1分钟完成预约</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 吉林一一英语培训有限公司 · www.yiyienglish.com<br/>
+  实际效果因学员情况而异</p>
+</footer>
+
+<div class="float-cta">
+  <button class="btn-main" onclick="document.getElementById('cta-bottom').scrollIntoView({behavior:'smooth'})">👩‍🏫 为孩子选专属外教 — 第1节免费</button>
+</div>
+
+</body>
+</html>
