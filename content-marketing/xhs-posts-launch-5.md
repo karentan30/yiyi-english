@@ -1,4 +1,4 @@
-# YiYi英语 · 小红书首发5条（10分版）
+，# YiYi英语 · 小红书首发5条（10分版）
 > 配图：~/projects/yiyi-english/images/xhs/（生成中，AirDrop到手机用）
 > 发布节奏：每天1条，工作日 20:00
 
