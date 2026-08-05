@@ -416,8 +416,8 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><span class="dot"></span>3–15 岁 · 固定外教 1 对 1</span>
-      <h1>固定欧美外教 1 对 1<br/><span class="grad">激发孩子的英语潜力</span></h1>
-      <p class="lead">专业英语能力测评 · 定制化教学规划 · 教学管家全程伴读。一个固定的好老师，陪孩子把英语真正学会、敢开口。</p>
+      <h1>让孩子第一次<br/><span class="grad">敢开口说英语</span></h1>
+      <p class="lead">固定同一位欧美外教，专业测评 + 定制规划 + 管家伴读。不换老师、不用抢课，一个懂孩子的好老师，把英语真正学会。</p>
       <div class="cta-row">
         <a href="#reserve" class="btn btn-primary big"><svg class="ico"><use href="#i-gift"/></svg>免费领取试听课</a>
         <a href="#pricing" class="btn btn-ghost big">查看课包价格</a>
@@ -468,6 +468,19 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
       <div class="s"><div class="v"><span class="count" data-to="98">98</span><em>%</em></div><span class="lbl">家长满意度</span></div>
       <div class="s"><div class="v"><span class="count" data-to="85">85</span><em>%</em></div><span class="lbl">学员续费率</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section style="background:#f3f0ff;padding:14px 0;border-top:1px solid #e0d9f7;border-bottom:1px solid #e0d9f7">
+  <div class="wrap" style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;align-items:center">
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#514b74">🎓 TESOL/TEFL 国际认证教师</span>
+    <span style="color:#d1c9ef">|</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#514b74">🔍 100% 背景调查通过</span>
+    <span style="color:#d1c9ef">|</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#514b74">🌍 欧美母语英语外教</span>
+    <span style="color:#d1c9ef">|</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#514b74">⭐ 平均 5 年+ 教学经验</span>
   </div>
 </section>
 
@@ -550,6 +563,9 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
       <span class="tagpill"><svg class="ico"><use href="#i-gift"/></svg>课包价格</span>
       <h2>课时越多，单价越省 · 在线报名即刻开课</h2>
       <p>试听后 24 小时内报名，额外赠送 3 节外教课。支持国际信用卡在线安全支付。</p>
+    </div>
+    <div style="text-align:center;margin-bottom:20px">
+      <span style="display:inline-block;background:#fff7ed;border:1.5px solid #fdba74;color:#c2410c;border-radius:20px;padding:8px 20px;font-size:13px;font-weight:700">🔥 本月试听名额剩余 &nbsp;<strong id="slotsCount">12</strong>&nbsp; 个 · 8月31日截止优惠</span>
     </div>
     <div class="price-grid">
       <div class="pcard reveal">
@@ -682,8 +698,28 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
   </div>
 </footer>
 
+<!-- Mobile fixed bottom CTA -->
+<div id="mobileCta" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;border-top:1.5px solid #e0d9f7;padding:10px 16px;box-shadow:0 -4px 16px rgba(0,0,0,.1)">
+  <div style="display:flex;gap:10px;align-items:center;max-width:480px;margin:0 auto">
+    <a href="#reserve" style="flex:1;text-align:center;background:#514b74;color:#fff;font-weight:700;font-size:14px;padding:12px 8px;border-radius:10px;text-decoration:none">免费领取试听课</a>
+    <a href="https://weixin.qq.com" style="display:flex;align-items:center;gap:6px;background:#07c160;color:#fff;font-weight:700;font-size:14px;padding:12px 14px;border-radius:10px;text-decoration:none;white-space:nowrap">微信咨询</a>
+  </div>
+</div>
+
 <script>
 document.documentElement.classList.add('js');
+// Show mobile CTA after scrolling past hero
+(function(){
+  var mCta = document.getElementById('mobileCta');
+  if(window.innerWidth <= 768) {
+    mCta.style.display = 'block';
+    document.body.style.paddingBottom = '70px';
+  }
+  window.addEventListener('resize', function(){
+    if(window.innerWidth <= 768){ mCta.style.display='block'; document.body.style.paddingBottom='70px'; }
+    else { mCta.style.display='none'; document.body.style.paddingBottom=''; }
+  });
+})();
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('shrink',scrollY>12));
 const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*70);io.unobserve(e.target);}})},{threshold:.14});
