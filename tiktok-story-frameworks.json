@@ -1,0 +1,130 @@
+{
+  "projectName": "YiYi英语",
+  "platform": "TikTok",
+  "description": "5 core story frameworks for YiYi English teaching brand on TikTok - targeting overseas Chinese parents seeking native English-speaking teachers",
+  "stories": [
+    {
+      "id": 1,
+      "title": "The Confidence Breakthrough",
+      "hook": "3 months ago, this kid couldn't say a single sentence. Now watch.",
+      "narrative_arc": [
+        "Opening: Mute footage of child hesitating/frozen during lesson (2-3 sec)",
+        "Conflict: Text overlay: 'Fear of speaking · No feedback · Generic teachers'",
+        "Turning point: Switch to same child 3 months later, fluently conversing with native teacher (8-10 sec)",
+        "Resolution: Child looks proud, teacher gives thumbs up",
+        "Emotional anchor: Mother's voice/text: 'My kid is finally confident'"
+      ],
+      "cta": "Find your fixed teacher → Link in bio for free assessment",
+      "target_emotion": "Hope + Pride",
+      "duration": "30-45 seconds",
+      "casting": "Real student + parent testimonial (optional voiceover)",
+      "content_pillars": ["Progress", "Confidence", "Fixed relationship with teacher"]
+    },
+    {
+      "id": 2,
+      "title": "Native vs. Non-Native: The Truth",
+      "hook": "Same pronunciation error. Two different teachers. Watch what changes everything.",
+      "narrative_arc": [
+        "Setup: Native teacher + non-native teacher side by side (fast-cut between two clips)",
+        "Error demonstration: Child mispronounces 'th' sound (e.g., 'this')",
+        "Native teacher response: Breaks down the mouth position, models, encourages, uses humor (5-7 sec)",
+        "Non-native response: Literal correction, points to rule, child feels corrected not coached",
+        "Title card: 'Mother tongue teachers create momentum'",
+        "CTA visual: YiYi logo + 'Verified Native English Teachers'"
+      ],
+      "cta": "See the difference → Free diagnostic lesson",
+      "target_emotion": "Validation + Confidence in quality",
+      "duration": "45-60 seconds",
+      "casting": "Two teacher clips + child",
+      "content_pillars": ["Native speaker advantage", "Teaching quality", "Long-term learning outcomes"]
+    },
+    {
+      "id": 3,
+      "title": "The Fixed Teacher Effect",
+      "hook": "Same teacher = child opens up. Different teacher every week = performance anxiety stays.",
+      "narrative_arc": [
+        "Opening split-screen: Two kids in first lessons (nervous, quiet)",
+        "Left side (fixed teacher): Weeks 1→4 progression - child gets comfortable, starts joking, initiates",
+        "Right side (rotating teachers): Weeks 1→4 - child stays formal, hesitant, waits for prompts",
+        "Contrast moment: Fixed teacher child raises hand confidently; rotating teacher child looks confused",
+        "Text: 'Safe relationships → Safe to try → Real progress'",
+        "Testimonial from parent: Quick clip of mom explaining why fixed teacher matters"
+      ],
+      "cta": "Your child deserves consistency → Match with your perfect teacher",
+      "target_emotion": "Security + Belonging",
+      "duration": "45-60 seconds",
+      "casting": "Two student pairs + authentic parent comment",
+      "content_pillars": ["Relationship continuity", "Safety to experiment", "Consistent progress"]
+    },
+    {
+      "id": 4,
+      "title": "Common China-Kid English Mistakes (Expert Breaks Them Down)",
+      "hook": "These 3 mistakes give away Chinese English immediately. Here's how your teacher fixes them.",
+      "narrative_arc": [
+        "Intro: Native teacher (casual, friendly on camera): 'I can spot Chinese learners instantly by these three things'",
+        "Mistake 1: 'I very like it' → Correct: 'I really like it' (explanation of why structure matters)",
+        "Mistake 2: Pronunciation of 'R' like 'L' (mouth-shape demo)",
+        "Mistake 3: Word order in complex sentences ('I discuss about the topic' → 'I discussed the topic')",
+        "Teacher tone: Educational but not condescending, encouraging",
+        "Closing: 'These habits only change with real conversation + real correction. Not apps.'",
+        "CTA: 'Start fixing them today'"
+      ],
+      "cta": "Book a free lesson → Get personalized correction",
+      "target_emotion": "Enlightenment + Motivation to improve",
+      "duration": "45-60 seconds",
+      "casting": "One native-speaking teacher (on-camera expert)",
+      "content_pillars": ["Expert teaching insight", "Practical improvement tips", "Native speaker authority"]
+    },
+    {
+      "id": 5,
+      "title": "The Parent Perspective: Before & After",
+      "hook": "I tried 3 English programs. This is why I cried during my kid's lesson.",
+      "narrative_arc": [
+        "Setup: Real parent (voiceover or on-camera): 'We tried X, Y, and Z. Then we found YiYi.'",
+        "Before clips (20 sec montage): Kid bored in group class · Paying for 'speaking' but getting worksheets · No personality from teacher · Kid losing motivation",
+        "Turning point: 'Week 1 with YiYi, something changed'",
+        "After clips: Kid excited before lessons · Asking about teacher outside lesson time · Using English naturally at home · Laughing with teacher · Parent watching proud/teary",
+        "Parent line: 'My kid isn't just learning English. She's learning to love it. And she loves her teacher.'",
+        "Subtext: Fixed teacher × Native speaker × Real relationship"
+      ],
+      "cta": "Your kid's transformation starts here → Try one free lesson",
+      "target_emotion": "Love + Maternal Pride + Vindication",
+      "duration": "60 seconds",
+      "casting": "Real parent (primary voice) + authentic child lessons",
+      "content_pillars": ["Transformation story", "Emotional bonding with teacher", "Parent testimonial", "Product advantage demonstration"]
+    }
+  ],
+  "platform_notes": {
+    "optimal_posting_times": ["5:30-6:30 PM", "8:00-10:00 PM"],
+    "posting_frequency": "1-2 videos per day during launch phase",
+    "hashtag_strategy": [
+      "#EnglishTeacher",
+      "#OnlineEnglish",
+      "#NativeEnglish",
+      "#KidsEnglish",
+      "#EnglishLearning",
+      "#TeacherLife",
+      "#LanguageLearning",
+      "#ChildEducation"
+    ],
+    "engagement_tactics": {
+      "first_hour": "Reply to all comments within first hour",
+      "pinned_comment": "Engage with top 5 comments to boost visibility",
+      "cta_placement": "Pinned comment with free trial link"
+    },
+    "video_production_guidelines": {
+      "aspect_ratio": "9:16 vertical",
+      "captions": "Chinese + English (80% watch muted)",
+      "pacing": "Cut every 5-8 seconds",
+      "music": "Trending TikTok audio + royalty-free uplifting tracks",
+      "quality": "iPhone quality OK if authentic; avoid overly polished = suspicious",
+      "key_detail": "Show REAL teacher personality, not corporate talking heads"
+    }
+  },
+  "success_metrics": {
+    "micro_goals": "3000+ views per video in first week",
+    "engagement_target": "8%+ comment rate (higher than typical = quality audience)",
+    "conversion_indicator": "Private message inquiries for free trial",
+    "audience_profile": "Overseas Chinese mothers, age 28-45, with kids 5-14, US/Canada/UK/Australia based"
+  }
+}

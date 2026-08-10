@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>YiYi英语 · 50条社媒内容库</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#faf8f5;color:#1e293b;line-height:1.6}
+header{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:40px 32px 32px;text-align:center}
+header h1{font-size:2rem;font-weight:800;margin-bottom:8px}
+header p{opacity:.85;font-size:.95rem;max-width:600px;margin:0 auto 16px}
+.stats{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.stat{background:rgba(255,255,255,.15);border-radius:10px;padding:8px 20px;font-size:.85rem;font-weight:600}
+.controls{padding:24px 32px;background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:100;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.controls span{font-weight:600;color:#64748b;font-size:.85rem;margin-right:4px}
+.btn{padding:7px 16px;border-radius:20px;border:2px solid #e2e8f0;background:#fff;cursor:pointer;font-size:.82rem;font-weight:600;color:#64748b;transition:all .2s}
+.btn.active,.btn:hover{background:#2563eb;border-color:#2563eb;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;padding:28px 32px}
+.card{background:#fff;border-radius:14px;border:1px solid #e2e8f0;overflow:hidden;transition:box-shadow .2s;display:flex;flex-direction:column}
+.card:hover{box-shadow:0 4px 20px rgba(37,99,235,.12)}
+.card-header{padding:14px 18px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #f1f5f9}
+.badge{padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:700;letter-spacing:.4px}
+.xhs{background:#ffecec;color:#e53e3e}
+.tiktok{background:#f0f0f0;color:#111}
+.ig{background:#fdf2ff;color:#9333ea}
+.story{background:#fef3c7;color:#d97706}
+.card-num{font-size:.75rem;color:#94a3b8;font-weight:600}
+.card-title{padding:12px 18px 6px;font-weight:700;font-size:.95rem;color:#0f172a;line-height:1.4}
+.card-body{padding:6px 18px 14px;font-size:.85rem;color:#334155;white-space:pre-wrap;word-break:break-word;flex:1}
+.card-tags{padding:0 18px 10px;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.72rem;color:#2563eb;background:#eff6ff;padding:2px 8px;border-radius:8px}
+.copy-btn{margin:0 18px 14px;padding:8px;border-radius:8px;background:#f8fafc;border:1px solid #e2e8f0;cursor:pointer;font-size:.8rem;color:#2563eb;font-weight:600;text-align:center;transition:all .2s}
+.copy-btn:hover{background:#2563eb;color:#fff}
+.copy-btn.copied{background:#10b981;color:#fff;border-color:#10b981}
+.hidden{display:none}
+.section-title{grid-column:1/-1;font-size:1.1rem;font-weight:800;color:#1e293b;padding:8px 0 4px;border-bottom:2px solid #2563eb;margin-bottom:4px}
+.prompt-section{padding:28px 32px;background:#fff;border-top:1px solid #e2e8f0;margin-top:8px}
+.prompt-section h2{font-size:1.2rem;font-weight:800;color:#1e293b;margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:#2563eb;color:#fff;padding:10px 14px;text-align:left;font-weight:700}
+td{padding:10px 14px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+.prompt-text{font-family:'Courier New',monospace;font-size:.78rem;color:#334155;line-height:1.5}
+footer{text-align:center;padding:24px;color:#94a3b8;font-size:.8rem;background:#faf8f5}
+@media(max-width:640px){.grid{padding:16px;grid-template-columns:1fr}.controls{padding:12px 16px}.prompt-section{padding:20px 16px}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>YiYi English · 社媒内容库</h1>
+  <p>50条可直接发布的社媒文案 · 小红书/TikTok/Instagram/Story模板</p>
+  <div class="stats">
+    <div class="stat">📕 小红书 20条</div>
+    <div class="stat">🎵 TikTok 15条</div>
+    <div class="stat">📸 Instagram 10条</div>
+    <div class="stat">⚡ Story模板 5条</div>
+  </div>
+</header>
+
+<div class="controls">
+  <span>筛选：</span>
+  <button class="btn active" onclick="filter('all')">全部 50</button>
+  <button class="btn" onclick="filter('xhs')">小红书 20</button>
+  <button class="btn" onclick="filter('tiktok')">TikTok 15</button>
+  <button class="btn" onclick="filter('ig')">Instagram 10</button>
+  <button class="btn" onclick="filter('story')">Story 5</button>
+</div>
+
+<div class="grid" id="grid">
+
+<!-- =================== 小红书 20条 =================== -->
+<div class="section-title" data-platform="all">📕 小红书图文（20条）</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#01</span></div>
+  <div class="card-title">海外华人妈妈必看｜给娃报英语课踩过的3个大坑🚫</div>
+  <div class="card-body">来美国3年了，终于把娃的英语课踩坑史整理出来！
+
+❌ 坑1：跟着学校走就够了
+→ 学校ESL班只教基础，口音和表达方式完全不是母语者的style，娃在班里始终"听得懂但说不出"
+
+❌ 坑2：找便宜的东南亚外教
+→ 口音迁移很真实！我家娃跟了半年，一开口就是带curry味的英语，后来改了很久
+
+❌ 坑3：报大班课以为能练口语
+→ 一节课45分钟，娃真正开口不到5分钟，其他时间在听老师讲
+
+✅ 现在换了YiYi English，固定欧美外教1对1，老师懂中国孩子的痛点（比如为什么不敢开口、母语迁移在哪里），3个月娃在学校开口多了很多～
+
+评论区告诉我你踩过哪个坑🙋‍♀️</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#英语学习</span><span class="tag">#双语教育</span><span class="tag">#海外育儿</span><span class="tag">#怎么给孩子报英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#02</span></div>
+  <div class="card-title">在加拿大给娃找英语课｜这3点比价格更重要⚠️</div>
+  <div class="card-body">📍 温哥华华人妈妈在线分享
+
+移居加拿大2年，娃插班读grade 3，口语一直是心头最大的痛。
+
+找课之前我列了一张表，现在分享给大家👇
+
+🔍 选课3大核心标准：
+
+1️⃣ 外教是否固定？
+→ 频繁换老师 = 孩子每次都要重新建立信任感，进度最慢
+
+2️⃣ 老师是否懂中国孩子的英语问题？
+→ 比如r/l混淆、句子结构倒装、不敢开口——懂这些才能精准纠错
+
+3️⃣ 有没有课后跟踪？
+→ 一周一节课，其他时间有没有人督促复习？
+
+YiYi English三条都达标。我家娃用了4个月，上周在学校被老师夸"has made tremendous progress"🥹
+
+需要试听的私我，目前有免费体验课～</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#加拿大华人</span><span class="tag">#双语教育</span><span class="tag">#怎么给孩子报英语课</span><span class="tag">#英语口语</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#03</span></div>
+  <div class="card-title">英语学习这件事，我后悔晚了5年开始💔</div>
+  <div class="card-body">说一个让我有点后悔的事。
+
+来澳洲之前，觉得自己英语"够用就好"——能看懂邮件、勉强开口就行。
+
+没想到职场上最吃亏的地方是：
+→ 会议里别人讨论得热火朝天，我只能点头
+→ presentation做得很好，但Q&A一问就慌
+→ 升职谈判，表达不清楚自己的价值
+
+工作3年后终于开始认真学。用的YiYi English，老师是持证欧美外教，每节课针对我工作场景设计对话练习。
+
+3个月后差别非常明显——
+不是"能说了"，是"说得有自信了"。
+
+如果你也在海外，别等到"够用"。英语这件事，越早认真越值。
+
+评论告诉我你现在英语哪个环节最卡🙋</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#英语学习</span><span class="tag">#职场英语</span><span class="tag">#澳洲华人</span><span class="tag">#英语口语提升</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#04</span></div>
+  <div class="card-title">海外华人孩子英语进步慢？大概率是这个原因📌</div>
+  <div class="card-body">🧐 帮孩子学了一年英语，进步不明显？
+
+在海外的华人家长注意！孩子英语进步慢，不一定是孩子不努力——很可能是这3个原因：
+
+🔴 原因1：语言环境"假融入"
+在学校说英语，回家全说中文——孩子在两个世界切换，但没有任何一个环境要求他精准表达
+
+🔴 原因2：没有针对性纠错
+孩子的错误一直没人系统纠，时间越长越固化
+
+🔴 原因3：课少、练少
+一周一节课，其余时间全靠自己，但孩子自觉性不够
+
+YiYi English的老师都有教中国孩子的经验，第一节课就做评估，专门针对你家孩子的薄弱点设计练习。
+
+📩 免费体验课可以私信我获取链接～</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#英语学习</span><span class="tag">#海外育儿经验</span><span class="tag">#英语进步慢</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#05</span></div>
+  <div class="card-title">从不敢开口→跟外国小朋友聊天💬 我家娃做到了什么？</div>
+  <div class="card-body">记录一下娃的英语成长里程碑🥰
+
+【6个月前】
+→ 在学校基本不主动说话
+→ 别的小朋友叫他玩，他用"yes/no"应付
+→ 老师反馈：he's very quiet, seems shy
+
+【3个月YiYi English后】
+→ 开始在课堂上主动举手
+→ 下课跟班上的英语母语孩子聊游戏
+→ 老师反馈：he's really coming out of his shell!
+
+变化的关键：
+老师懂他卡在哪里（是语言不够，不是性格问题），用游戏对话练习代替枯燥背单词。固定同一个老师，建立了信任感，他才愿意开口。
+
+不是每个孩子的时间线都一样，但这个方向是对的🌱
+
+欢迎同款困扰的妈妈们来聊～</div>
+  <div class="card-tags"><span class="tag">#海外育儿</span><span class="tag">#英语口语</span><span class="tag">#双语孩子</span><span class="tag">#海外华人</span><span class="tag">#英语学习</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#06</span></div>
+  <div class="card-title">怎么给孩子报英语课？我的完整选课流程📋</div>
+  <div class="card-body">选了半年英语课，总结了一套流程，送给纠结中的妈妈们👇
+
+🔎 第一步：明确目标
+→ 考试？口语？融入当地？目标不同，选课方向完全不一样
+
+📊 第二步：做基础评估
+→ 好的机构上课前会给孩子测水平，千万别报了才发现不匹配
+
+👨‍🏫 第三步：试听老师
+→ 不是试听课程，是试听"这个老师和孩子合不合"
+
+📅 第四步：确认排课灵活度
+→ 海外时区各异，一定要确认能不能按自己的时区安排
+
+🔄 第五步：问清楚换老师政策
+→ 固定外教很重要，但如果不合适能不能换？
+
+YiYi English这5条都能答出来，这是我最后选它的原因。
+
+收藏备用，帮你省半年踩坑时间💾</div>
+  <div class="card-tags"><span class="tag">#怎么给孩子报英语课</span><span class="tag">#英语课选择</span><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#海外育儿经验</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#07</span></div>
+  <div class="card-title">1对1外教课 vs 大班课，到底哪个值？算给你看💰</div>
+  <div class="card-body">很多妈妈问：1对1是不是贵到不值？
+
+来，我们算一笔账👇
+
+📌 大班课（8人班）：
+→ 每节课45min，你家孩子实际开口 ≈ 5分钟
+→ 每分钟开口成本：$X ÷ 5min = 贵
+
+📌 1对1外教课：
+→ 每节课45min，孩子开口 ≈ 35分钟
+→ 练习效率提升7倍
+→ 老师实时纠错，错误不固化
+
+语言学习的本质是"可理解性输入+输出练习"。
+
+大班课解决了输入，但输出练习严重不足。
+
+YiYi英语的1对1课，每节课都有录音复盘，回去家长也能听孩子说了什么，看哪里还需要改进。
+
+（其实算下来，进步速度快3倍，时间成本才是最贵的）
+
+你们觉得1对1值吗？评论区讨论～</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#1对1外教</span><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#英语课对比</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#08</span></div>
+  <div class="card-title">在美国读书｜雅思7分到底有多难？我的备考真实体验📝</div>
+  <div class="card-body">雅思备考6个月，从6.0→7.5，聊几个没人告诉我的事情。
+
+📌 口语才是最难突破的：
+→ 笔试可以刷题，口语没有真人练习根本没用
+→ 自己对着镜子练 = 没有反馈 = 练了也白练
+
+📌 外教和刷题班不一样：
+→ 刷题班教你模板，外教教你表达真实想法
+→ 考官最讨厌的就是模板腔
+
+📌 我的方法：
+→ 每周2次YiYi English口语课，老师全程录音反馈
+→ 每次课结束老师给我写correction list
+→ 回去自己对照录音改
+
+口语从5.5→7.0，这3件事缺一不可。
+
+考雅思的同学欢迎来交流📩</div>
+  <div class="card-tags"><span class="tag">#雅思备考</span><span class="tag">#英语学习</span><span class="tag">#海外华人</span><span class="tag">#雅思口语</span><span class="tag">#英语口语提升</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#09</span></div>
+  <div class="card-title">华人老师 vs 欧美外教，哪个更适合你家孩子？🤔</div>
+  <div class="card-body">这个问题被问过很多次，今天认真聊一下。
+
+👩‍🏫 华人老师的优势：
+→ 懂中文思维，知道孩子在哪里会翻译腔
+→ 语言切换方便，孩子不懂可以用中文解释
+
+🧑‍🏫 欧美外教的优势：
+→ 真实母语语感，孩子耳朵接收的是标准输入
+→ 对话场景更真实，不存在"中文救场"
+→ 孩子被迫全英文交流，进步更快
+
+YiYi English的做法是：外教上课，但老师有教中国孩子经验，知道中国孩子的典型错误在哪里，能精准纠错——这个组合我觉得是最好的。
+
+不是说华人老师不好，是分阶段：
+→ 基础薄弱：可以用华人老师打基础
+→ 想要真流利：一定要大量接触母语外教
+
+个人观点，欢迎讨论🙌</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#双语教育</span><span class="tag">#海外华人</span><span class="tag">#外教选择</span><span class="tag">#怎么给孩子报英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#10</span></div>
+  <div class="card-title">海外华人孩子双语教育实录｜我们家怎么分配中英文时间📅</div>
+  <div class="card-body">在英国读书，娃8岁，怎么做到中英文都不落下？
+
+我家的时间分配方案👇
+
+⏰ 工作日：
+→ 学校英语：6小时（天然浸入）
+→ 回家中文书：30分钟（保中文）
+→ YiYi English口语课：3次/周，每次45分钟
+
+🏖️ 周末：
+→ 周六上午：中文网课
+→ 周日：英文电影/英文绘本亲子共读
+
+📌 关键原则：
+→ 英语让环境解决，中文要主动投入
+→ 口语练习必须有真人反馈（不是app）
+→ 不强迫娃喜欢，用有趣的方式包装
+
+娃现在中英文都不差，学校老师说她written English is exceptional for her age。
+
+有同款规划困惑的妈妈欢迎聊～</div>
+  <div class="card-tags"><span class="tag">#双语教育</span><span class="tag">#海外华人</span><span class="tag">#海外育儿</span><span class="tag">#英语学习</span><span class="tag">#中英双语</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#11</span></div>
+  <div class="card-title">成人英语进阶｜我花了¥8999报了这门课，值不值？💸</div>
+  <div class="card-body">说一个真实的钱的决策过程。
+
+工作5年，英语一直停在"能用但不自信"。想升职，但开会发言总是卡壳，领导说我"需要更强的presence"。
+
+找了很多课，最后选了YiYi English进阶课包（¥8999）。
+
+理由是：
+→ 固定外教，不是今天这个明天那个
+→ 课程内容围绕职场场景定制
+→ 承诺效果，不满意有处理方案
+
+3个月后：
+✅ 会议发言从"最少说话的人"变成能主导讨论
+✅ 上个月presentation，老板专门发邮件夸了我
+✅ 薪资涨了（这个不多说😅）
+
+¥8999值不值？
+用结果来说：这笔钱我挣回来了，还有余。
+
+细节可以私我聊～</div>
+  <div class="card-tags"><span class="tag">#职场英语</span><span class="tag">#英语学习</span><span class="tag">#海外华人</span><span class="tag">#英语进阶</span><span class="tag">#1对1外教</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#12</span></div>
+  <div class="card-title">英语口语焦虑怎么破？说一个改变我的练习方法🎯</div>
+  <div class="card-body">英语口语焦虑，我理解。
+
+那种明明知道答案，但嘴巴就是打结的感觉。
+
+我也经历过。后来发现一个真相：
+
+🔑 口语焦虑不是能力问题，是曝光量问题。
+
+你在"可能出错"的环境里开口的次数太少了。
+
+解法：
+→ 找一个你信任的老师，专属的，每次都是他/她
+→ 在这个安全环境里大量开口，不怕出错
+→ 老师的工作是让你说出来，不是让你说对
+
+YiYi English让我固定同一个外教，从第3节课开始我就完全放开说了，管它对不对先说出来。
+
+错了被纠正，但绝不被judge。
+
+这个安全感是练好口语的前提，找到了就快了。
+
+你们口语焦虑最大的场景是什么？评论见🙋</div>
+  <div class="card-tags"><span class="tag">#英语口语</span><span class="tag">#英语学习</span><span class="tag">#海外华人</span><span class="tag">#口语焦虑</span><span class="tag">#英语口语提升</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#13</span></div>
+  <div class="card-title">免费英语资源 vs 付费外教课，差别到底在哪里？🆓💰</div>
+  <div class="card-body">老问题新答：免费资源能不能替代外教课？
+
+我用过：YouTube/Podcasts/语言交换/AI对话/大班视频课
+
+也上过：YiYi English 1对1外教
+
+说真实区别👇
+
+📺 免费资源：
+→ 输入很好（听力、词汇、文化）
+→ 没有针对你的反馈
+→ 你的错误永远不知道
+→ 进步慢但省钱
+
+👨‍🏫 1对1外教：
+→ 每句话都有反馈
+→ 老师知道你的盲点
+→ 进步快但要花钱
+
+结论：
+→ 预算有限：免费资源+语言交换
+→ 想快速突破/有职场压力/备考：值得付费找专业外教
+
+我不是说免费资源没用——我现在也还在听Podcast。
+
+但如果你学了2年还没突破，那缺的不是资源，是反馈。</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#英语资源</span><span class="tag">#海外华人</span><span class="tag">#英语口语</span><span class="tag">#1对1英语</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#14</span></div>
+  <div class="card-title">在新西兰｜孩子插班读小学，英语怎么跟上？🇳🇿</div>
+  <div class="card-body">刚到奥克兰，娃7岁，插班Year 3。
+
+第一周哭着回家说听不懂，老师说什么都不明白。
+
+妈妈心碎但要镇定😭
+
+我们做了3件事：
+
+1️⃣ 不逼，先适应
+→ 前两周只要他去学校就奖励，不谈英语
+
+2️⃣ 找固定外教强化口语
+→ YiYi English每周3次，老师专门练课堂常用句（"Can I go to the bathroom?" / "I don't understand"）
+→ 实用句先上，让娃在学校不至于完全抓瞎
+
+3️⃣ 鼓励而非评价
+→ 回家聊学校的英文，不纠错，先肯定他说了
+
+3个月后：老师说他融入得很好，课堂上开始主动回答问题了🎉
+
+刚到新西兰/澳洲/英国的妈妈们，这条分享给你们～</div>
+  <div class="card-tags"><span class="tag">#新西兰华人</span><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#英语学习</span><span class="tag">#怎么给孩子报英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#15</span></div>
+  <div class="card-title">英语面试被拒3次后，我做了这件事📌</div>
+  <div class="card-body">英语面试被拒3次，HR反馈是"communication style"问题。
+
+那一刻我意识到：我的英语不是能力问题，是表达风格问题。
+
+中国人说话喜欢铺垫、谦虚、迂回——
+在面试里这是大忌。
+英语面试要：直接、confident、结构清晰。
+
+找了YiYi English做专项练习：
+→ 模拟面试对话（STAR结构回答法）
+→ 老师指出我说话里的中式表达习惯
+→ 练confident tone（不是内容，是语气）
+
+第4次面试：拿到offer。
+
+英语能力和英语表达风格是两件事。
+能说 ≠ 会说。
+
+有面试需求的小伙伴可以聊～</div>
+  <div class="card-tags"><span class="tag">#职场英语</span><span class="tag">#英语面试</span><span class="tag">#海外华人</span><span class="tag">#英语学习</span><span class="tag">#英语进阶</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#16</span></div>
+  <div class="card-title">带娃学英语，妈妈能做什么？（不会英语也能帮）👩‍👧</div>
+  <div class="card-body">很多妈妈跟我说：我自己英语也不好，怎么帮孩子？
+
+来，你能做的比你想的多👇
+
+✅ 你能做的：
+→ 制造英语环境：英文动画、英文绘本（不用懂，孩子自己听）
+→ 鼓励孩子讲给你听（哪怕你听不懂，认真听=最大鼓励）
+→ 帮孩子找好老师（你负责比较、决策）
+→ 监督上课频率（打卡习惯）
+→ 给老师写反馈（孩子最近在学校遇到什么英语场景）
+
+❌ 不用做的：
+→ 自己教（会带坏发音）
+→ 在旁边盯着上课（孩子压力大）
+→ 每天抽查单词（对口语没帮助）
+
+专业的事交给专业的老师，你做后勤就够了。
+
+YiYi English每次课后会给家长发简报，告诉你这节课学了什么、下周练什么。不懂英语也完全跟得上🙌</div>
+  <div class="card-tags"><span class="tag">#海外育儿</span><span class="tag">#双语教育</span><span class="tag">#海外华人</span><span class="tag">#英语学习</span><span class="tag">#怎么给孩子报英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#17</span></div>
+  <div class="card-title">说一个英语进步最快的阶段：不是初学，是这个🚀</div>
+  <div class="card-body">学英语最快进步的阶段，不是从零开始，而是——
+
+从"能说"到"说得地道"这一段。
+
+为什么？
+
+初学阶段：要记单词、学语法，大量输入，进步看得见
+"能说"阶段：知道怎么表达，但说出来感觉怪
+→ 这个阶段停留最久，最多人卡死在这里
+
+怎么突破？
+
+→ 需要大量真人对话，不是app
+→ 需要有人告诉你"这句话母语者不这么说"
+→ 需要在真实场景里练，不是刷题
+
+YiYi English的外教每节课会给你一个"地道说法清单"，就是你说的和母语者说的对比。
+
+这个东西刷题班、大班课都给不了你。
+
+你现在在哪个英语阶段？</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#英语口语</span><span class="tag">#海外华人</span><span class="tag">#英语进阶</span><span class="tag">#英语口语提升</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#18</span></div>
+  <div class="card-title">海外华人学英语｜我整理了5个最常见的中式英语错误📝</div>
+  <div class="card-body">跟外教上课半年，老师帮我记录了我最常犯的中式英语，今天分享给大家：
+
+❌ #1 "I very like it"
+✅ 正确：I really like it / I love it
+
+❌ #2 "Yesterday I have gone to the store"
+✅ 正确：Yesterday I went to the store
+
+❌ #3 "Please give me some advices"
+✅ 正确：Please give me some advice（advice不可数）
+
+❌ #4 "I am very boring"
+✅ 正确：I am very bored（boring=使人无聊，bored=感到无聊）
+
+❌ #5 "Despite of the rain, we went out"
+✅ 正确：Despite the rain / In spite of the rain（两者选一）
+
+这5个错误80%的中国人都在犯，而且自己不知道。
+
+YiYi English老师每节课后给我一份correction sheet，慢慢这些错就改掉了。
+
+收藏！下次说英语前想一想📌</div>
+  <div class="card-tags"><span class="tag">#中式英语</span><span class="tag">#英语学习</span><span class="tag">#海外华人</span><span class="tag">#英语语法</span><span class="tag">#英语口语提升</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#19</span></div>
+  <div class="card-title">给娃选英语课前，先搞清楚这个问题✍️</div>
+  <div class="card-body">很多妈妈来问我推荐什么英语课。
+
+我每次都先反问一个问题：
+
+"你希望孩子学完英语能做什么？"
+
+这个问题很关键，因为目标不同，选课完全不一样——
+
+🎯 目标A：在学校融入、交朋友
+→ 侧重口语表达+日常对话+情感词汇
+
+🎯 目标B：提高学业成绩
+→ 侧重阅读理解+写作结构+学术词汇
+
+🎯 目标C：备考雅思/托福
+→ 侧重考试技巧+口语答题框架
+
+🎯 目标D：将来回国/国际就业
+→ 侧重商务英语+跨文化沟通
+
+YiYi English第一节课是评估课，老师会问孩子/学员的目标，然后定制课程计划。
+
+这个步骤很多机构跳过，但它决定了之后所有课程的方向是否正确。
+
+先想清楚目标，再选课～💡</div>
+  <div class="card-tags"><span class="tag">#怎么给孩子报英语课</span><span class="tag">#英语学习</span><span class="tag">#双语教育</span><span class="tag">#海外华人</span><span class="tag">#英语课选择</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="xhs">
+  <div class="card-header"><span class="badge xhs">小红书</span><span class="card-num">#20</span></div>
+  <div class="card-title">不敢开口说英语？这3句话救了我🗣️</div>
+  <div class="card-body">分享3个我的外教教我的"开口神句"——
+
+不是万能句，是打破沉默用的。
+
+🗣️ 神句1："That's a great point. Let me add to that..."
+→ 用在会议/讨论，优雅接话，不突兀
+
+🗣️ 神句2："Sorry, could you say that again? I want to make sure I got it right."
+→ 听不懂时优雅要求重复，比"What?"更professional
+
+🗣️ 神句3："What I mean is..."
+→ 说错了或被误解时，用这句重新组织，自然无压力
+
+这3句话我用了3年，真的管用。
+
+重点不是"说得完美"，是"开了口"。
+
+开口是最重要的一步。
+
+有没有你一直记着的"救场神句"？评论分享🌟</div>
+  <div class="card-tags"><span class="tag">#英语口语</span><span class="tag">#英语学习</span><span class="tag">#海外华人</span><span class="tag">#英语表达</span><span class="tag">#职场英语</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<!-- =================== TikTok 15条 =================== -->
+<div class="section-title" data-platform="all">🎵 TikTok短视频脚本（15条）</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#21</span></div>
+  <div class="card-title">Before/After：我的英语3个月变化对比🔥</div>
+  <div class="card-body">【视频结构】
+📸 Before画面（3个月前）：
+"So... I want to... uh... talk about the... project... sorry my English is not very good..."
+
+⚡ 3个月YiYi English后：
+"I'd like to walk you through our Q3 results. We saw a 23% increase in revenue, largely driven by..."
+
+【旁白文字】
+同一个人。90天。固定外教1对1。
+
+秘密不是背单词——是每周3次真人练习+即时纠错。
+
+你的嘴在等一个机会开口。
+
+#EnglishLearning #ChineseAbroadLife #BeforeAfter #英语口语 #海外华人</div>
+  <div class="card-tags"><span class="tag">#EnglishLearning</span><span class="tag">#BeforeAfter</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#22</span></div>
+  <div class="card-title">3个英语学习误区，你中了几个？❌</div>
+  <div class="card-body">【视频结构·POV快剪风格】
+
+误区1（文字弹出）：
+"背单词就能流利说英语"
+→ 事实：单词够用了，开不了口是输出问题
+
+误区2（文字弹出）：
+"看英语剧就能学好口语"
+→ 事实：被动输入≠主动输出，没有说的练习
+
+误区3（文字弹出）：
+"我语法太差所以不敢说"
+→ 事实：母语者的对话语法不完美，先说再改
+
+【结尾】
+我花了3年踩这3个坑。
+现在我每周两次真人外教1对1，3个月改掉的错比之前3年还多。
+
+#英语学习误区 #EnglishTips #ChineseAbroadLife #海外华人英语</div>
+  <div class="card-tags"><span class="tag">#EnglishTips</span><span class="tag">#英语误区</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#23</span></div>
+  <div class="card-title">我的孩子第一次用英语交到朋友那天🥹</div>
+  <div class="card-body">【情感叙事·真实感】
+
+那天是个普通的周五。
+
+下课接娃，他跑过来说：
+
+"妈妈！Jake邀请我周末去他家玩！我用英语说yes了！"
+
+半年前，他连"Can I play with you?"都不敢说。
+
+他一直很想融入，但语言是那道墙。
+
+YiYi English的老师每次课都会和他练playground英语——和小朋友聊什么、怎么加入游戏、不懂怎么说。
+
+那些练习，他记住了。
+
+那一刻值得我报了所有的课。
+
+给所有在等孩子"突破"那一刻的妈妈们🤍
+
+#海外华人 #双语孩子 #育儿日记 #ChildrenLearningEnglish</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#双语孩子</span><span class="tag">#育儿日记</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#24</span></div>
+  <div class="card-title">为什么你的英语学了10年还不流利？真相在这里👇</div>
+  <div class="card-body">【口播·直接对话镜头】
+
+我有一个问题给你：
+
+过去一年里，你用英语说过的最长一段话，有多长？
+
+（停顿）
+
+如果答案是"很短"或者"想不起来"——
+
+这就是你英语不流利的原因。
+
+不是词汇量，不是语法，不是发音。
+
+是你的嘴巴练习太少了。
+
+语言是一种运动技能。
+你不会通过看游泳教程学会游泳。
+
+每周你需要至少2-3小时真人英语对话，才能有效积累。
+
+我在用YiYi English做这件事，每次课45分钟，全程说英语，老师实时纠错。
+
+开始认真练，才开始真进步。
+
+#英语口语 #English #海外华人英语 #LanguageLearning</div>
+  <div class="card-tags"><span class="tag">#英语口语</span><span class="tag">#LanguageLearning</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#25</span></div>
+  <div class="card-title">海外华人家长真实经历｜花¥3999给孩子报课之前</div>
+  <div class="card-body">【真实感口播】
+
+我报课之前问过自己3个问题：
+
+第一：孩子真的需要额外的英语课吗？
+→ 学校教的够不够？（我的答案是：学校教读写，口语几乎没有）
+
+第二：为什么是1对1而不是大班？
+→ 孩子上课需要被看到，需要有人push她说话
+
+第三：为什么选YiYi English？
+→ 老师固定、欧美母语、懂中国孩子痛点、有免费试听
+
+我用这3个问题过滤掉了大部分的课。
+
+最后留下来的是YiYi English。
+
+孩子上了4个月，老师反馈每次都非常detailed，我知道她在哪里进步，在哪里还需要努力。
+
+这种透明度让我安心。
+
+#海外华人 #怎么给孩子报英语课 #双语教育 #英语课</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#26</span></div>
+  <div class="card-title">外教第一节课说了什么，让我震惊了🤯</div>
+  <div class="card-body">【口播+文字弹出】
+
+我第一节YiYi English外教课，老师说了一句话：
+
+"I'm not here to teach you English. I'm here to help you communicate."
+
+我愣了一下。
+
+然后她说：你的英语能力已经够了。你卡住的不是知识，是习惯——用中文思维在说英语。
+
+接下来她问我：你最想在哪些场景说好英语？
+
+那节课我们聊了45分钟我工作里真实遇到的对话场景。
+
+没有教材，没有PPT，没有单词测验。
+
+只有真实的、针对我问题的练习。
+
+那是我上过的最有用的英语课。
+
+#英语学习 #外教 #职场英语 #海外华人英语</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#外教</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#27</span></div>
+  <div class="card-title">给海外华人孩子学英语的3个建议🌏</div>
+  <div class="card-body">【干货列表风格，适合保存】
+
+在海外带孩子学英语这件事，我有3个真实建议：
+
+No.1 不要完全依赖学校
+学校英语是基础，但口语练习量远远不够。需要额外补充。
+
+No.2 找固定老师，不要换来换去
+孩子建立信任需要时间。每次换老师都要重来，进步最慢。
+
+No.3 评估孩子的真实问题，不要报通用课
+是不敢开口？是发音？是词汇？不同问题对应不同练习方法。
+
+YiYi English做到了这3点：固定欧美外教、第一节评估、定制练习计划。
+
+这3件事是效果保证的基础。
+
+拿走不谢～收藏备用📌
+
+#海外华人 #双语教育 #英语学习建议 #怎么给孩子报英语课</div>
+  <div class="card-tags"><span class="tag">#海外华人</span><span class="tag">#双语教育</span><span class="tag">#英语学习</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#28</span></div>
+  <div class="card-title">学了半年英语，妈妈帮我测试进步了多少😂</div>
+  <div class="card-body">【轻松风格，亲子互动】
+
+妈妈测试场景（可以做成情景短剧）：
+
+妈妈：你英语学了这么久，跟我说一段英语我听听！
+
+孩子（半年前）：Er... today I am... happy... because... uh...
+
+（尴尬沉默）
+
+孩子（现在）：Mom, today was actually a really good day. In PE class, my teacher asked me to help demonstrate the drill, and Jake told me I'm getting better at soccer. Oh, and I finally understood the science lesson without looking up any words!
+
+妈妈：😮？？？
+
+【文字旁白】
+这不是剧本，这是真实的对话。
+6个月，每周3次YiYi English外教课。
+老师的话：he's a completely different kid.
+
+#英语进步 #海外华人 #双语孩子 #学英语</div>
+  <div class="card-tags"><span class="tag">#英语进步</span><span class="tag">#海外华人</span><span class="tag">#双语孩子</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#29</span></div>
+  <div class="card-title">我对比了5家英语课，最后选了这个原因只有一个🎯</div>
+  <div class="card-body">【直接干货·快节奏】
+
+我比较了5家英语课（以下真实体验）：
+
+❌ A家：东南亚外教，便宜，但口音问题
+❌ B家：课程设计好，但老师不固定，每次换人
+❌ C家：大班课，性价比高，但孩子开口太少
+❌ D家：AI对话练习，有趣，但没有真人反馈
+✅ YiYi English：欧美外教固定、评估+定制、有效果承诺
+
+最后让我下决定的原因只有一个：
+
+老师懂中国孩子的英语问题。
+
+不是说"中国学生很勤奋"那种懂——
+是知道为什么中国孩子不敢开口、句子结构在哪里出问题、怎么练最快。
+
+这个"懂"，换来了孩子3个月的真实进步。
+
+#怎么给孩子报英语课 #英语课对比 #海外华人 #双语教育</div>
+  <div class="card-tags"><span class="tag">#英语课对比</span><span class="tag">#海外华人</span><span class="tag">#双语教育</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#30</span></div>
+  <div class="card-title">英语口语焦虑发作时，我默默做了这3件事😶</div>
+  <div class="card-body">【亲身经历·共鸣感】
+
+口语焦虑发作的时候：
+
+→ 心跳加速
+→ 大脑空白
+→ 所有学过的词全消失
+
+你认识这种感觉吗？
+
+我用了1年摸索出3个应对方法：
+
+1. 先呼吸，再开口
+→ 焦虑时大脑供氧不足，深呼吸3秒，真的管用
+
+2. 接受"not perfect"
+→ 告诉自己：说出来比说对更重要
+
+3. 建立"安全区"
+→ 找一个可以随便说错的练习环境（就是我的外教课）
+
+现在焦虑少很多了。
+不是因为英语变好了——
+是因为"说英语"在我心里从威胁变成了习惯。
+
+#英语焦虑 #英语口语 #海外华人 #LanguageLearning</div>
+  <div class="card-tags"><span class="tag">#英语焦虑</span><span class="tag">#英语口语</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#31</span></div>
+  <div class="card-title">从来不主动说英语→职场发言没压力，我做了什么？</div>
+  <div class="card-body">【职场成长故事·真实感】
+
+3年前我开会全程不说话。
+
+不是没有想法——是怕说错，怕被笑，怕打断别人之后词穷。
+
+后来老板直接找我谈话：你的工作很好，但你需要更多visibility。
+
+那次谈话是我认真学英语的起点。
+
+开始上YiYi English，专注职场英语场景：
+→ 如何在会议中接话
+→ 如何表达不同意见但不显得aggressive
+→ 如何让自己的想法被记住
+
+6个月后，我在全公司季度会议做了presentation。
+
+现在我是团队里发言最多的人之一。
+
+不是因为我变了，是因为语言不再是阻碍了。
+
+#职场英语 #英语进步 #海外华人 #英语学习</div>
+  <div class="card-tags"><span class="tag">#职场英语</span><span class="tag">#英语进步</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#32</span></div>
+  <div class="card-title">我家孩子英语课的一天长什么样？📹</div>
+  <div class="card-body">【日常Vlog式脚本】
+
+早上7:45，北美时间。
+
+娃坐在桌前，打开电脑，外教Sarah的脸出现在屏幕上。
+
+"Good morning! How was yesterday?"
+"It was good! We had PE and I scored a goal!"
+"Oh that's awesome! Tell me more about that..."
+
+接下来45分钟，他们聊了：
+→ 昨天放学发生的事
+→ 本周学校作业（老师会用这个练presentation技能）
+→ 一个小游戏（猜词/辩论/情景对话）
+
+课结束，老师发给我一个简短总结：
+今天重点练了because/so的连接句，孩子进步明显，下次练if条件句。
+
+这就是我家英语课的一天。
+不是背单词，是真实对话。
+
+#双语孩子 #海外华人 #英语学习 #1对1外教</div>
+  <div class="card-tags"><span class="tag">#双语孩子</span><span class="tag">#海外华人</span><span class="tag">#1对1外教</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#33</span></div>
+  <div class="card-title">雅思口语从5.5→7.5，我的备考时间线🗓️</div>
+  <div class="card-body">【干货时间线·竖版清单】
+
+月份1-2：摸底阶段
+→ 找到自己的问题：我是"词汇够但说话没逻辑"型
+→ 开始YiYi English专项口语课，老师教IELTS话题拓展法
+
+月份3-4：拆解阶段
+→ 把所有常见话题按Part 1/2/3分类练
+→ 每次课录音，回放找停顿和重复词
+
+月份5：冲刺阶段
+→ 密集模拟，每周2次正式Mock test
+→ 老师给分+详细feedback
+
+月份6：考试
+→ 口语7.5（第一次尝试时是5.5）
+
+关键不是练多少，是练对了什么。
+方向比努力更重要。
+
+#雅思口语 #英语学习 #海外华人 #雅思备考</div>
+  <div class="card-tags"><span class="tag">#雅思口语</span><span class="tag">#英语学习</span><span class="tag">#雅思备考</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#34</span></div>
+  <div class="card-title">这个中式英语让我在会议里社死了🫣</div>
+  <div class="card-body">【搞笑+实用 混合风格】
+
+真实事件：
+
+会议讨论项目deadline，我说：
+
+"I think we need more time. The project is very difficult to do."
+
+然后整个会议室沉默了3秒。
+
+老板看着我说："I... see."
+
+回家跟外教说了这件事，老师笑了然后告诉我：
+
+"You sounded like you were complaining, not proposing a solution."
+
+母语者的说法：
+"I'd recommend we build in a buffer. Given the complexity of this project, an extra week would help us deliver stronger results."
+
+同一个意思。完全不同的效果。
+
+中式英语不是错了——是表达风格不对。
+
+这节课改变了我的职场英语思路。
+
+#中式英语 #职场英语 #英语学习 #海外华人</div>
+  <div class="card-tags"><span class="tag">#中式英语</span><span class="tag">#职场英语</span><span class="tag">#英语学习</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="tiktok">
+  <div class="card-header"><span class="badge tiktok">TikTok</span><span class="card-num">#35</span></div>
+  <div class="card-title">为什么固定外教比换来换去的重要10倍？🔒</div>
+  <div class="card-body">【干货解释·教育感】
+
+很多家长问我：固定外教有那么重要吗？
+
+来，我解释一下语言学习的机制：
+
+语言是在"关系"里学会的。
+
+不是在课本里，不是在app里——是在你愿意开口、愿意出错的关系里。
+
+建立这种关系需要时间。
+
+换一次老师 = 重建一次信任 = 开口进度归零。
+
+老师了解你之后：
+→ 知道你哪里卡，直接切入
+→ 知道你怎么出错，针对性纠
+→ 你在他/她面前放松，开口更多
+
+YiYi English固定外教制度，这不是噱头，是学好语言的科学原理。
+
+如果你换过很多老师但进步慢，这就是原因。
+
+#英语学习 #1对1外教 #海外华人 #英语进步</div>
+  <div class="card-tags"><span class="tag">#英语学习</span><span class="tag">#1对1外教</span><span class="tag">#海外华人</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<!-- =================== Instagram 10条 =================== -->
+<div class="section-title" data-platform="all">📸 Instagram图文（10条）</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#36</span></div>
+  <div class="card-title">The moment my child spoke English without hesitation 🌱</div>
+  <div class="card-body">Six months ago, he would go quiet whenever someone asked him something in English at school.
+
+Last week, he came home and told me — entirely in English — about his day, his friends, and a funny thing that happened in science class.
+
+I didn't teach him that. His YiYi English teacher did.
+
+One-on-one lessons with a native speaker who actually understood why Chinese kids struggle — not just where they struggle, but why. That's what changed everything.
+
+For every parent watching their child hold back: the breakthrough is coming. Find the right environment and trust the process. 🤍
+
+—
+
+What was your child's English breakthrough moment? Share below 👇
+
+#BilingualKids #OverseasChinese #EnglishLearning #ChineseAbroad #KidsEnglish #LanguageLearning #BilingualFamily #ExpatsInAustralia</div>
+  <div class="card-tags"><span class="tag">#BilingualKids</span><span class="tag">#OverseasChinese</span><span class="tag">#EnglishLearning</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#37</span></div>
+  <div class="card-title">Why I stopped looking for the "cheapest" English class 💡</div>
+  <div class="card-body">I spent two years trying different options — group classes, language exchange apps, Southeast Asian tutors, YouTube playlists.
+
+Each one had something going for it. But my English stayed stuck.
+
+Then I asked myself a different question: not "what's affordable?" but "what actually works?"
+
+For me, what worked was:
+✔ A fixed, native English teacher who knows me
+✔ Real-time correction on my specific mistakes
+✔ Lessons built around my actual work scenarios
+
+When I found YiYi English, I stopped shopping for classes and started making actual progress.
+
+The right investment in the right thing moves faster than years of trial and error.
+
+—
+
+What's been your biggest "this finally worked" in language learning? 💬
+
+#EnglishLearning #ProfessionalEnglish #ChineseAbroad #OverseasChinese #ESLAdults #CareerEnglish #LanguageLearning</div>
+  <div class="card-tags"><span class="tag">#EnglishLearning</span><span class="tag">#OverseasChinese</span><span class="tag">#CareerEnglish</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#38</span></div>
+  <div class="card-title">5 English phrases that changed how I sound at work 🎙️</div>
+  <div class="card-body">My YiYi English teacher gave me these. Use them.
+
+1. "Building on what [name] said..."
+→ Shows you're listening AND adds value
+
+2. "I'd like to flag something..."
+→ Gentle way to raise a concern without sounding confrontational
+
+3. "Let me circle back to that..."
+→ Buys you time to organize your thoughts
+
+4. "Just to clarify my understanding..."
+→ Asks for clarification without sounding lost
+
+5. "That's worth exploring further..."
+→ Neutral agreement that keeps the conversation going
+
+None of these are fancy. But they're what native speakers actually say in meetings.
+
+Save this. Use one this week. ✅
+
+—
+
+#WorkplaceEnglish #BusinessEnglish #ChineseAbroad #EnglishTips #OverseasChinese #CareerGrowth #EnglishLearning</div>
+  <div class="card-tags"><span class="tag">#WorkplaceEnglish</span><span class="tag">#BusinessEnglish</span><span class="tag">#EnglishTips</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#39</span></div>
+  <div class="card-title">To every Chinese parent raising bilingual kids abroad 🌏</div>
+  <div class="card-body">You're doing something incredibly hard.
+
+Keeping Chinese alive while helping your kids thrive in English.
+Watching them struggle in class while trusting the process.
+Finding resources across time zones, currencies, and cultural gaps.
+
+This is not easy. And most of the advice out there wasn't made for you.
+
+That's why YiYi English was built — by people who understand exactly where Chinese learners get stuck, and how to move them forward.
+
+Not generic English. Not one-size-fits-all lessons.
+
+English that fits your child's specific starting point.
+
+Keep going. You're building something they'll carry their whole lives. 🤍
+
+—
+
+Tag a parent who's doing the hard work of raising bilingual kids 👇
+
+#BilingualParenting #OverseasChinese #ChineseAbroad #ExpatsAbroad #RaisingBilingualKids #EnglishLearning #ChineseMom</div>
+  <div class="card-tags"><span class="tag">#BilingualParenting</span><span class="tag">#OverseasChinese</span><span class="tag">#RaisingBilingualKids</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#40</span></div>
+  <div class="card-title">The truth about learning English as an adult 📌</div>
+  <div class="card-body">Nobody tells you this, so I will:
+
+Learning English as an adult is not about being smart.
+It's not about talent.
+It's not even about how many hours you study.
+
+It's about the quality of feedback you receive.
+
+A child learns a language because adults around them constantly respond — correcting, rewording, expanding. That's the feedback loop.
+
+As adults, we lose that. Apps don't give it. Textbooks don't give it. YouTube doesn't give it.
+
+Only a skilled human teacher in a real conversation gives you that.
+
+That's the gap. And that's what fills it.
+
+If you've been "studying" without improving, you're missing the feedback loop. Find it.
+
+—
+
+#EnglishForAdults #LanguageLearning #ChineseAbroad #OverseasChinese #EnglishLearning #Fluency #ESL</div>
+  <div class="card-tags"><span class="tag">#EnglishForAdults</span><span class="tag">#LanguageLearning</span><span class="tag">#Fluency</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#41</span></div>
+  <div class="card-title">3 signs your child needs more than just school English 📋</div>
+  <div class="card-body">School does a lot. But not everything.
+
+Watch for these signs that your child might need extra support:
+
+🔴 Sign 1: They understand but won't speak
+School teaches reading and writing well. Speaking confidence requires a different kind of practice.
+
+🔴 Sign 2: Their friend group is mostly other Chinese kids
+This often means the language barrier is limiting social connection — not a preference.
+
+🔴 Sign 3: They avoid situations where they'd need to speak English
+Avoidance grows with time. The longer this goes, the harder to reverse.
+
+These are not signs of failure. They're signals that targeted help at the right time can make a huge difference.
+
+YiYi English starts with an assessment lesson — figuring out exactly where your child is and what they need.
+
+DM us "TRIAL" to book a free assessment. 💙
+
+—
+
+#ChineseKidsAbroad #BilingualKids #EnglishLearning #OverseasChinese #ExpatsAbroad #KidsEnglish</div>
+  <div class="card-tags"><span class="tag">#ChineseKidsAbroad</span><span class="tag">#BilingualKids</span><span class="tag">#OverseasChinese</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#42</span></div>
+  <div class="card-title">What "fluent" actually means (it's not what you think) 🎯</div>
+  <div class="card-body">Most people think fluency means:
+→ No accent
+→ Perfect grammar
+→ Big vocabulary
+
+But here's what actual fluency looks like:
+
+✅ You can express what you mean without translating from Chinese first
+✅ You respond in real time without long pauses to prepare
+✅ You adjust your style — casual with friends, formal in meetings
+✅ You recover smoothly when you make a mistake
+
+Notice: none of those are about being perfect.
+
+Fluency is about flow — the ability to communicate without the language itself being an obstacle.
+
+That's what we work toward at YiYi English. Not perfect. Functional, confident, and natural.
+
+—
+
+Where are you on this spectrum right now? Honest answers only. 💬
+
+#EnglishFluency #LanguageLearning #ChineseAbroad #OverseasChinese #EnglishLearning #ESL</div>
+  <div class="card-tags"><span class="tag">#EnglishFluency</span><span class="tag">#LanguageLearning</span><span class="tag">#OverseasChinese</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#43</span></div>
+  <div class="card-title">Why we built YiYi English 💙</div>
+  <div class="card-body">We watched too many smart, capable Chinese professionals and students hold themselves back — not because of what they knew, but because of how they sounded.
+
+We watched kids understand everything in class but freeze when called on.
+
+We watched parents spend money on generic classes that didn't know the difference between a Chinese learner's specific challenges and a European learner's.
+
+Chinese learners face specific patterns: the tendency to translate from Mandarin, reluctance to speak without certainty, particular phonetic gaps, academic writing habits that don't transfer to spoken English.
+
+Generic English classes aren't built for this.
+
+YiYi English is.
+
+Every teacher we work with has experience with Chinese learners. Every lesson plan is built around the learner in front of them, not a textbook.
+
+That's the difference. And it shows in the results.
+
+—
+
+#YiYiEnglish #OverseasChinese #ChineseAbroad #EnglishLearning #1on1English</div>
+  <div class="card-tags"><span class="tag">#YiYiEnglish</span><span class="tag">#OverseasChinese</span><span class="tag">#EnglishLearning</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#44</span></div>
+  <div class="card-title">IELTS 7.5 didn't change my life. Speaking confidently did. ✨</div>
+  <div class="card-body">When I passed IELTS with a 7.5, people congratulated me. My mom sent a WeChat voice message. My dad told all his friends.
+
+But honestly? The score wasn't the thing that changed my life.
+
+What changed my life was the 6 months of weekly speaking practice that got me there.
+
+Because after those 6 months, I could:
+→ Handle a job interview entirely in English
+→ Disagree with my manager without over-apologizing
+→ Join conversations at work without planning every word first
+
+The score opened the door. The confidence walked me through it.
+
+If you're preparing for IELTS — or any English milestone — remember: the exam is a proxy. Real fluency is the goal.
+
+YiYi English helped me get both. 💙
+
+—
+
+#IELTSSuccess #EnglishLearning #OverseasChinese #ChineseAbroad #IELTSPreparation #Fluency</div>
+  <div class="card-tags"><span class="tag">#IELTSSuccess</span><span class="tag">#OverseasChinese</span><span class="tag">#Fluency</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="ig">
+  <div class="card-header"><span class="badge ig">Instagram</span><span class="card-num">#45</span></div>
+  <div class="card-title">One year of 1-on-1 English lessons. Here's my honest review. 📝</div>
+  <div class="card-body">I started YiYi English exactly one year ago. Here's what's real:
+
+What worked:
+✅ Fixed teacher — Sarah has known my speech patterns for 12 months. She catches things I don't notice.
+✅ Lesson customization — we spent 3 months on presentation skills when I had a big project at work
+✅ Post-lesson notes — I still have every correction list she's ever given me
+
+What's hard:
+⚠️ Consistency requires discipline — if you skip weeks, you stall
+⚠️ Progress isn't linear — months 3-4 felt slow before things clicked
+
+Would I recommend it?
+Yes. Without hesitation.
+
+Not because it's magic. Because it's the right kind of practice, consistently applied.
+
+If you want the same teacher every week, lessons that fit your life, and someone who actually understands Chinese learners — it's worth it.
+
+—
+
+Questions? Ask anything in the comments. I'll answer honestly. 💬
+
+#YiYiEnglish #EnglishLearning #OverseasChinese #Honest Review #1on1English</div>
+  <div class="card-tags"><span class="tag">#YiYiEnglish</span><span class="tag">#HonestReview</span><span class="tag">#OverseasChinese</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<!-- =================== Story模板 5条 =================== -->
+<div class="section-title" data-platform="all">⚡ Story/快闪模板（5条）</div>
+
+<div class="card" data-platform="story">
+  <div class="card-header"><span class="badge story">Story模板</span><span class="card-num">#46</span></div>
+  <div class="card-title">Story：免费试听课限时领取</div>
+  <div class="card-body">【Story画面设计】
+
+背景：温暖米白色 + 蓝色渐变装饰
+
+大字标题：
+🎁 免费试听课
+限时领取
+
+副标题（小字）：
+YiYi English · 欧美外教1对1
+海外华人专属
+
+CTA按钮（贴纸样式）：
+👉 DM「试听」
+
+底部小字：
+固定外教 · 定制方案 · 效果承诺
+
+互动贴纸：
+投票 → "你的英语最大困境是？"
+选项A：不敢开口 🙊
+选项B：听得懂说不出 😵
+
+【备注】用Canva/Instagram自带贴纸工具制作，Story尺寸1080×1920px</div>
+  <div class="card-tags"><span class="tag">#Story</span><span class="tag">#海外华人</span><span class="tag">#英语课</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="story">
+  <div class="card-header"><span class="badge story">Story模板</span><span class="card-num">#47</span></div>
+  <div class="card-title">Story：学员进步数据展示</div>
+  <div class="card-body">【Story画面设计】
+
+标题：真实数据，不是承诺
+
+数字排版（大字+色块）：
+🔵 127+ 学员已突破口语
+🟢 平均3个月 显著进步
+⭐ 4.9/5 学员满意度
+🌏 覆盖北美·澳洲·英国·新西兰
+
+分割线
+
+底部文字：
+"第一节课免费评估，看看你在哪里卡住"
+
+CTA：
+👉 扫码/点链接预约
+
+互动：
+问题贴纸："你在哪个国家？"
+
+【备注】数字用深蓝色大字，背景简洁白色，信任感优先</div>
+  <div class="card-tags"><span class="tag">#Story</span><span class="tag">#数据</span><span class="tag">#信任</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="story">
+  <div class="card-header"><span class="badge story">Story模板</span><span class="card-num">#48</span></div>
+  <div class="card-title">Story：每日英语小贴士系列</div>
+  <div class="card-body">【Story系列模板 - 每日发布】
+
+画面结构：
+
+顶部：📌 今日英语贴士 #Day_
+
+主内容区（大字）：
+❌ 不这样说：
+"I very agree with you"
+
+✅ 母语者说：
+"I totally agree" / "Absolutely"
+
+底部解释（小字）：
+very不能直接修饰动词，用totally/completely/absolutely
+
+右下角品牌水印：YiYi English
+
+互动贴纸：
+"你平时也这样说吗？"
+YES 😅 / NO 我知道 😎
+
+【系列规划】
+每天发布1条中式英语纠错
+周一到周五共5条/周
+每周最后一天：本周总结卡</div>
+  <div class="card-tags"><span class="tag">#Story</span><span class="tag">#英语贴士</span><span class="tag">#每日更新</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="story">
+  <div class="card-header"><span class="badge story">Story模板</span><span class="card-num">#49</span></div>
+  <div class="card-title">Story：学员UGC转发模板</div>
+  <div class="card-body">【Story画面设计 - 用于转发学员好评】
+
+画面结构：
+
+顶部引号装饰 ❝
+
+学员原话（大字居中）：
+"3个月前我连开会都不敢发言，现在我主导了整个项目的presentation。"
+
+学员信息（小字）：
+— 小M，悉尼 · 上课4个月
+
+分割线
+
+底部：
+💙 这是我们最喜欢收到的消息
+
+CTA按钮：
+→ 分享你的故事 DM我们
+
+品牌水印：YiYi English · yiyienglish.com
+
+【使用说明】
+收到学员好评截图后，排版进此模板发Story
+保留学员匿名（姓名用首字母/昵称），城市可保留</div>
+  <div class="card-tags"><span class="tag">#Story</span><span class="tag">#学员好评</span><span class="tag">#UGC</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+<div class="card" data-platform="story">
+  <div class="card-header"><span class="badge story">Story模板</span><span class="card-num">#50</span></div>
+  <div class="card-title">Story：课程倒计时/限时优惠</div>
+  <div class="card-body">【Story画面设计 - 促销期使用】
+
+背景：深蓝渐变（紧迫感）
+
+顶部：🔥 限时优惠
+
+大字：
+基础课包 · ¥3999
+
+副标题：
+固定欧美外教 · 定制课程计划
+效果不满意·退款保障
+
+倒计时贴纸：
+⏰ 活动还剩 [X天X小时]
+
+福利列表：
+✅ 免费评估课（原价¥300）
+✅ 专属学习计划
+✅ 随时灵活排课
+
+CTA：
+👉 点击链接立即锁定 / DM「报名」
+
+底部微小字：
+名额有限，海外华人专属优惠
+
+【触发时机】
+- 重要节日前一周（春节/中秋/开学季）
+- 每季度末清名额时
+- 新学期开始前</div>
+  <div class="card-tags"><span class="tag">#Story</span><span class="tag">#限时优惠</span><span class="tag">#促销</span></div>
+  <button class="copy-btn" onclick="copyCard(this)">📋 一键复制全文</button>
+</div>
+
+</div><!-- end grid -->
+
+<!-- 封面图Prompt表格 -->
+<div class="prompt-section">
+  <h2>🎨 封面图生成Prompt（8张）</h2>
+  <p style="color:#64748b;font-size:.85rem;margin-bottom:16px">适用于Midjourney / DALL-E / Stable Diffusion · 教育类明亮温暖风格</p>
+  <table>
+    <thead>
+      <tr><th style="width:60px">编号</th><th style="width:140px">用途</th><th>英文Prompt</th><th style="width:100px">适配平台</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>#P1</td>
+        <td>母亲与孩子学习</td>
+        <td class="prompt-text">Warm and bright educational scene, Chinese mother and young child sitting together at a desk, child speaking confidently with a native English teacher visible on laptop screen, cozy home study environment, soft natural light, warm beige and blue tones, photorealistic, 4K, no text overlay --ar 1:1</td>
+        <td>小红书封面</td>
+      </tr>
+      <tr>
+        <td>#P2</td>
+        <td>职场英语</td>
+        <td class="prompt-text">Professional young Asian woman confidently speaking in a modern office meeting room, diverse colleagues listening attentively, bright and airy workspace, blue accent colors, warm lighting, empowering and positive mood, photorealistic corporate photography style --ar 3:4</td>
+        <td>小红书/IG</td>
+      </tr>
+      <tr>
+        <td>#P3</td>
+        <td>在线课堂</td>
+        <td class="prompt-text">Young Chinese child smiling brightly during an online English lesson, laptop showing a friendly Caucasian teacher, clean and tidy study space, warm afternoon light through window, educational and cheerful atmosphere, shallow depth of field, photorealistic --ar 1:1</td>
+        <td>小红书封面</td>
+      </tr>
+      <tr>
+        <td>#P4</td>
+        <td>进步对比</td>
+        <td class="prompt-text">Split-screen composition, left side: shy Asian student looking down, muted gray tones; right side: same student speaking confidently, bright warm lighting, blue tones, clean minimalist design, before and after concept, flat design with photo elements --ar 16:9</td>
+        <td>TikTok封面</td>
+      </tr>
+      <tr>
+        <td>#P5</td>
+        <td>海外华人家庭</td>
+        <td class="prompt-text">Happy Chinese family in a Western suburban home, parents and two children, bilingual environment with both Chinese and English books visible, warm golden hour light, lifestyle photography style, authentic and natural, no staged poses, warm color palette --ar 4:5</td>
+        <td>IG/小红书</td>
+      </tr>
+      <tr>
+        <td>#P6</td>
+        <td>外教课堂</td>
+        <td class="prompt-text">Friendly Caucasian female English teacher on a video call screen, warm smile, professional but approachable, soft studio lighting, clean white background visible on screen, Chinese student's hands visible on keyboard in foreground, bokeh effect, educational and welcoming --ar 1:1</td>
+        <td>广告素材</td>
+      </tr>
+      <tr>
+        <td>#P7</td>
+        <td>成就感瞬间</td>
+        <td class="prompt-text">Young Chinese professional woman celebrating success, fist pump or arms raised, modern office or home office background, expression of genuine joy and achievement, bright natural lighting, blue and white color scheme, motivational and aspirational mood, photorealistic --ar 9:16</td>
+        <td>TikTok/Story</td>
+      </tr>
+      <tr>
+        <td>#P8</td>
+        <td>品牌主视觉</td>
+        <td class="prompt-text">Clean educational brand hero image, Chinese child and adult both looking at camera with confident smiles, globe and speech bubbles as subtle background elements, YiYi English visual identity style, blue and white primary colors with warm accents, professional and trustworthy, studio photography quality --ar 16:9</td>
+        <td>横幅/主图</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <p>YiYi English · 社媒内容库 · 50条可发布文案 + 8张封面图Prompt</p>
+  <p style="margin-top:4px">生成日期：2026-08 · yiyienglish.com</p>
+</footer>
+
+<script>
+function filter(platform) {
+  const cards = document.querySelectorAll('.card');
+  const sections = document.querySelectorAll('.section-title');
+  const btns = document.querySelectorAll('.btn');
+  btns.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  cards.forEach(card => {
+    if (platform === 'all' || card.dataset.platform === platform) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  sections.forEach(s => {
+    s.style.display = platform === 'all' ? '' : 'none';
+  });
+}
+
+function copyCard(btn) {
+  const card = btn.closest('.card');
+  const title = card.querySelector('.card-title').textContent.trim();
+  const body = card.querySelector('.card-body').textContent.trim();
+  const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent).join(' ');
+  const text = title + '\n\n' + body + '\n\n' + tags;
+
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✅ 已复制！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 一键复制全文';
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = '✅ 已复制！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 一键复制全文';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
