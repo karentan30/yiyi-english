@@ -281,6 +281,23 @@ html:not(.js) .reveal{opacity:1;transform:none}
 .badges-pay span{color:#fff;font-weight:800;font-size:11px;padding:4px 9px;border-radius:5px;letter-spacing:.3px}
 .badges-pay .st{background:#635bff}.badges-pay .vi{background:#1a1f71}.badges-pay .mc{background:#eb001b}.badges-pay .ax{background:#2e77bb}
 
+/* ---------- price anchor bar ---------- */
+.price-anchor-bar{background:#f8f5ff;border-radius:16px;padding:24px 20px;margin:0 0 32px}
+.pab-title{text-align:center;font-size:16px;font-weight:700;color:#5b3c8c;margin-bottom:20px}
+.pab-compare{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:12px}
+.pab-col{background:#fff;border-radius:12px;padding:16px 12px;text-align:center;border:2px solid #f0eaf8;position:relative}
+.pab-col.ours{border-color:#7c4fc5;box-shadow:0 4px 16px rgba(124,79,197,0.15)}
+.pab-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#7c4fc5;color:#fff;font-size:11px;padding:3px 12px;border-radius:20px;white-space:nowrap;font-weight:700}
+.pab-type{font-size:12px;color:#888;margin-bottom:6px}
+.pab-price{font-size:22px;font-weight:800;color:#333}
+.pab-col.ours .pab-price{color:#7c4fc5}
+.pab-unit{font-size:11px;color:#aaa;margin-bottom:12px}
+.pab-cons,.pab-pros{list-style:none;padding:0;text-align:left;font-size:11px;color:#888;display:flex;flex-direction:column;gap:5px;margin:0}
+.pab-cons li::before{content:"✗ ";color:#ffaaaa}
+.pab-pros li{color:#5b3c8c;font-weight:500}
+/* ---------- result preview ---------- */
+.result-preview{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.rp-item{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 14px;font-size:12px;color:#fff;backdrop-filter:blur(4px)}
 /* ---------- testimonials ---------- */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-xs);position:relative}
@@ -358,6 +375,16 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
   .hero h1{font-size:35px}.pcard.hot{order:-1}section.blk{padding:56px 0}
   .chip.c1{left:-4%}.chip.c2{right:-4%}
 }
+/* ---------- invite/share ---------- */
+.invite-section{padding:32px 20px;background:#f0ebff}
+.invite-card{max-width:600px;margin:0 auto;background:#fff;border-radius:16px;padding:24px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 16px rgba(124,79,197,0.1)}
+.invite-icon{font-size:32px;flex-shrink:0}
+.invite-content{flex:1}
+.invite-title{font-size:15px;font-weight:700;color:#5b3c8c;margin-bottom:4px}
+.invite-desc{font-size:13px;color:#888}
+.invite-btn{background:linear-gradient(135deg,#7c4fc5,#9b6ee0);color:#fff;border:none;border-radius:24px;padding:12px 20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.invite-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+@media(max-width:480px){.invite-card{flex-direction:column;text-align:center}.invite-btn{width:100%}}
 </style>
 </head>
 <body>
@@ -421,6 +448,11 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
       <div class="cta-row">
         <a href="#reserve" class="btn btn-primary big"><svg class="ico"><use href="#i-gift"/></svg>免费领取试听课</a>
         <a href="#pricing" class="btn btn-ghost big">查看课包价格</a>
+      </div>
+      <div class="result-preview">
+        <div class="rp-item">📊 每课学习报告</div>
+        <div class="rp-item">🎯 发音即时纠正</div>
+        <div class="rp-item">📈 词汇量可视追踪</div>
       </div>
       <div class="mini">
         <div class="m"><b>500<i>+</i></b><span>学员家庭信赖</span></div>
@@ -569,6 +601,42 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
     <div style="text-align:center;margin-bottom:20px">
       <span style="display:inline-block;background:#fff7ed;border:1.5px solid #fdba74;color:#c2410c;border-radius:20px;padding:8px 20px;font-size:13px;font-weight:700">🔥 本期试听名额即将截止 · <strong>2026年9月30日</strong>前报名享优惠</span>
     </div>
+    <div class="price-anchor-bar">
+      <div class="pab-title">同样的外教质量，差在哪里？</div>
+      <div class="pab-compare">
+        <div class="pab-col other">
+          <div class="pab-type">线下外教机构</div>
+          <div class="pab-price">¥600-1200</div>
+          <div class="pab-unit">/ 课时</div>
+          <ul class="pab-cons">
+            <li>固定时间不灵活</li>
+            <li>交通时间成本高</li>
+            <li>难以跟踪进度</li>
+          </ul>
+        </div>
+        <div class="pab-col ours">
+          <div class="pab-badge">推荐</div>
+          <div class="pab-type">YiYi在线外教</div>
+          <div class="pab-price">¥133起</div>
+          <div class="pab-unit">/ 课时</div>
+          <ul class="pab-pros">
+            <li>✓ 随时预约灵活</li>
+            <li>✓ 北美外教1对1</li>
+            <li>✓ 每课学习报告</li>
+          </ul>
+        </div>
+        <div class="pab-col other">
+          <div class="pab-type">英语培训APP</div>
+          <div class="pab-price">¥99-299</div>
+          <div class="pab-unit">/ 月</div>
+          <ul class="pab-cons">
+            <li>无真人互动</li>
+            <li>口语无法纠正</li>
+            <li>孩子容易放弃</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="price-grid">
       <div class="pcard reveal">
         <span class="lv">入门尝鲜</span><h3>30 课包</h3><div class="hrs">共 <b>30</b> 课时</div>
@@ -713,6 +781,18 @@ footer{background:#171137;color:#c9c3e6;padding:56px 0 30px;margin-top:24px}
   </div>
 </section>
 
+<!-- ============ INVITE / SHARE ============ -->
+<div class="invite-section">
+  <div class="invite-card">
+    <div class="invite-icon">👫</div>
+    <div class="invite-content">
+      <div class="invite-title">邀请同学，一起进步更快</div>
+      <div class="invite-desc">分享给同学，你们都能获得一节免费试听课</div>
+    </div>
+    <button class="invite-btn" onclick="shareYiYi()">分享给朋友</button>
+  </div>
+</div>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -777,6 +857,23 @@ const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting)
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,to=+el.dataset.to;let s=0;el.textContent='0';const step=Math.max(1,Math.ceil(to/55));const t=setInterval(()=>{s+=step;if(s>=to){s=to;clearInterval(t);}el.textContent=s;},22);cio.unobserve(el);}})},{threshold:.6});
 document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+function shareYiYi() {
+  const shareData = {
+    title: 'YiYi English — 北美外教1对1英语课',
+    text: '我在用YiYi English学英语，北美外教1对1，口语进步超快！你也来试试，新用户有免费试听课 🎓',
+    url: window.location.href
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(()=>{});
+  } else {
+    const text = shareData.text + '\n' + shareData.url;
+    navigator.clipboard.writeText(text).then(()=>{
+      alert('已复制分享文字，粘贴发给朋友吧！');
+    }).catch(()=>{
+      prompt('复制这段话发给朋友：', text);
+    });
+  }
+}
 async function submitLead(ev){
   ev.preventDefault();
   const f=ev.target;
