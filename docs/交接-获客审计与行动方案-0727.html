@@ -1,0 +1,194 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>交接-获客审计与行动方案-0727</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#121212; color:#e0e0e0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+         line-height:1.75; max-width:860px; margin:0 auto; padding:40px 28px; font-size:16px; }
+  h1,h2,h3,h4 { color:#fff; line-height:1.35; margin-top:1.6em; }
+  h1 { border-bottom:2px solid #333; padding-bottom:.3em; }
+  h2 { border-bottom:1px solid #2a2a2a; padding-bottom:.25em; }
+  a { color:#5db0ff; }
+  code { background:#1e1e1e; color:#ff9d6c; padding:2px 6px; border-radius:4px; font-size:.9em; }
+  pre { background:#1a1a1a; border:1px solid #2a2a2a; padding:14px 16px; border-radius:8px; overflow:auto; }
+  pre code { background:none; color:#c8e1c8; padding:0; }
+  blockquote { border-left:4px solid #4a4a4a; margin:0; padding:.3em 1em; color:#b0b0b0; background:#171717; }
+  table { border-collapse:collapse; width:100%; margin:1em 0; }
+  th,td { border:1px solid #333; padding:8px 12px; text-align:left; }
+  th { background:#1f1f1f; color:#fff; }
+  tr:nth-child(even) td { background:#181818; }
+  hr { border:none; border-top:1px solid #2a2a2a; margin:2em 0; }
+  strong { color:#fff; }
+  li { margin:.25em 0; }
+</style>
+</head><body><h1>YiYi English 获客 · 交接文档</h1>
+<h2>项目概况</h2>
+<p><strong>YiYi 英语</strong>（吉林一一英语培训有限公司）—— 固定欧美外教 1 对 1 在线青少年英语，专注 3-15 岁。</p>
+<ul>
+<li><strong>官网</strong>: www.yiyienglish.com (GitHub Pages, karentan30/yiyi-english)</li>
+<li><strong>Stripe收款</strong>: 4档课包 live (¥3999/¥8999/¥13998/¥23996) · 复用 Lumee 美国个人 Stripe</li>
+<li><strong>仓库</strong>: <code>~/projects/yiyi-english</code></li>
+</ul>
+<h2>当前获客审计总结</h2>
+<h3>✅ 已有资产</h3>
+<table>
+<thead>
+<tr>
+<th>资产</th>
+<th>路径/状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>官网首页 + 收款页</td>
+<td>GitHub Pages live · 650行单页</td>
+</tr>
+<tr>
+<td>Stripe 4个Payment Link</td>
+<td><code>buy.stripe.com/14AdR9…</code> HTTP 200</td>
+</tr>
+<tr>
+<td>后端 Lead API</td>
+<td><code>backend/server.js</code> (Express + Resend)</td>
+</tr>
+<tr>
+<td>小红书海报成品</td>
+<td><code>content-marketing/posters-final/</code> 10张</td>
+</tr>
+<tr>
+<td>小红书海报文案</td>
+<td><code>content-marketing/03-小红书海报30张.md</code></td>
+</tr>
+<tr>
+<td>视频脚本30条</td>
+<td><code>content-marketing/02-视频脚本30条（获客向）.md</code></td>
+</tr>
+<tr>
+<td>补充脚本80条</td>
+<td><code>docs/80-scripts-0722.md</code></td>
+</tr>
+<tr>
+<td>视频成品(5条动能排版)</td>
+<td><code>content-marketing/videos-output/</code></td>
+</tr>
+<tr>
+<td>竞品调研+矩阵策略</td>
+<td><code>content-marketing/01-调研报告.md</code> + <code>04-账号矩阵诊断.md</code> + <code>05-竞品调研+最终策略.md</code></td>
+</tr>
+<tr>
+<td>获客战略计划</td>
+<td><code>content-marketing/战略计划.md</code> (1000客户目标)</td>
+</tr>
+</tbody>
+</table>
+<h3>🔴 关键断裂点</h3>
+<ol>
+<li><strong>留资表单已坏</strong> — <code>index.html:634</code> 写死 <code>https://yiyi-backend.vercel.app/api/lead</code> 这个域名不存在 → 填了永远提交失败</li>
+<li><strong>后端未部署</strong> — <code>backend/server.js</code> 虽已 git tracked 但从未部署到任何服务器</li>
+<li><strong>零分析追踪</strong> — 无 GA/PostHog/转化追踪 → 不知谁来了从哪来</li>
+<li><strong>内容零发布</strong> — 110+ 脚本海报全部躺仓库，小红书账号矩阵未启动</li>
+<li><strong>网站待填项</strong> — ICP备案号<code>待填</code>、客服二维码<code>待放图</code></li>
+<li><strong>Resend API Key 硬编码</strong> — <code>server.js:31</code> 明文，需轮换</li>
+</ol>
+<h2>项目文件索引</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.html</code></td>
+<td>官网首页 — Lead 表单 <code>#leadForm</code> → <code>submitLead()</code></td>
+</tr>
+<tr>
+<td><code>pay.html</code></td>
+<td>Stripe 收款页（备用）</td>
+</tr>
+<tr>
+<td><code>backend/server.js</code></td>
+<td>Express API <code>/api/lead</code> → Resend 发邮件通知</td>
+</tr>
+<tr>
+<td><code>backend/package.json</code></td>
+<td>Express + cors + node-fetch</td>
+</tr>
+<tr>
+<td><code>CNAME</code></td>
+<td><code>www.yiyienglish.com</code></td>
+</tr>
+<tr>
+<td><code>docs/交接-内容营销-0721.md</code></td>
+<td>内容营销旧交接</td>
+</tr>
+<tr>
+<td><code>content-marketing/战略计划.md</code></td>
+<td>10账号矩阵+30天执行计划+投流预算建议</td>
+</tr>
+</tbody>
+</table>
+<h2>下次会话建议优先做</h2>
+<h3>Phase 1 — 修漏斗（P0）</h3>
+<ol>
+<li><strong>部署后端</strong> — 选方案：<br />
+   - A) Vercel Serverless (改 <code>server.js</code> 为无服务器入口 <code>api/lead.js</code>)<br />
+   - B) HK 服务器 47.242.80.65 + PM2 (端口空)<br />
+   - C) Render/Railway 免费层</li>
+<li><strong>轮换 Resend Key</strong> — <code>server.js:31</code> 的 key 已泄露</li>
+<li><strong>改表单 API 地址</strong> — <code>index.html:634</code> 指向真实后端</li>
+<li><strong>加 PostHog/GA</strong> — 追踪表单提交+Stripe付款</li>
+<li><strong>端到端验证</strong> — 真实提交表单→收邮件通知</li>
+</ol>
+<h3>Phase 2 — 上内容</h3>
+<ol start="6">
+<li><strong>小红书发帖</strong> — 从已有30海报+30脚本挑5条爆款首发</li>
+<li><strong>填写网站待填项</strong> — ICP备案号、客服二维码</li>
+</ol>
+<h3>Phase 3 — 放量</h3>
+<ol start="8">
+<li>投流测试 (¥3000-5000 薯条/聚光)</li>
+<li>SEO 建设 (JSON-LD/Sitemap)</li>
+<li>转介绍机制</li>
+</ol>
+<h2>红牌</h2>
+<ul>
+<li><strong>⚠️ <code>~/Downloads/</code> 是 git 仓库</strong> (remote xinshen.git) — 千万别在那里 git add</li>
+<li><strong>后端 <code>.gitignore</code> 把 <code>server.js</code> 列在忽略里</strong> — git 能 tracked 因为它是在 ignore 前加的，修改后要 <code>git add -f</code></li>
+<li><strong>Resend 用免费层 <code>onboarding@resend.dev</code></strong> — 每日 100 封限额，上线前改自有域名</li>
+</ul>
+<hr />
+<h2>建议下一会话调用的 Skill</h2>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/marketing-skills:content-strategy</code></td>
+<td>规划小红书内容排期和发布节奏</td>
+</tr>
+<tr>
+<td><code>/marketing-skills:cro</code></td>
+<td>优化官网试听表单转化率</td>
+</tr>
+<tr>
+<td><code>/marketing-skills:seo-audit</code></td>
+<td>网站 SEO 诊断+结构化数据</td>
+</tr>
+<tr>
+<td><code>/marketing-skills:ads</code></td>
+<td>薯条/聚光投流策略</td>
+</tr>
+<tr>
+<td><code>/engineering-skills:senior-devops</code></td>
+<td>Vercel 部署后端+环境变量配置</td>
+</tr>
+<tr>
+<td><code>/marketing-skills:referrals</code></td>
+<td>转介绍/裂变机制设计</td>
+</tr>
+</tbody>
+</table></body></html>

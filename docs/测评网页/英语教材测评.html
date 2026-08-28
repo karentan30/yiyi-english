@@ -1,0 +1,113 @@
+<!doctype html><html lang="zh"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3分钟测出你娃适合的英语教材 + 级别</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+body{background:linear-gradient(160deg,#fff4e0,#ffe0c2);min-height:100vh;color:#3a2318;padding:24px 18px}
+.wrap{max-width:520px;margin:0 auto}
+.hd{text-align:center;padding:18px 0 24px}
+.hd h1{font-size:26px;font-weight:900;line-height:1.4}.hd h1 .y{color:#e8552d}
+.hd p{font-size:14px;color:#8a6a55;margin-top:10px}
+.q{background:#fff;border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 6px 18px rgba(180,120,80,.12)}
+.q .t{font-size:17px;font-weight:800;margin-bottom:14px}.q .t b{color:#e8552d}
+.opt{display:block;padding:14px 16px;border:2px solid #f0e0d0;border-radius:12px;margin-bottom:10px;font-size:15px;cursor:pointer;transition:.15s}
+.opt.sel{border-color:#e8552d;background:#fff2ea;font-weight:700}
+.chk{font-size:13px;color:#8a6a55;margin:6px 4px 18px;display:flex;align-items:center;gap:8px}
+.btn{width:100%;padding:17px;background:#e8552d;color:#fff;border:none;border-radius:14px;font-size:18px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px rgba(232,85,45,.3)}
+.btn:disabled{background:#ccc;box-shadow:none}
+#result{display:none;background:#fff;border-radius:18px;padding:26px 22px;text-align:center;box-shadow:0 8px 24px rgba(180,120,80,.16)}
+#result h2{font-size:22px;font-weight:900;color:#e8552d;margin-bottom:6px}
+#result .lv{font-size:15px;color:#8a6a55;margin-bottom:18px}
+#result .rec{background:#fff2ea;border-radius:14px;padding:18px;text-align:left;font-size:15px;line-height:1.7;margin-bottom:20px}
+#result .rec b{color:#e8552d}
+.foot{font-size:12px;color:#b09a8a;text-align:center;margin-top:22px;line-height:1.6}
+</style></head>
+<body><div class="wrap">
+<div class="hd"><h1>3分钟测出你娃<br>适合的英语教材 · <span class="y">什么级别</span></h1>
+<p>别再盲目囤教材 · 答完自动推荐</p></div>
+
+<form id="quiz">
+<div class="q"><div class="t">1️⃣ 娃现在<b>几岁 / 什么阶段</b>？</div>
+<div class="opts" data-k="age">
+<label class="opt" data-v="1">3-5岁 · 启蒙期</label>
+<label class="opt" data-v="2">6-8岁 · 小学低年级</label>
+<label class="opt" data-v="3">9-12岁 · 小学高年级</label>
+<label class="opt" data-v="4">12岁以上 · 初高中</label></div></div>
+
+<div class="q"><div class="t">2️⃣ 自然拼读 / 认读能力？</div>
+<div class="opts" data-k="phonics">
+<label class="opt" data-v="1">还不会拼读</label>
+<label class="opt" data-v="2">学过一点，部分能拼</label>
+<label class="opt" data-v="3">见词基本能读</label></div></div>
+
+<div class="q"><div class="t">3️⃣ 目前能读多长的英文？</div>
+<div class="opts" data-k="read">
+<label class="opt" data-v="1">单词 / 图片认读</label>
+<label class="opt" data-v="2">简单短句</label>
+<label class="opt" data-v="3">短段落 / 简单绘本</label>
+<label class="opt" data-v="4">章节书 / 长文章</label></div></div>
+
+<div class="q"><div class="t">4️⃣ 主要目标？</div>
+<div class="opts" data-k="goal">
+<label class="opt" data-v="cn">校内提升 / 应用</label>
+<label class="opt" data-v="intl">国际路线 / 留学</label>
+<label class="opt" data-v="exam">考级(KET/PET/雅思)</label></div></div>
+
+<div class="chk"><input type="checkbox" id="agree"> 我是监护人，同意用于测评分析（不收集敏感信息）</div>
+<button class="btn" type="submit" id="sub" disabled>看我娃的结果 →</button>
+</form>
+
+<div id="result">
+<h2 id="rTitle"></h2><div class="lv" id="rLevel"></div>
+<div class="rec" id="rRec"></div>
+<div style="font-size:16px;font-weight:800;color:#5a3410;margin-bottom:10px">想要完整报告 + 对应书单 + 学习建议？</div>
+<div style="font-size:14px;color:#8a6a55;margin-bottom:10px">留个联系方式，老师1对1发你（免费）：</div>
+<input id="contact" placeholder="微信号 / 手机号" style="width:100%;padding:14px 16px;border:2px solid #f0e0d0;border-radius:12px;font-size:16px;margin-bottom:12px">
+<button class="btn" id="getReport">领取我娃的完整报告 →</button>
+<div id="thanks" style="display:none;font-size:15px;color:#2a8a5a;font-weight:700;margin-top:14px">✅ 收到啦！老师会尽快把报告发给你～</div>
+<div style="font-size:13px;color:#b09a8a;margin-top:16px">不方便留？也可回小红书评论区打【测评】进群领 🌸</div>
+</div>
+<div class="foot">※ 本测评为学习规划参考建议，非成绩承诺。<br>结果仅供家长选材参考。</div>
+</div>
+
+<script>
+const ans={};
+document.querySelectorAll('.opts').forEach(g=>{
+  g.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
+    g.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+    o.classList.add('sel');ans[g.dataset.k]=o.dataset.v;check();
+  });
+});
+document.getElementById('agree').onchange=check;
+function check(){
+  const ok=ans.age&&ans.phonics&&ans.read&&ans.goal&&document.getElementById('agree').checked;
+  document.getElementById('sub').disabled=!ok;
+}
+document.getElementById('quiz').onsubmit=e=>{
+  e.preventDefault();
+  const r=+ans.read, p=+ans.phonics;
+  let title,level,rec;
+  if(r<=1||p<=1){title='启蒙磨耳朵阶段';level='建议先打语感 + 自然拼读';
+    rec='<b>推荐：</b>儿歌+动画磨耳朵 → 自然拼读入门（26字母+字母组合）。<br><b>教材方向：</b>Show and Tell / 拼读入门，先别上分级阅读。<br><b>先补：</b>"敢开口"——每天说，别只输入。';}
+  else if(r==2){title='初级分级阅读阶段';level='对应 RAZ aa-C / 牛津树 1-3阶';
+    rec='<b>推荐：</b>RAZ 低级别 或 牛津树，从短句到短段落。<br><b>教材方向：</b>Reach Higher 1A起。<br><b>配外教：</b>用课本练"课文对话"，练开口。';}
+  else if(r==3){title='中级阅读阶段';level='对应 RAZ D-J / 牛津树 4-6阶';
+    rec='<b>推荐：</b>分级阅读+精读，Reach Higher 中段。<br>'+(ans.goal=='intl'?'<b>国际路线：</b>可加原版 Reading Explorer / 学术词。':'<b>校内：</b>课本+外教补口语，冲 KET。')+'<br><b>重点：</b>从"读懂"到"读快"+ 开口表达。';}
+  else{title='高阶 / 学术阅读阶段';level='对应 RAZ K+ / 章节书';
+    rec='<b>推荐：</b>'+(ans.goal=='exam'||ans.goal=='intl'?'Unlock / Reading Explorer，对标 PET/FCE/雅思。':'原版精读+写作 Great Writing。')+'<br><b>重点：</b>学术阅读+写作+演讲表达，真外教实战。';}
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('rTitle').textContent='📊 你娃处于：'+title;
+  document.getElementById('rLevel').textContent=level;
+  document.getElementById('rRec').innerHTML=rec;
+  document.getElementById('result').style.display='block';
+  window.scrollTo(0,0);
+};
+document.getElementById('getReport').onclick=()=>{
+  const c=document.getElementById('contact').value.trim();
+  if(!c){document.getElementById('contact').focus();return;}
+  // TODO 后端：把 c + 测评答案 ans 存到表/发通知给学管（此处仅前端演示）
+  document.getElementById('getReport').style.display='none';
+  document.getElementById('contact').style.display='none';
+  document.getElementById('thanks').style.display='block';
+};
+</script></body></html>
