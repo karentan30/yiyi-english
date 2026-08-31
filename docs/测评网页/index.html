@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>YiYi英语 · 免费测出孩子真实英语水平 · 少儿英语段位测评</title>
+<meta name="description" content="3分钟免费测出3-15岁孩子真实英语水平，出可发小红书的段位成绩单。KET/月考前查缺补漏，省几千块乱报班的钱。">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  :root{
+    --blue:#1a3a6b; --blue-deep:#0f2347; --gold:#c9a227; --gold-light:#f0d060;
+    --bg:#fafaf8; --white:#fff; --text:#222; --text-light:#666; --text-mute:#999;
+    --border:#e6e3dc; --success:#2e7d32; --radius:16px;
+    --shadow:0 4px 20px rgba(26,58,107,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{overflow-x:hidden;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    background:#eceae4; color:var(--text); min-height:100vh; line-height:1.5;
+  }
+  #app{max-width:520px; margin:0 auto; background:var(--bg); min-height:100vh; position:relative; box-shadow:0 0 40px rgba(0,0,0,.08);}
+  .screen{display:none; min-height:100vh; flex-direction:column; animation:fade .35s ease;}
+  .screen.active{display:flex;}
+  @keyframes fade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+  button{font-family:inherit;cursor:pointer;}
+
+  /* progress */
+  .pbar{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(26,58,107,.12);z-index:999;display:none;max-width:520px;margin:0 auto;}
+  .pbar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));width:0;transition:width .4s;border-radius:2px;}
+  body.in-quiz .pbar{display:block;}
+
+  /* ===== WELCOME ===== */
+  #s-welcome{background:linear-gradient(165deg,#0f2347 0%,#1a3a6b 55%,#1e4f8a 100%);align-items:center;justify-content:center;padding:44px 26px;position:relative;overflow:hidden;}
+  #s-welcome::before{content:'';position:absolute;top:-90px;right:-90px;width:320px;height:320px;background:radial-gradient(circle,rgba(201,162,39,.22),transparent 70%);border-radius:50%;}
+  #s-welcome::after{content:'';position:absolute;bottom:-70px;left:-70px;width:260px;height:260px;background:radial-gradient(circle,rgba(201,162,39,.15),transparent 70%);border-radius:50%;}
+  .w-inner{position:relative;z-index:1;text-align:center;width:100%;max-width:400px;}
+  .logo{font-size:34px;font-weight:800;color:var(--gold);letter-spacing:2px;text-shadow:0 2px 10px rgba(201,162,39,.4);}
+  .logo-sub{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:5px;margin-top:4px;text-transform:uppercase;}
+  .w-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(201,162,39,.18);border:1px solid rgba(201,162,39,.4);border-radius:20px;padding:6px 16px;color:var(--gold-light);font-size:12px;margin:34px 0 20px;}
+  .w-title{font-size:27px;font-weight:800;color:#fff;line-height:1.4;margin-bottom:14px;text-shadow:0 2px 8px rgba(0,0,0,.3);}
+  .w-title span{color:var(--gold-light);}
+  .w-sub{font-size:15px;color:rgba(255,255,255,.72);margin-bottom:30px;line-height:1.6;}
+  .w-feats{display:flex;justify-content:center;gap:16px;margin-bottom:34px;}
+  .w-feat{display:flex;flex-direction:column;align-items:center;gap:7px;flex:1;}
+  .w-feat .ic{width:48px;height:48px;background:rgba(255,255,255,.12);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;}
+  .w-feat .tx{font-size:11px;color:rgba(255,255,255,.68);}
+  .btn-primary{width:100%;padding:18px;background:linear-gradient(135deg,var(--gold),#e8b820);border:none;border-radius:50px;font-size:18px;font-weight:700;color:#1a2a00;box-shadow:0 8px 24px rgba(201,162,39,.45);transition:transform .15s;letter-spacing:1px;}
+  .btn-primary:active{transform:scale(.97);}
+  .w-trust{margin-top:16px;font-size:12px;color:rgba(255,255,255,.42);}
+
+  /* ===== FORM/QUIZ HEADER ===== */
+  .hd{background:var(--blue);padding:18px 20px 14px;color:#fff;flex-shrink:0;}
+  .hd-top{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .btn-back{background:rgba(255,255,255,.15);border:none;border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;flex-shrink:0;}
+  .hd-logo{font-size:15px;font-weight:700;color:var(--gold);}
+  .hd-title{font-size:19px;font-weight:700;}
+  .hd-sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:3px;}
+  .dots{display:flex;gap:6px;margin-top:12px;}
+  .dot{height:4px;border-radius:2px;background:rgba(255,255,255,.25);flex:1;transition:background .3s;}
+  .dot.active{background:var(--gold);}
+  .dot.done{background:rgba(255,255,255,.6);}
+
+  .content{flex:1;overflow-y:auto;padding:22px 18px 110px;-webkit-overflow-scrolling:touch;}
+  .fgroup{margin-bottom:24px;}
+  .flabel{font-size:15px;font-weight:600;margin-bottom:11px;display:flex;align-items:center;gap:8px;}
+  .flabel .opt{font-size:11px;font-weight:400;color:var(--text-light);background:#efece4;padding:2px 8px;border-radius:10px;}
+  .finput{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;outline:none;transition:border-color .2s;}
+  .finput:focus{border-color:var(--blue);}
+  .grid{display:grid;gap:9px;}
+  .grid.c2{grid-template-columns:1fr 1fr;} .grid.c3{grid-template-columns:1fr 1fr 1fr;}
+  .obtn{padding:12px 8px;border:1.5px solid var(--border);border-radius:12px;background:#fff;font-size:14px;font-weight:500;text-align:center;color:var(--text);transition:all .18s;}
+  .obtn.on{border-color:var(--blue);background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(26,58,107,.28);}
+  .obtn.multi.on{border-color:var(--gold);background:var(--gold);color:#1a2a00;box-shadow:0 4px 12px rgba(201,162,39,.3);}
+
+  .footbar{position:fixed;bottom:0;left:0;right:0;max-width:520px;margin:0 auto;padding:14px 18px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(250,250,248,0),var(--bg) 30%);display:flex;gap:10px;z-index:50;}
+  .btn-next{flex:1;padding:16px;background:var(--blue);color:#fff;border:none;border-radius:50px;font-size:16px;font-weight:700;box-shadow:0 6px 18px rgba(26,58,107,.35);transition:transform .15s;}
+  .btn-next:active{transform:scale(.97);}
+  .btn-skip{padding:16px 20px;background:#fff;color:var(--text-light);border:1.5px solid var(--border);border-radius:50px;font-size:14px;font-weight:600;}
+
+  /* ===== QUIZ ===== */
+  .q-card{background:#fff;border-radius:var(--radius);padding:22px 18px;box-shadow:var(--shadow);margin-bottom:16px;}
+  .q-num{display:inline-block;font-size:12px;font-weight:700;color:var(--gold);background:rgba(201,162,39,.12);padding:3px 12px;border-radius:20px;margin-bottom:12px;}
+  .q-type{font-size:11px;color:var(--text-mute);margin-left:6px;}
+  .q-text{font-size:17px;font-weight:600;line-height:1.55;margin-bottom:6px;color:var(--text);}
+  .q-hint{font-size:13px;color:var(--text-light);margin-bottom:16px;}
+  .q-passage{background:#f6f4ee;border-left:3px solid var(--gold);border-radius:8px;padding:14px 16px;font-size:14.5px;line-height:1.7;color:#333;margin-bottom:16px;}
+  .q-opts{display:flex;flex-direction:column;gap:10px;}
+  .q-opt{padding:13px 16px;border:1.5px solid var(--border);border-radius:12px;background:#fff;font-size:15px;text-align:left;transition:all .18s;display:flex;align-items:center;gap:10px;}
+  .q-opt .k{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--text-light);flex-shrink:0;}
+  .q-opt.on{border-color:var(--blue);background:rgba(26,58,107,.05);}
+  .q-opt.on .k{background:var(--blue);border-color:var(--blue);color:#fff;}
+  .q-translate-in{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:12px;font-size:15px;font-family:inherit;outline:none;}
+  .q-translate-in:focus{border-color:var(--blue);}
+  .stars{display:flex;gap:8px;justify-content:center;margin-top:8px;}
+  .star{font-size:34px;color:#ddd;transition:color .15s,transform .15s;}
+  .star.on{color:var(--gold);transform:scale(1.05);}
+
+  /* ===== LOADING ===== */
+  #s-loading{align-items:center;justify-content:center;background:linear-gradient(165deg,#0f2347,#1a3a6b);color:#fff;padding:40px;}
+  .spinner{width:56px;height:56px;border:4px solid rgba(255,255,255,.2);border-top-color:var(--gold);border-radius:50%;animation:spin 1s linear infinite;margin-bottom:26px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .load-txt{font-size:16px;font-weight:600;margin-bottom:8px;}
+  .load-sub{font-size:13px;color:rgba(255,255,255,.6);}
+
+  /* ===== RESULT PAGE ===== */
+  #s-result{background:#eceae4;}
+  .r-scroll{flex:1;overflow-y:auto;padding:16px 14px 30px;-webkit-overflow-scrolling:touch;}
+
+  /* report card (capture target — vertical 1080x1440 ratio 3:4) */
+  .report{background:var(--bg);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.18);position:relative;}
+  .rep-head{background:linear-gradient(160deg,#0f2347,#1a3a6b);padding:24px 22px 20px;color:#fff;position:relative;overflow:hidden;}
+  .rep-head::after{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(201,162,39,.25),transparent 70%);border-radius:50%;}
+  .rep-brand{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+  .rep-brand .b-logo{font-size:18px;font-weight:800;color:var(--gold);letter-spacing:1px;}
+  .rep-brand .b-tag{font-size:11px;color:rgba(255,255,255,.6);}
+  .rep-name{margin-top:16px;position:relative;z-index:1;}
+  .rep-name .n{font-size:24px;font-weight:800;text-shadow:0 2px 6px rgba(0,0,0,.3);}
+  .rep-name .m{font-size:12px;color:rgba(255,255,255,.7);margin-top:4px;}
+
+  .badge-wrap{text-align:center;padding:26px 22px 8px;}
+  .badge{display:inline-flex;flex-direction:column;align-items:center;gap:6px;padding:20px 34px;border-radius:22px;position:relative;}
+  .badge .tier-label{font-size:11px;letter-spacing:3px;color:var(--text-light);}
+  .badge .tier-name{font-size:30px;font-weight:800;line-height:1.1;text-shadow:0 2px 4px rgba(0,0,0,.12);}
+  .badge .tier-score{font-size:14px;font-weight:700;margin-top:2px;}
+  .badge .tier-words{font-size:12px;color:var(--text-light);margin-top:2px;}
+
+  .metrics{display:flex;padding:8px 18px 18px;gap:10px;}
+  .metric{flex:1;background:#fff;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:0 2px 10px rgba(26,58,107,.08);border:1px solid var(--border);}
+  .metric .mv{font-size:19px;font-weight:800;color:var(--blue);}
+  .metric .ml{font-size:11px;color:var(--text-light);margin-top:4px;}
+
+  .sect{padding:6px 20px 18px;}
+  .sect-t{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+  .sect-t::before{content:'';width:4px;height:14px;background:var(--gold);border-radius:2px;}
+
+  .radar-box{display:flex;justify-content:center;padding:4px 0 8px;}
+
+  .review{background:#fff;border-radius:14px;padding:16px;font-size:14px;line-height:1.75;color:#333;border:1px solid var(--border);box-shadow:0 2px 10px rgba(26,58,107,.06);}
+  .review .r-title{font-size:13px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+
+  .recos{display:flex;flex-direction:column;gap:10px;}
+  .reco{display:flex;gap:12px;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid var(--border);align-items:flex-start;}
+  .reco .ric{width:38px;height:38px;border-radius:10px;background:rgba(201,162,39,.14);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .reco .rtx{font-size:14px;}
+  .reco .rtx .rt{font-weight:700;color:var(--text);}
+  .reco .rtx .rd{font-size:12px;color:var(--text-light);margin-top:2px;}
+
+  .goal-box{margin:4px 20px 0;background:linear-gradient(135deg,rgba(26,58,107,.06),rgba(201,162,39,.08));border:1px dashed var(--gold);border-radius:14px;padding:16px;text-align:center;}
+  .goal-box .g-txt{font-size:14px;font-weight:600;color:var(--blue);line-height:1.6;}
+
+  .rep-foot{background:var(--blue);padding:16px 20px;text-align:center;color:#fff;margin-top:16px;}
+  .rep-foot .f-mark{font-size:13px;font-weight:600;color:var(--gold);}
+  .rep-foot .f-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:5px;}
+
+  /* budget roadmap timeline */
+  .roadmap{background:#fff;border-radius:20px;padding:22px 18px;margin-top:18px;box-shadow:var(--shadow);}
+  .roadmap-h{text-align:center;margin-bottom:6px;}
+  .roadmap-h .rh-t{font-size:19px;font-weight:800;color:var(--blue);}
+  .roadmap-h .rh-s{font-size:13px;color:var(--text-light);margin-top:4px;}
+  .budget-tag{display:inline-block;margin:12px auto 4px;background:rgba(201,162,39,.14);color:#8a6d10;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;}
+  .timeline{position:relative;padding-left:34px;margin-top:16px;}
+  .timeline::before{content:'';position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--gold),var(--blue));}
+  .tl-item{position:relative;margin-bottom:20px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item .tl-dot{position:absolute;left:-34px;top:0;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .tl-item .tl-phase{font-size:12px;font-weight:700;color:var(--gold);}
+  .tl-item .tl-title{font-size:15px;font-weight:700;color:var(--text);margin:2px 0 6px;}
+  .tl-item .tl-body{font-size:13.5px;color:var(--text-light);line-height:1.65;}
+  .tl-item .tl-body b{color:var(--blue);font-weight:600;}
+
+  .cta-trial{width:100%;margin-top:18px;padding:17px;background:linear-gradient(135deg,var(--gold),#e8b820);border:none;border-radius:50px;font-size:17px;font-weight:800;color:#1a2a00;box-shadow:0 8px 22px rgba(201,162,39,.4);}
+  .cta-trial:active{transform:scale(.97);}
+
+  /* share card (square 1080x1080) */
+  #share-card{width:100%;aspect-ratio:1/1;border-radius:22px;overflow:hidden;position:relative;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:30px 26px;margin-top:18px;box-shadow:0 8px 40px rgba(0,0,0,.2);}
+  #share-card .sc-top{position:relative;z-index:2;}
+  #share-card .sc-trophy{font-size:44px;margin-bottom:6px;}
+  #share-card .sc-hook{font-size:22px;font-weight:800;line-height:1.35;text-shadow:0 2px 8px rgba(0,0,0,.25);}
+  #share-card .sc-mid{position:relative;z-index:2;text-align:center;}
+  #share-card .sc-tier{font-size:38px;font-weight:900;line-height:1.1;text-shadow:0 3px 10px rgba(0,0,0,.3);}
+  #share-card .sc-stat{display:flex;justify-content:center;gap:20px;margin-top:14px;}
+  #share-card .sc-stat .si{background:rgba(255,255,255,.2);border-radius:14px;padding:10px 16px;backdrop-filter:blur(4px);}
+  #share-card .sc-stat .sv{font-size:22px;font-weight:800;}
+  #share-card .sc-stat .sl{font-size:11px;opacity:.85;margin-top:2px;}
+  #share-card .sc-quote{font-size:15px;font-weight:600;margin-top:16px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,.2);padding:0 6px;}
+  #share-card .sc-bot{position:relative;z-index:2;text-align:center;}
+  #share-card .sc-cta{font-size:16px;font-weight:800;}
+  #share-card .sc-url{font-size:13px;opacity:.9;margin-top:6px;letter-spacing:.5px;}
+  #share-card .sc-brand{font-size:12px;opacity:.75;margin-top:8px;}
+  #share-card .sc-deco{position:absolute;border-radius:50%;z-index:1;}
+
+  .save-btns{display:flex;gap:10px;margin-top:16px;}
+  .save-btn{flex:1;padding:15px;border-radius:50px;border:none;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .save-btn.primary{background:var(--blue);color:#fff;box-shadow:0 6px 18px rgba(26,58,107,.3);}
+  .save-btn.gold{background:linear-gradient(135deg,var(--gold),#e8b820);color:#1a2a00;box-shadow:0 6px 18px rgba(201,162,39,.35);}
+  .save-btn:active{transform:scale(.97);}
+  .save-hint{text-align:center;font-size:12px;color:var(--text-mute);margin-top:10px;}
+
+  .lead-strip{margin-top:20px;background:linear-gradient(160deg,#0f2347,#1a3a6b);border-radius:18px;padding:22px 20px;text-align:center;color:#fff;position:relative;overflow:hidden;}
+  .lead-strip::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(201,162,39,.25),transparent 70%);border-radius:50%;}
+  .lead-strip .ls-t{font-size:18px;font-weight:800;position:relative;z-index:1;}
+  .lead-strip .ls-s{font-size:13px;color:rgba(255,255,255,.7);margin:8px 0 16px;position:relative;z-index:1;}
+  .lead-strip .btn-lead{position:relative;z-index:1;width:100%;padding:15px;background:var(--gold);border:none;border-radius:50px;font-size:16px;font-weight:800;color:#1a2a00;}
+
+  .highage-note{margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px;font-size:13px;color:var(--text-light);line-height:1.7;}
+  .highage-note b{color:var(--blue);}
+
+  .disclaimer{text-align:center;font-size:11px;color:var(--text-mute);margin-top:18px;line-height:1.6;padding:0 10px;}
+
+  /* modal */
+  .modal-mask{position:fixed;inset:0;background:rgba(15,35,71,.55);z-index:2000;display:none;align-items:flex-end;justify-content:center;}
+  .modal-mask.show{display:flex;}
+  .modal{background:#fff;width:100%;max-width:520px;border-radius:24px 24px 0 0;padding:26px 22px calc(26px + env(safe-area-inset-bottom));animation:slideUp .3s ease;}
+  @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+  .modal-h{font-size:20px;font-weight:800;color:var(--blue);margin-bottom:6px;}
+  .modal-sub{font-size:13px;color:var(--text-light);margin-bottom:18px;}
+  .modal .finput{margin-bottom:12px;}
+  .consent{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-light);margin:6px 0 16px;line-height:1.5;}
+  .consent input{margin-top:2px;flex-shrink:0;width:16px;height:16px;accent-color:var(--blue);}
+  .modal-close{position:absolute;}
+  #lead-success{text-align:center;padding:20px 0;}
+  #lead-success .ok{font-size:52px;}
+  #lead-success .ok-t{font-size:19px;font-weight:800;color:var(--success);margin:10px 0 6px;}
+  #lead-success .ok-s{font-size:14px;color:var(--text-light);}
+
+  .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(0,0,0,.85);color:#fff;padding:12px 22px;border-radius:24px;font-size:14px;z-index:3000;opacity:0;transition:.25s;pointer-events:none;white-space:nowrap;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="pbar"><div class="pbar-fill" id="pbar-fill"></div></div>
+<div id="app">
+
+  <!-- ============ SCREEN 1: WELCOME ============ -->
+  <section class="screen active" id="s-welcome">
+    <div class="w-inner">
+      <div class="logo">YiYi英语</div>
+      <div class="logo-sub">Kids English</div>
+      <div class="w-badge">🎓 3-15岁少儿英语 · 免费测评</div>
+      <h1 class="w-title">免费测出孩子<br><span>真实英语水平</span></h1>
+      <p class="w-sub">KET/月考、查缺补漏前先测一测<br>省下几千块乱报班的钱</p>
+      <div class="w-feats">
+        <div class="w-feat"><div class="ic">⏱️</div><div class="tx">3分钟</div></div>
+        <div class="w-feat"><div class="ic">🏅</div><div class="tx">出段位成绩单</div></div>
+        <div class="w-feat"><div class="ic">📕</div><div class="tx">可发小红书</div></div>
+      </div>
+      <button class="btn-primary" onclick="startTest()">开始测评 →</button>
+      <div class="w-trust">仅供参考 · 非官方测评 · 需监护人同意</div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: PROFILE ============ -->
+  <section class="screen" id="s-profile">
+    <div class="hd">
+      <div class="hd-top">
+        <button class="btn-back" onclick="goWelcome()">‹</button>
+        <span class="hd-logo">YiYi英语</span>
+      </div>
+      <div class="hd-title" id="prof-title">孩子档案 (1/3)</div>
+      <div class="hd-sub">家长填写 · 用于生成专属成绩单</div>
+      <div class="dots" id="prof-dots"></div>
+    </div>
+    <div class="content" id="prof-content"></div>
+    <div class="footbar">
+      <button class="btn-next" id="prof-next" onclick="profNext()">下一步</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3: QUIZ ============ -->
+  <section class="screen" id="s-quiz">
+    <div class="hd">
+      <div class="hd-top">
+        <button class="btn-back" onclick="quizBack()">‹</button>
+        <span class="hd-logo">YiYi英语</span>
+      </div>
+      <div class="hd-title" id="quiz-title">实题测试</div>
+      <div class="hd-sub" id="quiz-sub">让孩子来做 · 不会可以跳过</div>
+    </div>
+    <div class="content" id="quiz-content"></div>
+    <div class="footbar">
+      <button class="btn-skip" onclick="quizSkip()">跳过</button>
+      <button class="btn-next" id="quiz-next" onclick="quizNext()">下一题</button>
+    </div>
+  </section>
+
+  <!-- ============ LOADING ============ -->
+  <section class="screen" id="s-loading">
+    <div class="spinner"></div>
+    <div class="load-txt" id="load-txt">正在生成段位成绩单…</div>
+    <div class="load-sub">分析词汇 · 语法 · 阅读 · 口语</div>
+  </section>
+
+  <!-- ============ SCREEN 4: RESULT ============ -->
+  <section class="screen" id="s-result">
+    <div class="r-scroll">
+
+      <!-- REPORT CARD (capture: #report) -->
+      <div class="report" id="report">
+        <div class="rep-head">
+          <div class="rep-brand">
+            <span class="b-logo">YiYi英语</span>
+            <span class="b-tag">少儿英语段位测评</span>
+          </div>
+          <div class="rep-name">
+            <div class="n" id="rep-name">小朋友</div>
+            <div class="m" id="rep-meta">三四年级 · 2026-08-29</div>
+          </div>
+        </div>
+
+        <div class="badge-wrap">
+          <div class="badge" id="rep-badge">
+            <div class="tier-label">英语段位</div>
+            <div class="tier-name" id="rep-tier">进阶冒险者</div>
+            <div class="tier-score" id="rep-score">78 分</div>
+            <div class="tier-words" id="rep-words">词汇量约 1500 词 · KET 备考</div>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="mv" id="m-vocab">~1500</div><div class="ml">词汇量估算</div></div>
+          <div class="metric"><div class="mv" id="m-gram">需加强</div><div class="ml">语法掌握</div></div>
+          <div class="metric"><div class="mv" id="m-oral">★★★☆☆</div><div class="ml">口语自信</div></div>
+        </div>
+
+        <div class="sect">
+          <div class="sect-t">能力雷达</div>
+          <div class="radar-box" id="radar-box"></div>
+        </div>
+
+        <div class="sect">
+          <div class="sect-t">老师点评</div>
+          <div class="review">
+            <div class="r-title">YiYi 教研组</div>
+            <div id="rep-review"></div>
+          </div>
+        </div>
+
+        <div class="sect">
+          <div class="sect-t">推荐读物 & 动画</div>
+          <div class="recos" id="rep-recos"></div>
+        </div>
+
+        <div class="goal-box">
+          <div class="g-txt" id="rep-goal"></div>
+        </div>
+
+        <div class="rep-foot">
+          <div class="f-mark">YiYi英语 · 免费测评　mylumee.cn/yiyi-ceping</div>
+          <div class="f-sub">本测评结果仅供参考 · 非官方标准化考试</div>
+        </div>
+      </div>
+
+      <!-- BUDGET ROADMAP -->
+      <div class="roadmap" id="roadmap">
+        <div class="roadmap-h">
+          <div class="rh-t">📈 专属提升路线图</div>
+          <div class="rh-s">按孩子水平 × 预算 × 目标定制</div>
+          <div class="budget-tag" id="budget-tag">预算：500-2000元/月</div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+        <button class="cta-trial" id="cta-trial" onclick="onTrialClick()">🎁 预约 YiYi 外教免费试课</button>
+      </div>
+
+      <!-- high-age note (托福雅思等) -->
+      <div class="highage-note" id="highage-note" style="display:none;"></div>
+
+      <!-- SHARE CARD (capture: #share-card) -->
+      <div id="share-card">
+        <span class="sc-deco" style="width:140px;height:140px;top:-40px;right:-40px;background:rgba(255,255,255,.14);"></span>
+        <span class="sc-deco" style="width:90px;height:90px;bottom:20px;left:-30px;background:rgba(255,255,255,.1);"></span>
+        <div class="sc-top">
+          <div class="sc-trophy">🏆</div>
+          <div class="sc-hook">我家娃英语<br>段位测出来了！</div>
+        </div>
+        <div class="sc-mid">
+          <div class="sc-tier" id="sc-tier">进阶冒险者</div>
+          <div class="sc-stat">
+            <div class="si"><div class="sv" id="sc-vocab">~1500</div><div class="sl">词汇量</div></div>
+            <div class="si"><div class="sv" id="sc-score">78分</div><div class="sl">综合得分</div></div>
+          </div>
+          <div class="sc-quote" id="sc-quote">"进步很稳，KET 稳稳在望"</div>
+        </div>
+        <div class="sc-bot">
+          <div class="sc-cta">👉 测测你家娃是什么段位</div>
+          <div class="sc-url">mylumee.cn/yiyi-ceping</div>
+          <div class="sc-brand">YiYi英语 · 免费测评 · 仅供参考</div>
+        </div>
+      </div>
+
+      <!-- SAVE BUTTONS -->
+      <div class="save-btns">
+        <button class="save-btn primary" onclick="saveReport()">📄 保存成绩单</button>
+        <button class="save-btn gold" onclick="saveShare()">📕 保存分享卡</button>
+      </div>
+      <div class="save-hint">保存到相册 → 发小红书/朋友圈晒娃</div>
+
+      <!-- LEAD -->
+      <div class="lead-strip">
+        <div class="ls-t">领取孩子专属学习计划</div>
+        <div class="ls-s">免费 · 老师根据这份成绩单为孩子定制</div>
+        <button class="btn-lead" onclick="openLead()">免费领取详细计划 →</button>
+      </div>
+
+      <div class="disclaimer">
+        本测评为 YiYi英语提供的免费自测工具，结果基于孩子作答估算，仅供家长参考，<b>非官方标准化考试成绩</b>。<br>
+        我们提供学习建议，不承诺保证提分或通过任何考试。
+      </div>
+
+      <button class="btn-skip" style="width:100%;margin-top:16px;border-radius:14px;" onclick="restartAll()">重新测一次</button>
+    </div>
+  </section>
+</div>
+
+<!-- LEAD MODAL -->
+<div class="modal-mask" id="lead-modal">
+  <div class="modal">
+    <div id="lead-form">
+      <div class="modal-h">🎁 领取详细学习计划</div>
+      <div class="modal-sub">留下联系方式，老师会把为孩子定制的计划发给你（免费）</div>
+      <input class="finput" id="lead-name" placeholder="家长称呼 / 孩子姓名">
+      <input class="finput" id="lead-contact" placeholder="手机号 或 微信号">
+      <label class="consent">
+        <input type="checkbox" id="lead-consent">
+        <span>我是孩子的监护人，同意 YiYi英语就学习计划与我联系。测评结果仅供参考。</span>
+      </label>
+      <button class="btn-primary" id="lead-submit" onclick="submitLead()">提交，领取计划</button>
+      <div style="text-align:center;margin-top:12px;"><button class="btn-skip" style="border:none;background:none;" onclick="closeLead()">暂不需要</button></div>
+    </div>
+    <div id="lead-success" style="display:none;">
+      <div class="ok">✅</div>
+      <div class="ok-t">提交成功！</div>
+      <div class="ok-s">老师会尽快把孩子的专属学习计划发给你～</div>
+      <button class="btn-primary" style="margin-top:20px;" onclick="closeLead()">好的</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======================= STATE ======================= */
+const state = {
+  profile:{ name:'', gender:'', grade:'', school:'', book:'', lastScore:'', contest:'',
+            goals:[], teacher:'', interest:'', valued:'', budget:'' },
+  answers:[],       // quiz answers
+  quizIndex:0,
+  quizSet:[],
+  scores:{ vocab:0, translate:0, reading:0, oral:0, total:0 },
+  tier:null
+};
+
+/* ======================= PROFILE FORM CONFIG ======================= */
+const profileGroups = [
+  { // group 1
+    fields:[
+      { key:'name', type:'text', label:'孩子姓名', optional:true, ph:'成绩单上显示，选填' },
+      { key:'gender', type:'single', label:'孩子性别', cols:2, opts:['男孩','女孩'] },
+      { key:'grade', type:'single', label:'年级', cols:3, opts:['幼儿园','一二年级','三四年级','五六年级','初中','高中'] },
+      { key:'school', type:'single', label:'学校类型', cols:3, opts:['公立','双语','国际'] }
+    ]
+  },
+  { // group 2
+    fields:[
+      { key:'book', type:'single', label:'在用教材', cols:3, opts:['人教','外研','译林','沪教','北师大','其他','不确定'] },
+      { key:'lastScore', type:'single', label:'最近英语分数', optional:true, cols:3, opts:['90+','80-89','70-79','60-69','60以下','没考过'] },
+      { key:'contest', type:'single', label:'参加过英语比赛', cols:2, opts:['没有','校内','市级+','国际'] },
+      { key:'goals', type:'multi', label:'想提高什么（可多选）', cols:3, opts:['口语','考试','阅读','写作','综合'] }
+    ]
+  },
+  { // group 3
+    fields:[
+      { key:'teacher', type:'single', label:'倾向中教还是外教', cols:3, opts:['中教','外教','都可以'] },
+      { key:'interest', type:'single', label:'孩子对英语的兴趣', cols:2, opts:['很喜欢','还好','不喜欢','抗拒'] },
+      { key:'valued', type:'single', label:'家长最看重', cols:2, opts:['提分','开口','国际视野','升学'] },
+      { key:'budget', type:'single', label:'每月英语预算', cols:2, opts:['不花钱','500内','500-2000','2000+'] }
+    ]
+  }
+];
+let profStep = 0;
+
+/* ======================= QUIZ QUESTION BANKS (by grade) ======================= */
+/* type: vocab (single, 6pt each), translate (keyword match, 10pt each), reading passage + rc (single) , oral (self star) */
+const QUIZ = {
+  '幼儿园':{ level:'Pre-A1', questions:[
+    {type:'vocab', q:'This is a ___. (小猫)', hint:'看图选词 · 猫', opts:['cat','dog','car','book'], answer:0},
+    {type:'vocab', q:'I can see ___ apples. (三个)', hint:'数字', opts:['one','two','three','four'], answer:2},
+    {type:'vocab', q:'The sky is ___. (蓝色)', hint:'颜色', opts:['red','blue','green','black'], answer:1},
+    {type:'vocab', q:'___ is your name? (你叫什么)', hint:'问句', opts:['What','Who','Where','How'], answer:0},
+    {type:'vocab', q:'I ___ happy today.', hint:'be动词', opts:['am','is','are','be'], answer:0},
+    {type:'translate', q:'把「你好」翻译成英文', hint:'打招呼', keywords:['hello','hi'], accept:'Hello'},
+    {type:'translate', q:'把「谢谢」翻译成英文', hint:'礼貌用语', keywords:['thank','thanks','thank you'], accept:'Thank you'},
+    {type:'oral', q:'孩子敢开口说英文吗？', hint:'请家长/孩子如实选择'}
+  ]},
+  '一二年级':{ level:'Pre-A1', questions:[
+    {type:'vocab', q:'A ___ has four legs and says "moo". (牛)', hint:'动物', opts:['cow','bird','fish','bee'], answer:0},
+    {type:'vocab', q:'I go to ___ every day.', hint:'地点', opts:['school','moon','sky','sea'], answer:0},
+    {type:'vocab', q:'My mother is a ___. (老师)', hint:'职业', opts:['doctor','teacher','driver','cook'], answer:1},
+    {type:'vocab', q:'It is ___ today, take an umbrella.', hint:'天气 · 下雨', opts:['sunny','rainy','windy','snowy'], answer:1},
+    {type:'vocab', q:'There ___ two cats on the bed.', hint:'be动词复数', opts:['is','am','are','be'], answer:2},
+    {type:'translate', q:'把「我喜欢苹果」翻译成英文', hint:'I like ...', keywords:['i like','apple'], accept:'I like apples'},
+    {type:'translate', q:'把「这是我的书」翻译成英文', hint:'This is ...', keywords:['this is','my book'], accept:'This is my book'},
+    {type:'oral', q:'孩子敢用完整句子说英文吗？', hint:'请如实选择'}
+  ]},
+  '三四年级':{ level:'A1', questions:[
+    {type:'vocab', q:'I ___ to school every morning.', hint:'一般现在时', opts:['go','goes','going','went'], answer:0},
+    {type:'vocab', q:'She ___ playing basketball now.', hint:'现在进行时', opts:['am','is','are','be'], answer:1},
+    {type:'vocab', q:'There are many ___ in the box.', hint:'名词复数', opts:['book','books','a book','booking'], answer:1},
+    {type:'vocab', q:'My birthday is ___ May.', hint:'介词', opts:['on','at','in','to'], answer:2},
+    {type:'vocab', q:'He is ___ than his brother.', hint:'比较级 · 高', opts:['tall','taller','tallest','more tall'], answer:1},
+    {type:'translate', q:'把「她喜欢唱歌」翻译成英文', hint:'注意第三人称', keywords:['she','like','sing'], accept:'She likes singing'},
+    {type:'translate', q:'把「我有一只可爱的狗」翻译成英文', hint:'I have ...', keywords:['i have','dog','cute'], accept:'I have a cute dog'},
+    {type:'reading', passage:'Tom is a boy. He is nine years old. He likes apples and bananas. He goes to school by bike. He has a dog named Lucky.',
+      rc:[
+        {q:'How old is Tom?', opts:['seven','eight','nine','ten'], answer:2},
+        {q:'How does Tom go to school?', opts:['by bus','by bike','on foot','by car'], answer:1}
+      ]},
+    {type:'oral', q:'孩子能自我介绍（名字/年龄/喜欢什么）吗？', hint:'请如实选择'}
+  ]},
+  '五六年级':{ level:'A2', questions:[
+    {type:'vocab', q:'I ___ my homework yesterday.', hint:'一般过去时', opts:['do','did','done','doing'], answer:1},
+    {type:'vocab', q:'You ___ finish it before dinner.', hint:'情态动词 · 必须', opts:['can','must','may','could'], answer:1},
+    {type:'vocab', q:'This is the ___ film I have ever seen.', hint:'最高级 · 好', opts:['good','better','best','well'], answer:2},
+    {type:'vocab', q:'If it rains, we ___ stay at home.', hint:'条件句 · 将来', opts:['will','would','are','have'], answer:0},
+    {type:'vocab', q:'She has lived here ___ 2019.', hint:'现在完成时', opts:['for','since','at','in'], answer:1},
+    {type:'translate', q:'把「昨天我和朋友去了公园」翻译成英文', hint:'过去时', keywords:['went','park','friend','yesterday'], accept:'I went to the park with my friend yesterday'},
+    {type:'translate', q:'把「你能帮我一下吗？」翻译成英文', hint:'请求', keywords:['can you','help'], accept:'Can you help me?'},
+    {type:'reading', passage:'Lily is planning a trip to the zoo. She wants to see the pandas and the elephants. The zoo opens at 9 a.m. and closes at 5 p.m. Tickets cost 30 yuan for children. Lily will bring some water and sandwiches.',
+      rc:[
+        {q:'What does Lily want to see most?', opts:['tigers','pandas and elephants','birds','fish'], answer:1},
+        {q:'How much is a child ticket?', opts:['20 yuan','25 yuan','30 yuan','50 yuan'], answer:2},
+        {q:'What will Lily bring?', opts:['a camera','water and sandwiches','a book','a ball'], answer:1}
+      ]},
+    {type:'oral', q:'孩子能用英文简单描述一件事/一个计划吗？', hint:'请如实选择'}
+  ]},
+  '初中':{ level:'B1 (KET/PET)', questions:[
+    {type:'vocab', q:'By the time we arrived, the movie ___ already started.', hint:'过去完成时', opts:['has','had','have','was'], answer:1},
+    {type:'vocab', q:'The report ___ by the students last week.', hint:'被动语态', opts:['wrote','was written','writes','is writing'], answer:1},
+    {type:'vocab', q:'I would rather stay home ___ go out tonight.', hint:'固定搭配', opts:['to','than','then','that'], answer:1},
+    {type:'vocab', q:'She asked me ___ I had finished the task.', hint:'宾语从句', opts:['that','if','what','which'], answer:1},
+    {type:'vocab', q:'Neither the teacher nor the students ___ aware of it.', hint:'主谓一致', opts:['was','were','is','has'], answer:1},
+    {type:'translate', q:'把「如果我有更多时间，我会学一门新语言」翻译成英文', hint:'虚拟/条件句', keywords:['if i had','more time','learn','language'], accept:'If I had more time, I would learn a new language'},
+    {type:'translate', q:'把「这本书值得一读」翻译成英文', hint:'be worth doing', keywords:['worth','reading','book'], accept:'This book is worth reading'},
+    {type:'reading', passage:'Online learning has become popular in recent years. It allows students to study at their own pace and from any place with the internet. However, some experts argue that it lacks face-to-face interaction, which is important for developing communication skills. A balanced approach, combining online and classroom learning, may work best for most students.',
+      rc:[
+        {q:'What is one advantage of online learning?', opts:['It is free','Study at your own pace','No homework','Shorter classes'], answer:1},
+        {q:'What do some experts worry about?', opts:['Cost','Lack of face-to-face interaction','Too many exams','Slow internet'], answer:1},
+        {q:'What does the writer suggest?', opts:['Only online','Only classroom','A balanced approach','Stop studying'], answer:2}
+      ]},
+    {type:'oral', q:'孩子能就一个话题用英文表达观点吗？', hint:'请如实选择'}
+  ]},
+  '高中':{ level:'B2', questions:[
+    {type:'vocab', q:'___ harder, he would have passed the exam.', hint:'虚拟语气倒装', opts:['If he studied','Had he studied','Should he study','Were he study'], answer:1},
+    {type:'vocab', q:'The scientist, ___ research changed the field, won the prize.', hint:'定语从句', opts:['who','whom','whose','which'], answer:2},
+    {type:'vocab', q:'It is essential that every student ___ present at the meeting.', hint:'虚拟语气 (should) be', opts:['is','be','was','are'], answer:1},
+    {type:'vocab', q:'Not until she left ___ how much he missed her.', hint:'倒装', opts:['he realized','did he realize','he did realize','realized he'], answer:1},
+    {type:'vocab', q:'The new policy will have a profound ___ on the economy.', hint:'词汇 · 影响', opts:['affect','effect','effort','effate'], answer:1},
+    {type:'translate', q:'把「正是这次经历改变了我看待世界的方式」翻译成英文', hint:'强调句 It was ... that', keywords:['it was','experience','changed','world'], accept:'It was this experience that changed the way I see the world'},
+    {type:'translate', q:'把「毫无疑问，努力工作会有回报」翻译成英文', hint:'There is no doubt that', keywords:['no doubt','hard work','pay off'], accept:'There is no doubt that hard work pays off'},
+    {type:'reading', passage:'The concept of a "circular economy" is gaining traction worldwide. Unlike the traditional linear model of "take, make, dispose," a circular economy aims to keep resources in use for as long as possible. Products are designed to be reused, repaired, or recycled. Advocates believe this approach can reduce waste and create economic opportunities, though critics point to the significant upfront investment required.',
+      rc:[
+        {q:'What does the traditional model follow?', opts:['reuse and repair','take, make, dispose','recycle only','share resources'], answer:1},
+        {q:'What is a goal of a circular economy?', opts:['Make more products','Keep resources in use longer','Increase disposal','Lower prices'], answer:1},
+        {q:'What concern do critics raise?', opts:['Too slow','Significant upfront investment','No jobs created','Not popular'], answer:1}
+      ]},
+    {type:'oral', q:'孩子能就抽象话题用英文进行论述吗？', hint:'请如实选择'}
+  ]}
+};
+
+/* high-age resource note (托福/雅思 etc — only a pointer, not deep) */
+const HIGHAGE = {
+  show:false,
+  text:'📌 <b>关于托福/雅思等更高阶考试：</b>YiYi英语目前专注 3-15岁少儿英语（KET/PET 及以下）的启蒙与打基础。如果孩子已在冲刺托福/雅思，建议直接找对应的标化考试机构，并配合官方真题（TOEFL Junior、剑桥官方备考书）系统训练。基础扎实是高阶提分的前提——欢迎先用这份测评看看基本功是否稳固。'
+};
+
+/* ======================= TIER + RECOMMENDATIONS ======================= */
+function getTier(total){
+  if(total>=85) return {name:'王者英语人', words:'约 5000 词以上', tag:'超越同龄', vocab:'5000+', colors:['#c9a227','#f0d060'], scColors:['#b8860b','#daa520','#f0d060'], key:'king'};
+  if(total>=75) return {name:'精英挑战者', words:'约 3000 词 · PET 备考', tag:'PET 冲刺', vocab:'~3000', colors:['#7b3fa0','#b06ec9'], scColors:['#6a2c8f','#8e44ad','#b06ec9'], key:'elite'};
+  if(total>=60) return {name:'进阶冒险者', words:'约 1500 词 · KET 备考', tag:'KET 备考', vocab:'~1500', colors:['#d98324','#f0a94a'], scColors:['#c86a1a','#e67e22','#f0a94a'], key:'adv'};
+  if(total>=40) return {name:'初阶探险家', words:'约 500 词', tag:'打基础', vocab:'~500', colors:['#2e8b57','#5cb87a'], scColors:['#1e7d4a','#2e8b57','#5cb87a'], key:'explorer'};
+  return {name:'英语萌新', words:'约 200 词', tag:'启蒙起步', vocab:'~200', colors:['#4a90d9','#7ab4e8'], scColors:['#3a7bc8','#4a90d9','#7ab4e8'], key:'newbie'};
+}
+
+/* teacher review templates: base by tier + weakness patch (assemble 4-5 sentences) */
+const REVIEW_BASE = {
+  king:'孩子的英语能力已经非常突出，词汇、语法与阅读都达到了同龄人中的顶尖水平，具备用英语流畅表达和思考的实力。',
+  elite:'孩子基础扎实、能力全面，已经站在了 PET 冲刺的门口，稍加系统训练就能把优势进一步扩大。',
+  adv:'孩子已经跨过入门阶段，具备一定的语法框架和词汇积累，正处在冲刺 KET 的关键成长期，非常有潜力。',
+  explorer:'孩子已经建立起基础的英语认知，能听懂和使用一些简单表达，接下来是稳步扩充词汇、打牢语法的黄金期。',
+  newbie:'孩子正处在英语启蒙的起点，最重要的是保护兴趣、多磨耳朵、多接触地道输入，帮助孩子爱上英语。'
+};
+const REVIEW_WEAK = {
+  vocab:'从作答看，<b>词汇量</b>是目前相对薄弱的一环，建议每天固定时间积累高频词，配合场景和图片记忆效果更好。',
+  translate:'在<b>中译英/语法运用</b>上还需加强，说明"能看懂但不太会用"，多做造句和口头输出会有明显提升。',
+  reading:'<b>阅读理解</b>还有提升空间，建议从分级读物入手，按孩子当前水平选材，循序渐进培养语感。',
+  oral:'孩子的<b>开口自信</b>还需要呵护和鼓励，多创造轻松的对话环境，先敢说、再说好，外教陪练会很有帮助。'
+};
+const REVIEW_STRENGTH = {
+  vocab:'孩子的<b>词汇基础</b>是一个亮点，继续保持积累的好习惯。',
+  reading:'孩子的<b>阅读能力</b>表现不错，可以适当挑战更长、更有深度的材料。',
+  oral:'孩子<b>敢开口</b>的这份自信非常珍贵，是学好英语最重要的品质之一。'
+};
+
+/* reading recommendations by tier */
+const RECOS = {
+  newbie:{ books:[
+    {ic:'📗',t:'《牛津阅读树》Level 1-2',d:'零基础起步 · 图多字少'},
+    {ic:'📘',t:'《Bizzy Bear》系列',d:'纸板互动 · 启蒙磨眼睛'}
+  ], videos:[
+    {ic:'📺',t:'Super Simple Songs',d:'磨耳朵儿歌 · YouTube/B站免费'},
+    {ic:'🎬',t:'《小猪佩奇 Peppa Pig》',d:'语速慢 · 生活场景'}
+  ]},
+  explorer:{ books:[
+    {ic:'📗',t:'《牛津阅读树》Level 3-5',d:'情节故事 · 巩固句型'},
+    {ic:'📘',t:'RAZ 分级阅读 aa-C',d:'系统分级 · 每天一篇'}
+  ], videos:[
+    {ic:'🎬',t:'《卡由 Caillou》',d:'日常英语 · 句子完整'},
+    {ic:'📺',t:'BBC《Numberblocks》',d:'边玩边学 · 词汇拓展'}
+  ]},
+  adv:{ books:[
+    {ic:'📗',t:'《神奇树屋 Magic Tree House》',d:'桥梁书 · KET 词汇量'},
+    {ic:'📘',t:'剑桥 KET 官方真题',d:'考前熟悉题型必备'},
+    {ic:'📙',t:'RAZ Level D-G',d:'提升阅读速度与理解'}
+  ], videos:[
+    {ic:'🎬',t:'《Horrid Henry》',d:'地道语速 · 校园生活'},
+    {ic:'📺',t:'National Geographic Kids',d:'科普英语 · 拓视野'}
+  ]},
+  elite:{ books:[
+    {ic:'📗',t:'《夏洛的网 Charlotte\'s Web》',d:'经典章节书 · PET 阅读'},
+    {ic:'📘',t:'剑桥 PET 官方真题',d:'系统备考 · 提前适应'},
+    {ic:'📙',t:'《哈利·波特》(1-2 简版)',d:'长文本 · 培养耐力'}
+  ], videos:[
+    {ic:'🎬',t:'BBC 纪录片(青少版)',d:'学术英语 · 精听精读'},
+    {ic:'📺',t:'TED-Ed 动画',d:'思辨表达 · 拓展话题'}
+  ]},
+  king:{ books:[
+    {ic:'📗',t:'原版章节小说(蓝思 800L+)',d:'如《Wonder》《Holes》'},
+    {ic:'📘',t:'《The Economist》青少专栏',d:'时事英语 · 高阶输入'},
+    {ic:'📙',t:'剑桥 FCE 备考(选做)',d:'向更高段位挑战'}
+  ], videos:[
+    {ic:'🎬',t:'原版影视(无字幕挑战)',d:'如 Pixar 动画 · 精听'},
+    {ic:'📺',t:'TED 正式演讲',d:'学术表达 · 输出模仿'}
+  ]}
+};
+
+/* goal encouragement by tier */
+const GOALS = {
+  newbie:'孩子现在是「英语萌新」，别急，坚持每天磨耳朵 + 玩中学，3 个月后就能升级成「初阶探险家」！',
+  explorer:'孩子现在是「初阶探险家」，稳扎稳打扩词汇、练句型，再努力 3 个月就能挑战「进阶冒险者」、备战 KET！',
+  adv:'孩子现在是「进阶冒险者」，词汇和语法都在成长期，坚持系统练习，3 个月后就能冲刺 KET、迈向「精英挑战者」！',
+  elite:'孩子现在是「精英挑战者」，已经具备 PET 实力，再打磨 3 个月阅读与表达，就能稳稳拿下 PET、走向「王者英语人」！',
+  king:'孩子现在是「王者英语人」，基本功已经很棒，接下来可以向 FCE、原版阅读和地道表达进阶，保持热爱、持续精进！'
+};
+
+/* ======================= BUDGET ROADMAP ======================= */
+function buildRoadmap(budget, tier, valued){
+  const trialBtn = document.getElementById('cta-trial');
+  const tag = document.getElementById('budget-tag');
+  let items=[]; let showTrial=false; let budgetLabel='';
+
+  const wantExam = state.profile.goals.includes('考试') || valued==='提分' || valued==='升学';
+
+  if(budget==='不花钱' || budget==='500内'){
+    budgetLabel = budget==='不花钱' ? '预算：不额外花钱' : '预算：500元内/月';
+    items=[
+      {ic:'🌱',phase:'第 1 个月 · 打基础',title:'免费资源先练起来',
+       body:'用 <b>墨墨背单词</b>（免费额度）每天背 10-15 词；<b>B站/YouTube</b> 找对应年级的语法课；<b>磨耳朵歌单</b>（Super Simple Songs）每天听 15 分钟。'},
+      {ic:'📖',phase:'第 2-3 个月 · 加阅读',title:'免费分级阅读跟上',
+       body:'用 <b>RAZ 免费额度</b> 或图书馆分级读物，每天精读一小篇；配合免费听力材料，形成"输入-复述"的小循环。'},
+      {ic:'🎯',phase:'3 个月后 · 看效果',title:'先免费练 3 个月打基础',
+       body:'坚持这套免费方案 3 个月，先把兴趣和基本功养起来。<b>如果孩子进步明显、想更系统提升，再考虑投入付费课程也不迟。</b>'}
+    ];
+  } else if(budget==='500-2000'){
+    budgetLabel='预算：500-2000元/月';
+    items=[
+      {ic:'📚',phase:'第 1 个月 · 系统起步',title:'中教网课 + 配套练习',
+       body:'选一门 <b>体系化中教网课</b>（每周 2-3 次），搭配官方配套练习册，把语法和词汇按孩子当前段位系统补齐。'},
+      {ic:'📖',phase:'第 2-3 个月 · 阅读提量',title:'分级阅读打磨语感',
+       body:'配合 <b>分级阅读</b>（RAZ / 牛津树 付费版），每天一篇 + 跟读，培养阅读速度和语感；周末做一次小测巩固。'},
+      {ic:'🚀',phase:'3 个月后 · 查缺补漏',title:'针对弱项集中突破',
+       body:'根据这份成绩单的<b>薄弱项</b>集中加练。想要开口和考试双提升，可以补充少量外教口语课作为补充。'}
+    ];
+  } else { // 2000+
+    budgetLabel='预算：2000元以上/月';
+    showTrial=true;
+    items=[
+      {ic:'👩‍🏫',phase:'第 1 个月 · 高效起步',title:'欧美外教 1v1 打磨口语',
+       body:'<b>欧美外教 1v1</b>（每周 2-3 次），母语环境快速提升开口自信和地道表达；同步做水平评估、定制学习路径。'},
+      {ic:'📐',phase:'第 2-3 个月 · 结构化提升',title:'结构化课程 + 阅读写作',
+       body:'进入 <b>结构化课程体系</b>，听说读写全面推进；根据成绩单弱项加练阅读或写作，形成完整能力闭环。'},
+      {ic:'🏆',phase:'3 个月后 · 考试备考',title:wantExam?'冲刺 KET/PET 系统备考':'向更高段位进阶',
+       body:wantExam?'进入 <b>KET/PET 考试备考</b> 专项，真题训练 + 模考诊断，稳步冲刺目标分数。':'挑战更高段位，拓展原版阅读与地道输出，让孩子的英语真正"用起来"。'}
+    ];
+  }
+
+  tag.textContent = budgetLabel;
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = items.map(it=>`
+    <div class="tl-item">
+      <div class="tl-dot">${it.ic}</div>
+      <div class="tl-phase">${it.phase}</div>
+      <div class="tl-title">${it.title}</div>
+      <div class="tl-body">${it.body}</div>
+    </div>`).join('');
+
+  // trial CTA visible for all (conversion), but text emphasized for 2000+
+  trialBtn.style.display='block';
+  trialBtn.textContent = showTrial ? '🎁 预约 YiYi 外教免费试课' : '🎁 想要外教陪练？预约免费试课';
+}
+
+/* ======================= NAV ======================= */
+function startTest(){
+  profStep=0;
+  document.body.classList.add('in-quiz');
+  showScreen('s-profile');
+  renderProfile();
+}
+function goWelcome(){
+  if(profStep>0){ profStep--; renderProfile(); return; }
+  document.body.classList.remove('in-quiz');
+  showScreen('s-welcome');
+}
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  const app=document.getElementById('app'); if(app) app.scrollTop=0;
+}
+function setProgress(p){ document.getElementById('pbar-fill').style.width=p+'%'; }
+
+/* ======================= PROFILE RENDER ======================= */
+function renderProfile(){
+  const g = profileGroups[profStep];
+  document.getElementById('prof-title').textContent = `孩子档案 (${profStep+1}/3)`;
+  // dots
+  document.getElementById('prof-dots').innerHTML = profileGroups.map((_,i)=>
+    `<div class="dot ${i===profStep?'active':(i<profStep?'done':'')}"></div>`).join('');
+  setProgress(8 + profStep*10);
+
+  const c = document.getElementById('prof-content');
+  c.innerHTML = g.fields.map(f=>{
+    if(f.type==='text'){
+      return `<div class="fgroup">
+        <div class="flabel">${f.label}${f.optional?'<span class="opt">选填</span>':''}</div>
+        <input class="finput" data-key="${f.key}" placeholder="${f.ph||''}" value="${state.profile[f.key]||''}">
+      </div>`;
+    }
+    const isMulti = f.type==='multi';
+    const cur = state.profile[f.key];
+    const opts = f.opts.map(o=>{
+      let on=false;
+      if(isMulti) on = Array.isArray(cur)&&cur.includes(o);
+      else on = cur===o;
+      return `<button class="obtn ${isMulti?'multi':''} ${on?'on':''}" data-key="${f.key}" data-val="${o}" data-multi="${isMulti}">${o}</button>`;
+    }).join('');
+    return `<div class="fgroup">
+      <div class="flabel">${f.label}${f.optional?'<span class="opt">选填</span>':''}</div>
+      <div class="grid c${f.cols||2}">${opts}</div>
+    </div>`;
+  }).join('');
+
+  // bind
+  c.querySelectorAll('.obtn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const key=b.dataset.key, val=b.dataset.val, multi=b.dataset.multi==='true';
+      if(multi){
+        if(!Array.isArray(state.profile[key])) state.profile[key]=[];
+        const arr=state.profile[key];
+        const i=arr.indexOf(val);
+        if(i>=0){ arr.splice(i,1); b.classList.remove('on'); }
+        else{ arr.push(val); b.classList.add('on'); }
+      } else {
+        state.profile[key]=val;
+        c.querySelectorAll(`.obtn[data-key="${key}"]`).forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+      }
+    });
+  });
+  c.querySelectorAll('.finput').forEach(inp=>{
+    inp.addEventListener('input',()=>{ state.profile[inp.dataset.key]=inp.value; });
+  });
+
+  document.getElementById('prof-next').textContent = profStep<2 ? '下一步' : '开始做题 →';
+}
+
+function profNext(){
+  // save text inputs
+  document.querySelectorAll('#prof-content .finput').forEach(inp=>{ state.profile[inp.dataset.key]=inp.value; });
+  const g=profileGroups[profStep];
+  // require the mandatory single-choice on group1 (gender, grade)
+  for(const f of g.fields){
+    if(f.optional) continue;
+    if(f.type==='single' && !state.profile[f.key]){ showToast('请选择：'+f.label); return; }
+    if(f.type==='multi' && (!state.profile[f.key]||state.profile[f.key].length===0)){ showToast('请至少选一项：'+f.label); return; }
+  }
+  if(profStep<2){ profStep++; renderProfile(); }
+  else { startQuiz(); }
+}
+
+/* ======================= QUIZ ======================= */
+function startQuiz(){
+  const grade = state.profile.grade || '三四年级';
+  state.quizSet = QUIZ[grade].questions;
+  state.answers = new Array(state.quizSet.length).fill(null);
+  state.quizIndex=0;
+  document.getElementById('quiz-sub').textContent = `难度 ${QUIZ[grade].level} · 让孩子来做 · 不会可跳过`;
+  showScreen('s-quiz');
+  renderQuiz();
+}
+function renderQuiz(){
+  const i=state.quizIndex, q=state.quizSet[i], total=state.quizSet.length;
+  document.getElementById('quiz-title').textContent = `实题测试 (${i+1}/${total})`;
+  setProgress(40 + Math.round((i/total)*45));
+  const c=document.getElementById('quiz-content');
+  const typeLabel={vocab:'词汇 · 选词填空',translate:'翻译 · 中译英',reading:'阅读理解',oral:'口语自评'}[q.type];
+
+  if(q.type==='vocab'){
+    c.innerHTML=`<div class="q-card">
+      <span class="q-num">第 ${i+1} 题<span class="q-type">${typeLabel}</span></span>
+      <div class="q-text">${q.q}</div>
+      <div class="q-hint">${q.hint||''}</div>
+      <div class="q-opts">${q.opts.map((o,idx)=>{
+        const on = state.answers[i]===idx;
+        return `<button class="q-opt ${on?'on':''}" data-idx="${idx}"><span class="k">${'ABCD'[idx]}</span>${o}</button>`;
+      }).join('')}</div>
+    </div>`;
+    c.querySelectorAll('.q-opt').forEach(b=>b.addEventListener('click',()=>{
+      state.answers[i]=parseInt(b.dataset.idx);
+      c.querySelectorAll('.q-opt').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+    }));
+  }
+  else if(q.type==='translate'){
+    const val = state.answers[i]||'';
+    c.innerHTML=`<div class="q-card">
+      <span class="q-num">第 ${i+1} 题<span class="q-type">${typeLabel}</span></span>
+      <div class="q-text">${q.q}</div>
+      <div class="q-hint">${q.hint||''} · 拼写不完美也没关系</div>
+      <input class="q-translate-in" id="tr-input" placeholder="在这里输入英文…" value="${val}">
+    </div>`;
+    document.getElementById('tr-input').addEventListener('input',e=>{ state.answers[i]=e.target.value; });
+  }
+  else if(q.type==='reading'){
+    const ans = Array.isArray(state.answers[i])?state.answers[i]:new Array(q.rc.length).fill(null);
+    state.answers[i]=ans;
+    c.innerHTML=`<div class="q-card">
+      <span class="q-num">第 ${i+1} 题<span class="q-type">${typeLabel}</span></span>
+      <div class="q-passage">${q.passage}</div>
+      ${q.rc.map((r,ri)=>`
+        <div style="margin-top:${ri?18:6}px;">
+          <div class="q-text" style="font-size:15px;">${ri+1}. ${r.q}</div>
+          <div class="q-opts" style="margin-top:10px;">
+            ${r.opts.map((o,oi)=>{
+              const on = ans[ri]===oi;
+              return `<button class="q-opt ${on?'on':''}" data-ri="${ri}" data-oi="${oi}"><span class="k">${'ABCD'[oi]}</span>${o}</button>`;
+            }).join('')}
+          </div>
+        </div>`).join('')}
+    </div>`;
+    c.querySelectorAll('.q-opt').forEach(b=>b.addEventListener('click',()=>{
+      const ri=+b.dataset.ri, oi=+b.dataset.oi;
+      ans[ri]=oi;
+      c.querySelectorAll(`.q-opt[data-ri="${ri}"]`).forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+    }));
+  }
+  else if(q.type==='oral'){
+    const val = state.answers[i]||0;
+    c.innerHTML=`<div class="q-card">
+      <span class="q-num">第 ${i+1} 题<span class="q-type">${typeLabel}</span></span>
+      <div class="q-text">${q.q}</div>
+      <div class="q-hint">${q.hint||''} · 点星星，越多表示越自信</div>
+      <div class="stars" id="stars">${[1,2,3,4,5].map(n=>`<span class="star ${n<=val?'on':''}" data-n="${n}">★</span>`).join('')}</div>
+    </div>`;
+    c.querySelectorAll('.star').forEach(s=>s.addEventListener('click',()=>{
+      const n=+s.dataset.n; state.answers[i]=n;
+      c.querySelectorAll('.star').forEach(x=>x.classList.toggle('on', +x.dataset.n<=n));
+    }));
+  }
+
+  // last question button
+  document.getElementById('quiz-next').textContent = (i===total-1)?'查看成绩单 🏅':'下一题';
+}
+function quizNext(){
+  if(state.quizIndex < state.quizSet.length-1){ state.quizIndex++; renderQuiz(); }
+  else finishQuiz();
+}
+function quizSkip(){
+  // leave answer as-is (null / unanswered) and advance
+  quizNext();
+}
+function quizBack(){
+  if(state.quizIndex>0){ state.quizIndex--; renderQuiz(); }
+  else { profStep=2; showScreen('s-profile'); renderProfile(); }
+}
+
+/* ======================= SCORING ======================= */
+function scoreTranslate(ans, keywords){
+  if(!ans) return 0;
+  const t = ans.toLowerCase().replace(/[.,!?]/g,'');
+  let hit=0;
+  keywords.forEach(k=>{ if(t.includes(k.toLowerCase())) hit++; });
+  return hit/keywords.length; // 0..1
+}
+function computeScores(){
+  const set=state.quizSet, ans=state.answers;
+  let vocabQ=0, vocabHit=0;      // 30 pts total
+  let transQ=0, transScore=0;    // 20 pts total (2 questions -> 10 each)
+  let readQ=0, readHit=0;        // 30 pts total
+  let oralVal=0, oralAsked=false;// 20 pts total
+
+  set.forEach((q,i)=>{
+    if(q.type==='vocab'){ vocabQ++; if(ans[i]===q.answer) vocabHit++; }
+    else if(q.type==='translate'){ transQ++; transScore += scoreTranslate(ans[i], q.keywords); }
+    else if(q.type==='reading'){
+      q.rc.forEach((r,ri)=>{ readQ++; if(Array.isArray(ans[i])&&ans[i][ri]===r.answer) readHit++; });
+    }
+    else if(q.type==='oral'){ oralAsked=true; oralVal = ans[i]||0; }
+  });
+
+  // vocab 30
+  const vocab = vocabQ? Math.round(vocabHit/vocabQ*30) : 0;
+  // translate 20
+  const translate = transQ? Math.round(transScore/transQ*20) : 0;
+  // reading 30 — if this grade has no reading section, redistribute weight
+  let reading;
+  if(readQ>0){ reading = Math.round(readHit/readQ*30); }
+  else {
+    // no reading (younger grades): infer reading from vocab+translate blend, scaled to 30
+    const blend = (vocabQ?vocabHit/vocabQ:0)*0.6 + (transQ?transScore/transQ:0)*0.4;
+    reading = Math.round(blend*30);
+  }
+  // oral 20 (star out of 5)
+  const oral = oralAsked? Math.round(oralVal/5*20) : 10;
+
+  const total = Math.min(100, vocab+translate+reading+oral);
+  state.scores={vocab,translate,reading,oral,total};
+  return state.scores;
+}
+
+/* ======================= RADAR (SVG) ======================= */
+function buildRadar(sc){
+  // 5 axes: 词汇/阅读/翻译/口语/综合 -> normalize each to 0..1
+  const vals=[
+    sc.vocab/30,
+    sc.reading/30,
+    sc.translate/20,
+    sc.oral/20,
+    sc.total/100
+  ].map(v=>Math.max(.12,Math.min(1,v)));
+  const labels=['词汇','阅读','翻译','口语','综合'];
+  const cx=130, cy=125, R=88, N=5;
+  const pt=(idx,r)=>{
+    const ang = -Math.PI/2 + idx*2*Math.PI/N;
+    return [cx+Math.cos(ang)*r, cy+Math.sin(ang)*r];
+  };
+  let grid='';
+  [0.25,0.5,0.75,1].forEach(f=>{
+    const p=Array.from({length:N},(_,i)=>pt(i,R*f).join(',')).join(' ');
+    grid+=`<polygon points="${p}" fill="none" stroke="#e0dccf" stroke-width="1"/>`;
+  });
+  let axes='',lbls='';
+  for(let i=0;i<N;i++){
+    const [x,y]=pt(i,R);
+    axes+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#e0dccf" stroke-width="1"/>`;
+    const [lx,ly]=pt(i,R+18);
+    lbls+=`<text x="${lx}" y="${ly}" font-size="12" font-weight="600" fill="#1a3a6b" text-anchor="middle" dominant-baseline="middle">${labels[i]}</text>`;
+  }
+  const poly=vals.map((v,i)=>pt(i,R*v).join(',')).join(' ');
+  const dots=vals.map((v,i)=>{const[x,y]=pt(i,R*v);return `<circle cx="${x}" cy="${y}" r="3.5" fill="#c9a227"/>`;}).join('');
+  document.getElementById('radar-box').innerHTML=`
+    <svg width="260" height="250" viewBox="0 0 260 250">
+      ${grid}${axes}
+      <polygon points="${poly}" fill="rgba(201,162,39,.25)" stroke="#c9a227" stroke-width="2"/>
+      ${dots}${lbls}
+    </svg>`;
+}
+
+/* ======================= BUILD RESULT ======================= */
+function finishQuiz(){
+  showScreen('s-loading');
+  setProgress(92);
+  const grade=state.profile.grade;
+  document.getElementById('load-txt').textContent = `正在为${state.profile.name||'孩子'}生成段位成绩单…`;
+  setTimeout(()=>{ buildResult(); showScreen('s-result'); setProgress(100); }, 1600);
+}
+
+function buildResult(){
+  const sc=computeScores();
+  const tier=getTier(sc.total);
+  state.tier=tier;
+  const p=state.profile;
+  const name = p.name && p.name.trim() ? p.name.trim() : '小朋友';
+  const date = new Date().toISOString().slice(0,10);
+
+  // header
+  document.getElementById('rep-name').textContent = name;
+  document.getElementById('rep-meta').textContent = `${p.grade||''} · ${date}`;
+
+  // badge
+  document.getElementById('rep-tier').textContent = tier.name;
+  document.getElementById('rep-score').textContent = sc.total+' 分';
+  document.getElementById('rep-words').textContent = `词汇量${tier.words}`;
+  const badge=document.getElementById('rep-badge');
+  badge.style.background=`linear-gradient(135deg,${tier.colors[0]}22,${tier.colors[1]}33)`;
+  badge.style.border=`2px solid ${tier.colors[0]}`;
+  document.getElementById('rep-tier').style.color=tier.colors[0];
+  document.getElementById('rep-tier').style.textShadow='0 2px 4px rgba(0,0,0,.12)';
+  document.getElementById('rep-score').style.color=tier.colors[0];
+
+  // metrics
+  document.getElementById('m-vocab').textContent = tier.vocab;
+  const gramLabel = sc.vocab+sc.translate >= 40 ? '扎实' : (sc.vocab+sc.translate >= 26 ? '需加强' : '薄弱');
+  document.getElementById('m-gram').textContent = gramLabel;
+  const oralStars = Math.max(1,Math.round(sc.oral/20*5));
+  document.getElementById('m-oral').textContent = '★★★★★☆☆☆☆☆'.slice(5-oralStars,10-oralStars);
+
+  // radar
+  buildRadar(sc);
+
+  // teacher review (assemble 4-5 sentences: base + strengths + weaknesses + close)
+  const dims=[
+    {k:'vocab', pct:sc.vocab/30},
+    {k:'translate', pct:sc.translate/20},
+    {k:'reading', pct:sc.reading/30},
+    {k:'oral', pct:sc.oral/20}
+  ].sort((a,b)=>a.pct-b.pct);
+  const weakest=dims[0], secondWeak=dims[1], strongest=dims[dims.length-1];
+  let review = REVIEW_BASE[tier.key]+' ';
+  if(REVIEW_STRENGTH[strongest.k] && strongest.pct>=0.6){ review += REVIEW_STRENGTH[strongest.k]+' '; }
+  review += (REVIEW_WEAK[weakest.k]||'')+' ';
+  if(secondWeak.pct<0.55 && REVIEW_WEAK[secondWeak.k] && secondWeak.k!==weakest.k){ review += REVIEW_WEAK[secondWeak.k]+' '; }
+  review += '整体来看，只要方向对、坚持练，孩子的英语一定会稳步向上。';
+  document.getElementById('rep-review').innerHTML = review;
+
+  // recommendations
+  const rec=RECOS[tier.key];
+  const recEl=document.getElementById('rep-recos');
+  const items=[...rec.books.slice(0,3), ...rec.videos.slice(0,2)];
+  recEl.innerHTML=items.map(it=>`
+    <div class="reco"><div class="ric">${it.ic}</div>
+      <div class="rtx"><div class="rt">${it.t}</div><div class="rd">${it.d}</div></div>
+    </div>`).join('');
+
+  // goal
+  document.getElementById('rep-goal').innerHTML = '🎯 '+GOALS[tier.key];
+
+  // roadmap
+  buildRoadmap(p.budget||'500-2000', tier, p.valued);
+
+  // high-age note (only if 高中 and aiming beyond — light pointer)
+  const note=document.getElementById('highage-note');
+  if(p.grade==='高中'){
+    note.style.display='block';
+    note.innerHTML=HIGHAGE.text;
+  } else { note.style.display='none'; }
+
+  // share card
+  fillShareCard(tier, sc, name);
+}
+
+function fillShareCard(tier, sc, name){
+  document.getElementById('sc-tier').textContent = tier.name;
+  document.getElementById('sc-vocab').textContent = tier.vocab;
+  document.getElementById('sc-score').textContent = sc.total+'分';
+  const quotes={
+    newbie:'"启蒙路上，兴趣最重要，我们一起加油！"',
+    explorer:'"基础在打牢，进步看得见！"',
+    adv:'"进步很稳，KET 稳稳在望！"',
+    elite:'"实力在线，PET 冲刺中！"',
+    king:'"这英语，真的绝了！"'
+  };
+  document.getElementById('sc-quote').textContent = quotes[tier.key];
+  // hook with name
+  document.querySelector('#share-card .sc-hook').innerHTML =
+    `${name==='小朋友'?'我家娃':name+'同学'}英语<br>段位测出来了！`;
+  // color by tier
+  const sc3=tier.scColors;
+  const card=document.getElementById('share-card');
+  card.style.background=`linear-gradient(150deg,${sc3[0]},${sc3[1]} 55%,${sc3[2]})`;
+}
+
+/* ======================= SAVE (html2canvas) ======================= */
+function capture(el, filename){
+  showToast('生成图片中…');
+  html2canvas(el,{scale:2,backgroundColor:null,useCORS:true,logging:false}).then(canvas=>{
+    canvas.toBlob(blob=>{
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url; a.download=filename;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+      showToast('已保存，去相册看看～');
+    },'image/png');
+  }).catch(err=>{ showToast('保存失败，请长按图片保存'); console.error(err); });
+}
+function saveReport(){ capture(document.getElementById('report'), 'YiYi英语-段位成绩单.png'); }
+function saveShare(){ capture(document.getElementById('share-card'), 'YiYi英语-分享卡.png'); }
+
+/* ======================= LEAD ======================= */
+function openLead(){
+  document.getElementById('lead-form').style.display='block';
+  document.getElementById('lead-success').style.display='none';
+  document.getElementById('lead-modal').classList.add('show');
+}
+function closeLead(){ document.getElementById('lead-modal').classList.remove('show'); }
+function onTrialClick(){
+  // trial CTA also opens lead (with trial source) — reuse modal
+  openLead();
+}
+async function submitLead(){
+  const name=document.getElementById('lead-name').value.trim();
+  const contact=document.getElementById('lead-contact').value.trim();
+  const consent=document.getElementById('lead-consent').checked;
+  if(!contact){ showToast('请填写手机号或微信'); return; }
+  if(!consent){ showToast('请勾选监护人同意'); return; }
+
+  const btn=document.getElementById('lead-submit');
+  btn.disabled=true; btn.textContent='提交中…';
+
+  const p=state.profile, s=state.scores;
+  const childName = name || p.name || '';
+  const answers={
+    source:'yiyi-测评-成绩单',
+    childName,
+    gender:p.gender, grade:p.grade, school:p.school, book:p.book,
+    lastScore:p.lastScore, contest:p.contest,
+    goals:(p.goals||[]).join('/'),
+    teacher:p.teacher, interest:p.interest, valued:p.valued, budget:p.budget,
+    tier:state.tier?state.tier.name:'',
+    total:s.total, vocab:s.vocab, translate:s.translate, reading:s.reading, oral:s.oral
+  };
+  // Human-readable notes so the lead email/record carries the full context
+  const notes='【YiYi英语免费测评】'
+    +`\n孩子：${childName||'未填'} ${p.gender||''} ${p.grade||''} ${p.school||''}`
+    +`\n段位：${answers.tier}｜综合${s.total}分（词汇${s.vocab}/翻译${s.translate}/阅读${s.reading}/口语${s.oral}）`
+    +`\n教材：${p.book||'-'}｜最近分数：${p.lastScore||'-'}｜比赛：${p.contest||'-'}`
+    +`\n目标：${answers.goals||'-'}｜偏好：${p.teacher||'-'}｜兴趣：${p.interest||'-'}`
+    +`\n家长看重：${p.valued||'-'}｜每月预算：${p.budget||'-'}`
+    +`\n来源：yiyi-测评-成绩单`
+    +`\n完整数据：${JSON.stringify(answers)}`;
+
+  const payload={
+    name: childName ? childName+'家长' : 'YiYi测评家长',
+    contact,
+    tier: 'YiYi英语测评·'+(answers.tier||''),
+    notes,
+    lang: 'zh'
+  };
+
+  try{
+    await fetch('https://backend-fabulousslim.vercel.app/api/sichu-lead',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+  }catch(e){ /* still show success */ }
+
+  document.getElementById('lead-form').style.display='none';
+  document.getElementById('lead-success').style.display='block';
+  btn.disabled=false; btn.textContent='提交，领取计划';
+}
+document.getElementById('lead-modal').addEventListener('click',function(e){ if(e.target===this) closeLead(); });
+
+/* ======================= MISC ======================= */
+function restartAll(){
+  state.profile={name:'',gender:'',grade:'',school:'',book:'',lastScore:'',contest:'',goals:[],teacher:'',interest:'',valued:'',budget:''};
+  state.answers=[]; state.quizIndex=0; state.quizSet=[]; state.scores={vocab:0,translate:0,reading:0,oral:0,total:0}; state.tier=null;
+  profStep=0;
+  document.body.classList.remove('in-quiz');
+  showScreen('s-welcome');
+}
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
+</script>
+</body>
+</html>

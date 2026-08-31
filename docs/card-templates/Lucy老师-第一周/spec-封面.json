@@ -1,0 +1,126 @@
+[
+  {
+    "type": "痛点",
+    "out": "Lucy老师-第一周/D1_周一2100_RAZ定级/封面.png",
+    "data": {
+      "tag": "RAZ 分级避坑",
+      "lines": ["RAZ 别乱刷", "先定级", "再开刷"],
+      "hl": "RAZ 别乱刷",
+      "sub": "aa-Z 一张对照表，你娃现在该刷哪一级",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(160deg,#fbfaf3,#eef1e4)",
+        "ink": "#2f3a2a",
+        "accent": "#3f6b3a",
+        "accline": "#a7c48a",
+        "tagbg": "#2f3a2a",
+        "tagink": "#e9f0d8",
+        "sub": "#6b7a5e",
+        "foot": "#93a184"
+      }
+    }
+  },
+  {
+    "type": "痛点",
+    "out": "Lucy老师-第一周/D2_周二1300_Wonders进阶/封面.png",
+    "data": {
+      "tag": "Wonders 教材解读",
+      "lines": ["Wonders", "别硬啃", "中国娃这样进阶"],
+      "hl": "别硬啃",
+      "sub": "美国小学主流教材，中国孩子怎么学不踩坑",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(160deg,#1e2f4a,#2b4a70)",
+        "ink": "#ffffff",
+        "accent": "#ffd05e",
+        "accline": "#ffb03a",
+        "tagbg": "#ffd05e",
+        "tagink": "#2a2010",
+        "sub": "#bcd0e8",
+        "foot": "#8ea6c4"
+      }
+    }
+  },
+  {
+    "type": "痛点",
+    "out": "Lucy老师-第一周/D3_周三2100_开口这一环/封面.png",
+    "data": {
+      "tag": "口语·教研拆解",
+      "lines": ["能考95", "却不敢开口", "缺的是这一环"],
+      "hl": "却不敢开口",
+      "sub": "不是胆子问题，是输入输出比例失衡",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(160deg,#fff3ea,#ffd9c4)",
+        "ink": "#4a3226",
+        "accent": "#e8552d",
+        "accline": "#ffb03a",
+        "tagbg": "#4a3226",
+        "tagink": "#ffe0c8",
+        "sub": "#8a6a55",
+        "foot": "#b09a8a"
+      }
+    }
+  },
+  {
+    "type": "痛点",
+    "out": "Lucy老师-第一周/D4_周四1800_RAZ还是牛津树/封面.png",
+    "data": {
+      "tag": "客观对比·不拉踩",
+      "lines": ["RAZ 还是牛津树", "选错", "娃多走一年"],
+      "hl": "选错",
+      "sub": "不是谁更好，是看你娃缺兴趣还是缺体系",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(120deg,#e8f0f7 0%,#e8f0f7 50%,#e9f3e6 50%,#e9f3e6 100%)",
+        "ink": "#2a3a4a",
+        "accent": "#c05a2a",
+        "accline": "#ffc16a",
+        "tagbg": "#2a3a4a",
+        "tagink": "#e6f0f7",
+        "sub": "#5a6a78",
+        "foot": "#8a99a6"
+      }
+    }
+  },
+  {
+    "type": "痛点",
+    "out": "Lucy老师-第一周/D5_周五1300_滚词记忆/封面.png",
+    "data": {
+      "tag": "词汇方法·滚动记忆",
+      "lines": ["2000词", "不是背出来的", "是这样「滚」的"],
+      "hl": "不是背出来的",
+      "sub": "读到→用到→讲出，词才真正进长期记忆",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(160deg,#fff7cf,#ffe89a)",
+        "ink": "#2a2410",
+        "accent": "#d43a1a",
+        "accline": "#ff8a3a",
+        "tagbg": "#2a2410",
+        "tagink": "#ffe89a",
+        "sub": "#6b5a20",
+        "foot": "#9a8a40"
+      }
+    }
+  },
+  {
+    "type": "金句",
+    "out": "Lucy老师-第一周/D6_周六1800_Unlock对标/封面.png",
+    "data": {
+      "tag": "进阶对标·供参考",
+      "lines": ["Unlock 学完", "到哪一步", "分级对照拿走"],
+      "hl": "到哪一步",
+      "sub": "学术英语体系，各级别对应不同 CEFR 段位",
+      "foot": "@Lucy老师聊英语",
+      "color": {
+        "bg": "linear-gradient(155deg,#2d2540,#3d3358 60%,#4a3f6e)",
+        "tagbg": "#8a6fd0",
+        "accent": "#c9b0ff",
+        "sub": "#cdc4e6",
+        "foot": "#a99fc4",
+        "glow": "rgba(190,160,255,.22)"
+      }
+    }
+  }
+]

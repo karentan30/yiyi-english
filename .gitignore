@@ -2,3 +2,7 @@
 交接-*.md
 _prev.png
 _preview.png
+
+__pycache__/
+*.pyc
+.DS_Store

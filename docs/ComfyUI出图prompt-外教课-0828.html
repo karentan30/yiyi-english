@@ -27,7 +27,18 @@
 通用负面词（所有图都加）：<code>(worst quality, low quality:1.4), blurry, deformed, disfigured, bad anatomy, extra fingers, watermark, signature, text, letters, chinese characters, logo, jpeg artifacts</code></p>
 </blockquote>
 <hr />
-<h2>A. 封面底图（留白给中文标题，配合 Canva 叠字）</h2>
+<h2>0. 图从哪来（优先级·别啥都AI出）</h2>
+<ol>
+<li><strong>信息图卡（教材指南/清单/对比/路线图）→ HTML模板渲染</strong>（中文完美·免费·对标爆款）。<br />
+   模板在 <code>docs/card-templates/</code>（已有<code>教材指南卡.html</code>+渲染好的png）。改内容→Chrome无头渲染出PNG：<br />
+<code>"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --window-size=1080,1440 --screenshot=out.png file://路径.html</code><br />
+<strong>这是对标@PA千柚那种绿底教材卡的正确方法——不是AI，SD渲染中文会糊。</strong></li>
+<li><strong>场景/氛围/实拍底图 → 免费无版权图库</strong>（Unsplash/Pexels/Pixabay/Mixkit·直接用·免费商用）。搜 <code>kids learning</code>/<code>study desk</code>/<code>mother child reading</code>/<code>english book</code>。多数封面底图从这拿。</li>
+<li><strong>定制场景 → ComfyUI 本机</strong>（图库找不到的：AI vs真人对比构图等）。prompt 见下。一键启动：<code>cd ~/ComfyUI &amp;&amp; venv/bin/python main.py --port 8188</code>。</li>
+<li><strong>真外教/真娃 → 真实授权素材</strong>（不用图库不用AI，必须授权）。</li>
+<li><strong>简单封面中文大字 → Canva 叠字</strong>。</li>
+</ol>
+<h2>A. 封面底图 ComfyUI prompt（图库找不到时才用·留白给中文标题）</h2>
 <p><strong>A1 · 暖色书桌氛围（宝妈日常/教材/启蒙类）</strong></p>
 <pre><code>soft warm beige background, minimalist study desk corner, open English textbook,
 a few colorful sticky notes, a cup, cozy morning sunlight, clean flat lay,

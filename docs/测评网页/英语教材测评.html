@@ -20,6 +20,21 @@ body{background:linear-gradient(160deg,#fff4e0,#ffe0c2);min-height:100vh;color:#
 #result .lv{font-size:15px;color:#8a6a55;margin-bottom:18px}
 #result .rec{background:#fff2ea;border-radius:14px;padding:18px;text-align:left;font-size:15px;line-height:1.7;margin-bottom:20px}
 #result .rec b{color:#e8552d}
+.road{margin-top:24px;text-align:left}
+.road-title{font-size:17px;font-weight:900;color:#3a2318;margin-bottom:16px;text-align:center}
+.road-tier{background:linear-gradient(135deg,#fff7f2,#ffe8d8);border:2px solid #f5c9a8;border-radius:16px;padding:18px;margin-bottom:16px}
+.road-tier-hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.road-tier-icon{font-size:24px}
+.road-tier-label{font-size:15px;font-weight:900;color:#e8552d}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:linear-gradient(to bottom,#e8552d,#f5c9a8)}
+.tl-step{position:relative;margin-bottom:14px}
+.tl-dot{position:absolute;left:-20px;top:3px;width:14px;height:14px;border-radius:50%;background:#e8552d;border:2px solid #fff;box-shadow:0 0 0 2px #e8552d}
+.tl-phase{font-size:12px;font-weight:800;color:#e8552d;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.tl-actions{font-size:13px;color:#5a3410;line-height:1.6}
+.tl-actions .tag{display:inline-block;background:#fff2ea;border:1px solid #f5c9a8;border-radius:6px;padding:1px 7px;font-size:12px;margin:2px 2px 0 0;color:#c04020}
+.road-cta{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#e8552d,#c04020);color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:900;cursor:pointer;text-align:center;text-decoration:none;box-shadow:0 6px 18px rgba(232,85,45,.35);margin-top:10px}
+.road-note{font-size:13px;color:#8a6a55;font-style:italic;margin-top:10px;padding:10px 14px;background:#fff8f5;border-radius:10px;border-left:3px solid #e8552d}
 .foot{font-size:12px;color:#b09a8a;text-align:center;margin-top:22px;line-height:1.6}
 </style></head>
 <body><div class="wrap">
@@ -53,6 +68,13 @@ body{background:linear-gradient(160deg,#fff4e0,#ffe0c2);min-height:100vh;color:#
 <label class="opt" data-v="intl">国际路线 / 留学</label>
 <label class="opt" data-v="exam">考级(KET/PET/雅思)</label></div></div>
 
+<div class="q"><div class="t">5️⃣ 每月英语学习<b>预算</b>大概是？</div>
+<div class="opts" data-k="budget">
+<label class="opt" data-v="free">暂时不打算花钱</label>
+<label class="opt" data-v="low">500元以内</label>
+<label class="opt" data-v="mid">500 - 2000元</label>
+<label class="opt" data-v="high">2000元以上</label></div></div>
+
 <div class="chk"><input type="checkbox" id="agree"> 我是监护人，同意用于测评分析（不收集敏感信息）</div>
 <button class="btn" type="submit" id="sub" disabled>看我娃的结果 →</button>
 </form>
@@ -60,6 +82,7 @@ body{background:linear-gradient(160deg,#fff4e0,#ffe0c2);min-height:100vh;color:#
 <div id="result">
 <h2 id="rTitle"></h2><div class="lv" id="rLevel"></div>
 <div class="rec" id="rRec"></div>
+<div class="road" id="rRoad"></div>
 <div style="font-size:16px;font-weight:800;color:#5a3410;margin-bottom:10px">想要完整报告 + 对应书单 + 学习建议？</div>
 <div style="font-size:14px;color:#8a6a55;margin-bottom:10px">留个联系方式，老师1对1发你（免费）：</div>
 <input id="contact" placeholder="微信号 / 手机号" style="width:100%;padding:14px 16px;border:2px solid #f0e0d0;border-radius:12px;font-size:16px;margin-bottom:12px">
@@ -80,7 +103,7 @@ document.querySelectorAll('.opts').forEach(g=>{
 });
 document.getElementById('agree').onchange=check;
 function check(){
-  const ok=ans.age&&ans.phonics&&ans.read&&ans.goal&&document.getElementById('agree').checked;
+  const ok=ans.age&&ans.phonics&&ans.read&&ans.goal&&ans.budget&&document.getElementById('agree').checked;
   document.getElementById('sub').disabled=!ok;
 }
 document.getElementById('quiz').onsubmit=e=>{
@@ -99,13 +122,108 @@ document.getElementById('quiz').onsubmit=e=>{
   document.getElementById('rTitle').textContent='📊 你娃处于：'+title;
   document.getElementById('rLevel').textContent=level;
   document.getElementById('rRec').innerHTML=rec;
+  document.getElementById('rRoad').innerHTML=buildRoad(r,p,ans.goal,ans.budget);
   document.getElementById('result').style.display='block';
   window.scrollTo(0,0);
 };
+function buildRoad(r,p,goal,budget){
+  const isHigh=(budget==='high');
+  const isMid=(budget==='mid');
+  const isFree=(budget==='free'||budget==='low');
+
+  // Determine stage label
+  let stage,stageLong;
+  if(r<=1||p<=1){stage='启蒙';stageLong='自然拼读 / 磨耳朵';}
+  else if(r==2){stage='初级';stageLong='分级阅读入门';}
+  else if(r==3){stage='中级';stageLong='阅读流畅 + 口语输出';}
+  else{stage='高阶';stageLong='学术阅读 / 备考';}
+
+  // Per-budget roadmap steps
+  let tierIcon,tierLabel,tierColor,steps,note,ctaHtml='';
+
+  if(isFree){
+    tierIcon='🌱';tierLabel='免费资源路线';
+    steps=[
+      {phase:'第1个月',actions:[
+        stage==='启蒙'?'<span class="tag">磨耳朵</span> Super Simple Songs / Cocomelon 每天20分钟':'<span class="tag">词汇</span> 墨墨背单词（免费版）每天15词',
+        stage==='启蒙'?'<span class="tag">拼读</span> B站搜「自然拼读零基础」（推荐：朵拉老师频道）':'<span class="tag">语法</span> 《新概念英语》第一册，B站配套讲解'
+      ]},
+      {phase:'第2-3个月',actions:[
+        '<span class="tag">阅读</span> RAZ-Kids 免费额度（每月5-8本），图书馆借牛津树分级读物',
+        stage==='高阶'?'<span class="tag">听力</span> VOA Learning English / TED-Ed（YouTube免费）':'<span class="tag">听力</span> 按段位选动画：'+(r<=1?'Peppa Pig':r==2?'Wild Kratts':'Crash Course Kids')+''
+      ]},
+      {phase:'3个月后',actions:[
+        '<span class="tag">评估</span> 用RAZ级别测孩子真实阅读层，再规划下阶段',
+        goal==='intl'?'<span class="tag">目标</span> 免费备考：British Council Kids 网站官方样题':'<span class="tag">巩固</span> 每天坚持「听+读+说」三件事，进步超过纯刷课'
+      ]}
+    ];
+    note='先用这套免费方案扎实练3个月，打好基础再上课效果翻倍。很多孩子在免费阶段就能上升2个级别！';
+  } else if(isMid){
+    tierIcon='📚';tierLabel='中教网课路线';
+    steps=[
+      {phase:'第1个月',actions:[
+        '<span class="tag">系统学</span> 选一套中教网课（VIPKID/学而思/新东方在线），每周2次语法+阅读',
+        '<span class="tag">配套练</span> 《新概念英语》或 Reach Higher 课本同步跟读'
+      ]},
+      {phase:'第2-3个月',actions:[
+        '<span class="tag">分级阅读</span> RAZ正式版（约¥300/年），每天一本',
+        stage==='高阶'?'<span class="tag">备考</span> KET/PET 历年真题卷，老师批改作文':'<span class="tag">口语</span> 中教课堂对话练习 + 跟读APP（流利说）',
+        goal==='intl'||goal==='exam'?'<span class="tag">词汇</span> 牛津树套装（¥300-500）系统读':'<span class="tag">书单</span> 图书馆借原版绘本，配网课精讲'
+      ]},
+      {phase:'3个月后',actions:[
+        '<span class="tag">测评</span> 让老师做阶段测评，判断是否需要换级别课程',
+        '<span class="tag">规划</span> 有中教陪学进步更稳——适合需要提升考试成绩的孩子'
+      ]}
+    ];
+    note='有中教系统陪学，进步比纯自学快2倍。每周2次课 + 每天自练30分钟，3个月可上升1-2个级别。';
+  } else {
+    tierIcon='🚀';tierLabel='外教1v1 · 快速突破路线';
+    steps=[
+      {phase:'第1个月',actions:[
+        '<span class="tag">定级</span> 欧美外教1v1 Level Test，按CEFR精准定级',
+        '<span class="tag">口语</span> 每周2-3次外教课，全英沉浸，快速激活开口'
+      ]},
+      {phase:'第2-3个月',actions:[
+        '<span class="tag">阅读</span> 配套结构化课程（Reading Explorer / Unlock），外教逐篇精讲',
+        goal==='exam'||goal==='intl'?'<span class="tag">备考</span> KET/PET/托福少儿系统备考，外教批改写作':'<span class="tag">表达</span> 演讲/辩论/项目式英语，真实场景练习',
+        '<span class="tag">词汇</span> Academic Word List，老师出针对性练习'
+      ]},
+      {phase:'3个月后',actions:[
+        '<span class="tag">评估</span> CEFR级别测试，国际认证留档',
+        goal==='intl'?'<span class="tag">目标</span> 对标国际学校面试 / 留学语言要求，专项冲刺':'<span class="tag">进阶</span> 保持每周2次外教，同步推进考级备考'
+      ]}
+    ];
+    note='外教1v1是突破口语的最快方式，适合目标国际学校/留学的孩子。';
+    ctaHtml='<a class="road-cta" href="#getReport" onclick="document.getElementById(\'contact\').scrollIntoView({behavior:\'smooth\'});return false;">立即预约 YiYi 外教免费试课 →</a>';
+  }
+
+  const stepsHtml=steps.map(s=>`
+    <div class="tl-step">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">${s.phase}</div>
+      <div class="tl-actions">${s.actions.map(a=>`• ${a}`).join('<br>')}</div>
+    </div>`).join('');
+
+  return `
+  <div class="road-title">📍 你娃的专属学习路线图<br><small style="font-size:13px;font-weight:500;color:#8a6a55">当前阶段：${stageLong}</small></div>
+  <div class="road-tier">
+    <div class="road-tier-hd">
+      <span class="road-tier-icon">${tierIcon}</span>
+      <span class="road-tier-label">${tierLabel}</span>
+    </div>
+    <div class="timeline">${stepsHtml}</div>
+    <div class="road-note">${note}</div>
+    ${ctaHtml}
+  </div>`;
+}
+
 document.getElementById('getReport').onclick=()=>{
   const c=document.getElementById('contact').value.trim();
   if(!c){document.getElementById('contact').focus();return;}
-  // TODO 后端：把 c + 测评答案 ans 存到表/发通知给学管（此处仅前端演示）
+  fetch('https://backend-fabulousslim.vercel.app/api/lead',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({contact:c,source:'yiyi-测评',answers:ans})
+  }).catch(()=>{});
   document.getElementById('getReport').style.display='none';
   document.getElementById('contact').style.display='none';
   document.getElementById('thanks').style.display='block';

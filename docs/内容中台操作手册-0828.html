@@ -1,0 +1,124 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>内容中台操作手册-0828</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background:#121212; color:#e0e0e0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+         line-height:1.75; max-width:860px; margin:0 auto; padding:40px 28px; font-size:16px; }
+  h1,h2,h3,h4 { color:#fff; line-height:1.35; margin-top:1.6em; }
+  h1 { border-bottom:2px solid #333; padding-bottom:.3em; }
+  h2 { border-bottom:1px solid #2a2a2a; padding-bottom:.25em; }
+  a { color:#5db0ff; }
+  code { background:#1e1e1e; color:#ff9d6c; padding:2px 6px; border-radius:4px; font-size:.9em; }
+  pre { background:#1a1a1a; border:1px solid #2a2a2a; padding:14px 16px; border-radius:8px; overflow:auto; }
+  pre code { background:none; color:#c8e1c8; padding:0; }
+  blockquote { border-left:4px solid #4a4a4a; margin:0; padding:.3em 1em; color:#b0b0b0; background:#171717; }
+  table { border-collapse:collapse; width:100%; margin:1em 0; }
+  th,td { border:1px solid #333; padding:8px 12px; text-align:left; }
+  th { background:#1f1f1f; color:#fff; }
+  tr:nth-child(even) td { background:#181818; }
+  hr { border:none; border-top:1px solid #2a2a2a; margin:2em 0; }
+  strong { color:#fff; }
+  li { margin:.25em 0; }
+</style>
+</head><body><h1>内容中台 · 操作手册（2026-08-28）</h1>
+<blockquote>
+<p>给谁：内容中台 1-2 人（教务/HR）。运营线（学管）不用看这份。<br />
+目标：一个人能把"出稿→出图→拼视频→交运营"整条生产线跑起来，$20 一个月花不完。</p>
+</blockquote>
+<hr />
+<h2>一、两条路线，按你会不会用终端选</h2>
+<h3>A线（简单·人人能上手·不用装任何东西）</h3>
+<p>用<strong>网页版</strong>，套 Prompt 出稿：<br />
+- 量活（批量出文案/对话）→ <strong>DeepSeek 网页 或 豆包</strong>（免费）<br />
+- 要质量/把关 → <strong>Claude.ai 网页</strong>（用你的$20 Pro）<br />
+- 出图 → <strong>ComfyUI（本机）+ Canva 叠字</strong><br />
+- 拼视频 → <strong>剪映</strong><br />
+<strong>大部分人走A线就够，$20 基本不动。</strong></p>
+<h3>B线（进阶·会用终端的人·效率翻倍）</h3>
+<p>用 <strong>Claude Code</strong>（终端里的 Claude），优势是能<strong>读整个文件夹、一次出几十条直接写成文件、跑 ComfyUI 脚本</strong>：<br />
+- 打开"终端"App → 输入 <code>claude</code> 回车 → 进入<br />
+- 让它读 <code>~/projects/yiyi-english/docs/</code> 里的 Prompt 和手册，直接批量生成并存文件<br />
+- 省的是"逐条复制粘贴"的时间</p>
+<hr />
+<h2>二、日常生产流水线（5步）</h2>
+<table>
+<thead>
+<tr>
+<th>步</th>
+<th>做什么</th>
+<th>用什么</th>
+<th>花钱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 定母题</td>
+<td>从《开工包》母题库挑本周5-8个</td>
+<td>人脑+手册</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>2 出稿</td>
+<td>套《内容生产Prompt》批量出笔记</td>
+<td><strong>DeepSeek/豆包（免费）</strong> 打底；难的/把关用Claude</td>
+<td>≈$0</td>
+</tr>
+<tr>
+<td>3 出图</td>
+<td>底图ComfyUI + 中文字Canva叠</td>
+<td><strong>ComfyUI本机（免费）</strong></td>
+<td>$0</td>
+</tr>
+<tr>
+<td>4 拼视频</td>
+<td>图+配音拼短视频</td>
+<td>剪映（免费AI配音）</td>
+<td>$0</td>
+</tr>
+<tr>
+<td>5 交运营</td>
+<td>存进素材库，按人设分好给学管</td>
+<td>文件夹</td>
+<td>$0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>三、什么时候用 Claude（$20）、什么时候用免费的</h2>
+<p><strong>用免费模型（DeepSeek/豆包/Ollama）</strong>：<br />
+- 批量出笔记文案、对话、标签——量活全甩给它</p>
+<p><strong>用 Claude（$20 Pro）</strong>——只在这4件：<br />
+1. <strong>母题策划</strong>（想选题、想爆款角度）<br />
+2. <strong>合规审核</strong>（学生/免费模型出的稿，发给运营前让 Claude 过一遍红线）<br />
+3. <strong>难改的重写</strong>（免费模型写得平的，让 Claude 提升）<br />
+4. <strong>B线自动化</strong>（读文件、批量出稿写文件、跑脚本）</p>
+<p><strong>永远不用花钱的</strong>：出图（ComfyUI）、配音（剪映/edge-tts）、拼视频（剪映）</p>
+<hr />
+<h2>四、$20 省钱守则（贴墙上）</h2>
+<ol>
+<li>量活先问免费模型，Claude 不干量活</li>
+<li>Claude 里<strong>用 Sonnet 不用 Opus</strong>（文案不需要 Opus）</li>
+<li><strong>一个 Prompt 出 10-20 条</strong>，别一条条聊</li>
+<li>图/视频/配音<strong>永远本机免费</strong>，不碰 API</li>
+<li>$20 只花在"策划+审核+难改+自动化"——一个月花不完</li>
+</ol>
+<hr />
+<h2>五、ComfyUI 出图（简版步骤）</h2>
+<ol>
+<li>打开终端，进 ComfyUI 目录，启动（<code>venv/bin/python main.py</code>），浏览器开 <code>localhost:8188</code></li>
+<li>从《ComfyUI出图prompt》复制对应 prompt（封面底图/头像/情绪封面）</li>
+<li>填负面词、尺寸（封面1080×1440 / 头像1024×1024），<strong>一次出4张选最好</strong></li>
+<li>底图导入 <strong>Canva</strong> → 叠中文大标题（标题公式：数字+反差+锚点）</li>
+<li>⚠️ 自评&lt;8分自己重跑；真娃/真外教用真实授权素材，别用AI假人配"我家娃"</li>
+</ol>
+<hr />
+<h2>六、发给运营前·合规自查（30秒过一遍）</h2>
+<ul>
+<li>[ ] 没承诺效果（"就敢说了"→"明显更愿意开口"）</li>
+<li>[ ] 没编数据（市场价/多少所学校）</li>
+<li>[ ] 没贬损菲教</li>
+<li>[ ] 正文干净、没"扣1我发你"、没微信号</li>
+<li>[ ] 评论钩子换了写法（没全是"扣测评进群"）</li>
+<li>[ ] 封面不是思维导图/对比表（那些放内页）</li>
+<li>[ ] AI图没配"我家娃"；真娃真外教已授权</li>
+</ul>
+<p>全绿才交运营。有一条不确定 → 丢给 Claude 审一遍。</p></body></html>
