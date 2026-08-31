@@ -12,7 +12,7 @@
 
 | # | 事项 | 说明 |
 |---|---|---|
-| 1 | 修留资漏斗 | 表单现指向不存在后端。选 A)Vercel serverless（`api/lead.js`）或 B)HK 47.242.80.65 + PM2（端口空）。**上线前必须端到端：真实提交→收到邮件** |
+| 1 | 修留资漏斗 | 表单现指向不存在后端。选 A)Vercel serverless（`api/lead.js`）或 B)HK <HK服务器·内部> + PM2（端口空）。**上线前必须端到端：真实提交→收到邮件** |
 | 2 | 轮换泄露的 Resend Key | `backend/server.js:31`key 已明文；上线前改自有域名（现为 onboarding@resend.dev 免费层 100 封/日上限） |
 | 3 | 部署静态站 | GitHub Pages + CNAME `www.yiyienglish.com`（同职场守护路子）；评估国内访问，必要时国内静态托管 |
 | 4 | 填占位 + 合规 | ICP 备案号、客服微信二维码、用户协议/隐私/退款政策 `<a href="#">` 真实链接 |
