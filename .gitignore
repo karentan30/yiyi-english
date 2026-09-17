@@ -2,6 +2,7 @@
 交接-*.md
 _prev.png
 _preview.png
+_tmp_video/
 
 __pycache__/
 *.pyc
